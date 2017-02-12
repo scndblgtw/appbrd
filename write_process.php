@@ -16,7 +16,14 @@
   $loginID = mysqli_real_escape_string($conn, $_POST['loginID']);
   $loginPW = $_POST['loginPW'];
   $description = mysqli_real_escape_string($conn, $_POST['description']);
-
+  
+  
+  // echo $title."<b>";
+  // echo $loginID."<b>";
+  // echo $loginPW."<b>";
+  // echo $description."<b>";
+  // exit;
+  
 echo "*************************";
 
 $sql = "SELECT * FROM ".$G_table_users." WHERE loginID='".$loginID."'";

@@ -18,7 +18,7 @@ $(function(){
 	$("#tstResult").click(function(){
 		$.ajax({
 			type: 'GET',
-			url: 'part/nav_test.php?test=[-reg back-]',
+			url: 'part/nav_test.php?test=[- -]',
 			dataType : 'text',
 			error : function() {
 			  alert('Fail!!');

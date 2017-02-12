@@ -140,6 +140,28 @@
 				}
 			});
 		}
+		
+
+	function submitWhatForm(whatProcess, cPg){
+		<!-- sUrl= './' +whatProcess +'?bgnpage=' +cPg; -->
+		<!-- alert(sUrl); -->
+		var queryString = $("form[name=whatForm]").serialize();
+		
+		$.ajax({
+			type: 'POST',
+			url: './' +whatProcess +'?bgnpage=' +cPg,
+			data: queryString,
+			dataType : 'text',
+			error : function() {
+			  alert('Fail!!');
+			},
+			success: function(data) {
+				//$('header').load("./part/header.php");
+				$('article').html(data);
+				refreshHeader();
+			}
+		});
+	}
 	</script>
 
 
