@@ -7,10 +7,11 @@
 
   
   $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
+    
   
   
   $Gget_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
-  echo "[]Gget_ID=";  var_dump($Gget_ID);
+  if(GLOBAL_TST) {	echo "[]Gget_ID=";  var_dump($Gget_ID);	}
   
   $G_table_appitems = "appitems";
   $G_table_users = "users";
@@ -21,9 +22,8 @@
   $sql_id = "id";
 
   
-  // ini_set("session.cache_expire", 60); 
-  // ini_set("session.gc_maxlifetime", 90); 
-  
+  ini_set("session.cache_expire", 60); 
+  ini_set("session.gc_maxlifetime", 90);
 ?>
 
 

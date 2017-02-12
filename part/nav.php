@@ -46,7 +46,7 @@ $(function(){
 	  // echo "<div class='center_tag'>"."crrPage= ".$crrPage."</div><br>";
 	  // if(empty($crrPage)) $crrPage = 0;
 	
-	  $LIMIT_PER_PAGE = 6; //===> @ index.php //nav에서 한쪽 당 보여줄 아이템 개수
+	  $LIMIT_PER_PAGE = 8; //===> @ index.php //nav에서 한쪽 당 보여줄 아이템 개수
 	  	  
 	
 	  $result = mysqli_query($conn, 'SELECT * FROM '.$G_table_appitems." ORDER BY created_date DESC LIMIT ".$crrPage*$LIMIT_PER_PAGE.", ".$LIMIT_PER_PAGE);
@@ -138,10 +138,12 @@ $(function(){
 		echo "<span>&#32;&gt;&gt;</span><br>";
 	  }
 	  
-	  echo "<br><br><br>";
-	  echo "<span id='tstResult'>[*******]</span>"." | ttlItems= ".$row['total']."<br>";
-	  echo "ttlPages=".$totalPages." | ttlPagesRmn=".$totalPagesRemain."<br>";
-	  echo "crrPage= ".$crrPage." | crrPgGrp= ".$crrPgGrp."<br>";
+	  if(GLOBAL_TST) {	
+		  echo "<br><br><br>";
+		  echo "<span id='tstResult'>[*******]</span>"." | ttlItems= ".$row['total']."<br>";
+		  echo "ttlPages=".$totalPages." | ttlPagesRmn=".$totalPagesRemain."<br>";
+		  echo "crrPage= ".$crrPage." | crrPgGrp= ".$crrPgGrp."<br>";
+	  }
 	  
 	  // if($i > $totalPages-1) {	// 마지막 쪽을 넘길 경우 링크 삭제
 		// echo "<span>&gt;</span>";		  

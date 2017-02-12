@@ -6,4 +6,6 @@ $config = array(
   "dpw"=>"987654321",
   "dname"=>"appbbs"
 );
+
+  define('GLOBAL_TST', false);
 ?>

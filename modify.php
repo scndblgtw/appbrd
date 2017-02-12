@@ -8,10 +8,10 @@
   
   
   $Gget_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
-  echo "[]Gget_ID=";  var_dump($Gget_ID);
+  if(GLOBAL_TST) {	echo "[]Gget_ID=";  var_dump($Gget_ID);	}
 	
   $crrPage = isset($_GET["bgnpage"]) && $_GET["bgnpage"]!==0? $_GET["bgnpage"] : 0;
-  echo ",bgnpage=".$crrPage;
+  if(GLOBAL_TST) {	echo ",bgnpage=".$crrPage;	}
   
   $G_table_appitems = "appitems";
   $G_table_users = "users";

@@ -6,10 +6,10 @@
   
   
     $Gget_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
-	echo "[]Gget_ID=";  var_dump($Gget_ID);
+	if(GLOBAL_TST) {	echo "[]Gget_ID=";  var_dump($Gget_ID);	}
 	
 	$crrPage = isset($_GET["bgnpage"]) && $_GET["bgnpage"]!==0? $_GET["bgnpage"] : 0;
-    echo ",bgnpage=".$crrPage;
+    if(GLOBAL_TST) {	echo ",bgnpage=".$crrPage;	}
 	
 	
 	$G_table_appitems = "appitems";
@@ -18,9 +18,9 @@
   
 	session_start();
 	$isLogined = isset($_SESSION['isLogined']) ? $_SESSION['isLogined'] : false;
-    echo "[]isLogined=";  var_dump($isLogined);
+    if(GLOBAL_TST) {	echo ",isLogined=";  var_dump($isLogined);	}
     $loginID = isset($_SESSION['loginID']) ? $_SESSION['loginID'] : null;
-    echo "[]loginID=";  var_dump($loginID);
+    if(GLOBAL_TST) {	echo ",loginID=";  var_dump($loginID);	}
   
   
 	if(empty($Gget_ID) === false){ // '===' is better than '=='
@@ -32,7 +32,7 @@
 	  $row = mysqli_fetch_assoc($result);
 	  echo '<h2>'.htmlspecialchars($row['title']).'</h2>';
 	  echo '<p>'.htmlspecialchars($row['loginID']).'</p>';
-	  echo strip_tags($row['description'], "<a><h1><h2><h3><h4><h5><ul><ol><li><p><br>");
+	  echo "<pre>".strip_tags($row['description'], "<a><h1><h2><h3><h4><h5><ul><ol><li><p><br>")."</pre>";
 	} else {
 	  echo 'No artice!';
 	}

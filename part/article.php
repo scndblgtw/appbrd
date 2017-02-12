@@ -5,17 +5,17 @@
   $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
   
   $Gget_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
-  echo "[]Gget_ID=";  var_dump($Gget_ID);
+  if(GLOBAL_TST) {	echo "[]Gget_ID=";  var_dump($Gget_ID);	}
   
   $Gget_rldNav = isset($_GET["rldNav"]) ? $_GET["rldNav"] : false;
-  echo ",Gget_rldNav=";  var_dump($Gget_rldNav);
+  if(GLOBAL_TST) {	echo ",Gget_rldNav=";  var_dump($Gget_rldNav);	}
   
   $G_table_appitems = "appitems";
   $G_table_users = "users";
   
   // == crrPage @nav.php file
   $crrPage = isset($_GET["bgnpage"]) ? $_GET["bgnpage"] : ""; // from nav.php
-  echo ",bgnpage=".$crrPage;
+  if(GLOBAL_TST) {	echo ",bgnpage=".$crrPage;	}
     
   $LIMIT_PER_PAGE = 4; // from nav.php
 	
@@ -25,9 +25,9 @@
   
   session_start();
   $isLogined = isset($_SESSION['isLogined']) ? $_SESSION['isLogined'] : false;
-  echo ",isLogined=";  var_dump($isLogined);
+  if(GLOBAL_TST) {	echo ",isLogined=";  var_dump($isLogined);	}
   $loginID = isset($_SESSION['loginID']) ? $_SESSION['loginID'] : null;
-  echo ",loginID=";  var_dump($loginID);
+  if(GLOBAL_TST) {	echo ",loginID=";  var_dump($loginID);	}
   
 
   // exit;
@@ -71,7 +71,7 @@
 		  $result = mysqli_query($conn, $sql);
 		  $row = mysqli_fetch_assoc($result);
 		  echo '<h2>'.htmlspecialchars($row['title']).'</h2>';
-		  echo '<div><span>올린이: '.htmlspecialchars($row['loginID']).'</span><span id="article_date_float">'.htmlspecialchars($row['created_date']).'</span></div>';
+		  echo '<div><span>&#32; '.htmlspecialchars($row['loginID']).'</span><span id="article_date_float">'.htmlspecialchars($row['created_date']).'</span></div>';
 		  echo "<pre>".$row['description']."</pre>";
 		  $user_id = $row['user_id'];
 		  
