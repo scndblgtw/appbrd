@@ -49,7 +49,7 @@
 ?>
 
 <!-- <form class="" action="modify_process.php" method="post"> -->
-<form class="" name="modifyForm">
+<form class="" name="whatForm">
   <div class="form-group">
     <label for="form-title">제목:</label>
     <input type="text" class="form-control" name="title" id="form-title" value=<?php echo "'".htmlspecialchars($row['title'])."'"?>>
@@ -71,29 +71,9 @@
   
   <input type="hidden" role="uploadcare-uploader" />
   <!-- <input type="submit" value="수정 완료" name="name" class="btn btn-success"> -->
-  <input type="button" value="수정 완료" class="btn btn-success" onClick="submitModifyForm();">
+  <input type="button" value="수정 완료" class="btn btn-success" onClick="submitWhatForm('modify_process.php', <?php echo $crrPage ?>);">
   <input type="button" value="취소" class="btn btn-success" onClick="returnBackTheArticle2in(<?php echo $Gget_ID?>, <?php echo $crrPage ?>);">
 </form>
 
 <script>
-function submitModifyForm(){
-	// alert("submitLoginForm()");
-	var queryString = $("form[name=modifyForm]").serialize();
-	
-	// alert("submitLoginForm( " +queryString +" )");
-	$.ajax({
-		type: 'POST',
-		url: './modify_process.php?bgnpage=<?php echo $crrPage ?>',
-		data: queryString,
-		dataType : 'text',
-		error : function() {
-		  alert('Fail!!');
-		},
-		success: function(data) {
-			//$('header').load("./part/header.php");
-			$('article').html(data);
-			refreshHeader();
-		}
-	});
-}
 </script>

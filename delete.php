@@ -42,7 +42,7 @@
 <br><br>	
 
 <!-- <form class="" action="delete_process.php" method="post"> -->
-<form class="" name="deleteForm">
+<form class="" name="whatForm">
 	<div class="form-group">
       <label for="form-title">이 아이템을 삭제할까요?</label>
       <label for="form-title">(삭제된 아이템은 복구할 수 없습니다.)</label>
@@ -54,7 +54,7 @@
 	?>
 	
 	<input type="hidden" role="uploadcare-uploader" />
-	<input type="button" value="예" class="btn btn-success" onClick="submitDeleteForm();">
+	<input type="button" value="예" class="btn btn-success" onClick="submitWhatForm('delete_process.php', <?php echo $crrPage ?>);">
 	<!-- <input type="submit" value="예" name="notYet" class="btn btn-success"> -->
 	<!-- <input type="button" value="취소" class="btn btn-success" onClick="history.back();"> -->
 	<input type="button" value="취소" class="btn btn-success" onClick="returnBackTheArticle2in(<?php echo $Gget_ID?>, <?php echo $crrPage ?>);">
@@ -63,26 +63,4 @@
 </form>
 
 <script>
-function submitDeleteForm(){
-	// alert("submitLoginForm()");
-	var queryString = $("form[name=deleteForm]").serialize();
-	
-	// alert("submitLoginForm( " +queryString +" )");
-	$.ajax({
-		type: 'POST',
-		url: './delete_process.php?bgnpage=<?php echo $crrPage ?>',
-		data: queryString,
-		dataType : 'text',
-		error : function() {
-		  alert('Fail!!');
-		},
-		success: function(data) {
-			//$('header').load("./part/header.php");
-			$('article').html(data);
-			refreshHeader();
-		}
-	});
-}
-
-
 </script>

@@ -106,8 +106,4 @@ function submitRegisterForm(){
 	});
 }
 
-
-	function onblur_event(){
-		alert("빈공간은 사용할 수 없습니다.");
-	}
 </script>

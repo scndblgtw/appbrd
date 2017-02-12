@@ -18,7 +18,7 @@ $(function(){
 	$("#tstResult").click(function(){
 		$.ajax({
 			type: 'GET',
-			url: 'part/nav_test.php?test=[- -]',
+			url: 'part/nav_test.php?test=[-noSpace-]',
 			dataType : 'text',
 			error : function() {
 			  alert('Fail!!');

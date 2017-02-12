@@ -64,30 +64,5 @@
     </form>
 	
 	
-<script type="text/javascript">
-	function submitWriteForm(){
-		// alert("submitLoginForm()");
-		var queryString = $("form[name=writeForm]").serialize();
-		
-		// alert("submitLoginForm( " +queryString +" )");
-		$.ajax({
-			type: 'POST',
-			url: './write_process.php',
-			data: queryString,
-			dataType : 'text',
-			error : function() {
-			  alert('Fail!!');
-			},
-			success: function(data) {
-				//$('header').load("./part/header.php");
-				$('article').html(data);
-				refreshHeader();
-			}
-		});
-	}
-
-
-	function onblur_event(){
-		alert("빈공간은 사용할 수 없습니다.");
-	}
+<script>
 </script>
