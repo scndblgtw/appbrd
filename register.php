@@ -92,7 +92,7 @@ function submitRegisterForm(){
 	// alert("submitLoginForm( " +queryString +" )");
 	$.ajax({
 		type: 'POST',
-		url: './register_process.php',
+		url: './register_act.php',
 		data: queryString,
 		dataType : 'text',
 		error : function() {

@@ -25,6 +25,10 @@
   $sql_id = "id";
   
   
+  ini_set("session.gc_probability", 1);
+  ini_set("session.gc_divisor", 1);
+  ini_set("session.cache_expire", 10); 
+  ini_set("session.gc_maxlifetime", 10);
   
   session_start();
   $isLogined = isset($_SESSION['isLogined']) ? $_SESSION['isLogined'] : false;
@@ -59,7 +63,7 @@
 
       <input type="hidden" role="uploadcare-uploader" />
       <!-- <input type="submit" value="쓰기 완료" name="name" class="btn btn-success"> -->
-      <input type="button" value="쓰기 완료" class="btn btn-success" onClick="submitWhatForm('write_process.php');">
+      <input type="button" value="쓰기 완료" class="btn btn-success" onClick="submitWhatForm('write_act.php');">
 	  <input type="button" value="취소" class="btn btn-success" onClick="returnBackTheArticle2in(<?php echo $Gget_ID?>, <?php echo $crrPage ?>);">
     </form>
 	

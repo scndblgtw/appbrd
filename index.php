@@ -22,8 +22,8 @@
   $sql_id = "id";
 
   
-  ini_set("session.cache_expire", 60); 
-  ini_set("session.gc_maxlifetime", 90);
+  // ini_set("session.cache_expire", 60); 
+  // ini_set("session.gc_maxlifetime", 90);
 ?>
 
 

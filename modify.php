@@ -22,6 +22,10 @@
   
   $sql_id = "id";
   
+  ini_set("session.gc_probability", 1);
+  ini_set("session.gc_divisor", 1);
+  ini_set("session.cache_expire", 10); 
+  ini_set("session.gc_maxlifetime", 10);
   
   session_start();
   $isLogined = $_SESSION['isLogined'];
@@ -71,7 +75,7 @@
   
   <input type="hidden" role="uploadcare-uploader" />
   <!-- <input type="submit" value="수정 완료" name="name" class="btn btn-success"> -->
-  <input type="button" value="수정 완료" class="btn btn-success" onClick="submitWhatForm('modify_process.php', <?php echo $crrPage ?>);">
+  <input type="button" value="수정 완료" class="btn btn-success" onClick="submitWhatForm('modify_act.php', <?php echo $crrPage ?>);">
   <input type="button" value="취소" class="btn btn-success" onClick="returnBackTheArticle2in(<?php echo $Gget_ID?>, <?php echo $crrPage ?>);">
 </form>
 

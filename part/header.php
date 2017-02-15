@@ -12,6 +12,13 @@
   $crrPage = isset($_GET["bgnpage"]) && $_GET["bgnpage"]!==0? $_GET["bgnpage"] : 0;
   echo $crrPage;
   
+  
+  
+  ini_set("session.gc_probability", 1);
+  ini_set("session.gc_divisor", 1);
+  ini_set("session.cache_expire", 10); 
+  ini_set("session.gc_maxlifetime", 10);
+  
   session_start();
   $isLogined = isset($_SESSION['isLogined']) ? $_SESSION['isLogined'] : false;
   // echo "[@header, *]isLogined=";  var_dump($isLogined);
@@ -157,7 +164,7 @@ function logoutSession(){
 	$.ajax({
 		type: 'GET',
 		// url: <?php echo "'".__DIR__."\..\login.php?action=1'" ?>,
-		url: <?php echo "'./logout_process.php'" ?>,
+		url: <?php echo "'./logout_act.php'" ?>,
 		dataType : 'text',
 		error : function() {
 		  alert('Loading a process of LOGOUT failed!');

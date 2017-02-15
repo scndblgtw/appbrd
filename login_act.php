@@ -34,8 +34,8 @@
   
   
   
-	$loginID = $_POST['loginID'];
-	$loginPW = $_POST['loginPW'];
+	$loginID = mysqli_real_escape_string($conn, $_POST['loginID']);
+	$loginPW = mysqli_real_escape_string($conn, $_POST['loginPW']);
 	
 	
 	echo $loginID."<br>";

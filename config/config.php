@@ -8,4 +8,5 @@ $config = array(
 );
 
   define('GLOBAL_TST', false);
+  define('DOOR_OPEN', true);	// Currently not used
 ?>

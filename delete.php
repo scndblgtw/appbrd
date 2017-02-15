@@ -15,6 +15,10 @@
 	$G_table_appitems = "appitems";
 	$G_table_users = "users";
   
+  ini_set("session.gc_probability", 1);
+  ini_set("session.gc_divisor", 1);
+  ini_set("session.cache_expire", 10); 
+  ini_set("session.gc_maxlifetime", 10);
   
 	session_start();
 	$isLogined = isset($_SESSION['isLogined']) ? $_SESSION['isLogined'] : false;
@@ -54,7 +58,7 @@
 	?>
 	
 	<input type="hidden" role="uploadcare-uploader" />
-	<input type="button" value="예" class="btn btn-success" onClick="submitWhatForm('delete_process.php', <?php echo $crrPage ?>);">
+	<input type="button" value="예" class="btn btn-success" onClick="submitWhatForm('delete_act.php', <?php echo $crrPage ?>);">
 	<!-- <input type="submit" value="예" name="notYet" class="btn btn-success"> -->
 	<!-- <input type="button" value="취소" class="btn btn-success" onClick="history.back();"> -->
 	<input type="button" value="취소" class="btn btn-success" onClick="returnBackTheArticle2in(<?php echo $Gget_ID?>, <?php echo $crrPage ?>);">
