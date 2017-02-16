@@ -1,4 +1,5 @@
 ﻿<?php
+  require(__DIR__."/config/config.php");
   // require(__DIR__."/config/config.php");
   // require(__DIR__."/lib/db.php");
   // $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
@@ -6,7 +7,7 @@
   
   $Gget_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
   // $Gget_ID = $_GET["id"];
-  echo "[, *]Gget_ID=";  var_dump($Gget_ID);
+  if(GLOBAL_TST) { echo "[, *]Gget_ID=";  var_dump($Gget_ID);	}
 	
   $Gget_AGAIN = isset($_GET["again"]) ? $_GET["again"] : "";
   //$G_table_appitems = "appitems";
@@ -21,9 +22,9 @@
   
   session_start();
   $isLogined = isset($_SESSION['isLogined']) ? $_SESSION['isLogined'] : false;
-  echo "[, *]isLogined=";  var_dump($isLogined);
+  if(GLOBAL_TST) { echo "[, *]isLogined=";  var_dump($isLogined);	}
   $loginID = isset($_SESSION['loginID']) ? $_SESSION['loginID'] : null;
-  echo "[, *]loginID=";  var_dump($loginID);
+  if(GLOBAL_TST) { echo "[, *]loginID=";  var_dump($loginID);	}
 ?>
 
 <div>

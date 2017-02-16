@@ -39,7 +39,7 @@
   <link rel="stylesheet" type="text/css" href="./style.css">
 
   <!-- Bootstrap -->
-  <link href="./bootstrap-3.3.4-dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
   
 	
@@ -63,7 +63,7 @@
 <body id="target">		
 			
 	  
-    <div >      
+    <div class="container-fluid">      
 	  <header class="row">		  
 		  <script type="text/javascript">
 		  $(function(){
@@ -183,7 +183,7 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="./bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>  
+    <script src="./bootstrap/js/bootstrap.min.js"></script>  
 
 </body>
 </html>

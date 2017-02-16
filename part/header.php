@@ -9,8 +9,8 @@
   //$Gget_ID = $_GET["id"];
   //echo "[@header, *]Gget_ID=";  var_dump($Gget_ID);
   
-  $crrPage = isset($_GET["bgnpage"]) && $_GET["bgnpage"]!==0? $_GET["bgnpage"] : 0;
-  echo $crrPage;
+  // $crrPage = isset($_GET["bgnpage"]) && $_GET["bgnpage"]!==0? $_GET["bgnpage"] : 0;
+  // if(GLOBAL_TST) { echo $crrPage;	}
   
   
   
