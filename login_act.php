@@ -89,6 +89,7 @@
 			// $_SESSION['isLogined'] = 1;	//0:logout,  1:login,  2:register	// true;
 			$_SESSION['isLogined'] = true;
 			$_SESSION['loginID'] = $loginID;
+			$_SESSION['loginTime'] = time();
 			// header("Location:$entry_ip/index.php?id=-1");
 			header("Location:$entry_ip/part/article.php");
 		

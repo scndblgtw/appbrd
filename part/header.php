@@ -98,6 +98,9 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 
 			<?php
+				require_once(__DIR__."/../isLogged_hdr.php");
+  
+  
 				if($isLogined == true) {
 					echo "[$loginID]";
 				} else {
