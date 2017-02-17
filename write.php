@@ -39,6 +39,9 @@
   // $row = mysqli_fetch_assoc($result);
   // var_dump($row);
   // echo '---';
+  
+  
+	require_once(__DIR__."/./isLogged.php");
 ?>
 
 

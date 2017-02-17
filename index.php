@@ -164,6 +164,23 @@
 	}
 	
 	
+	
+function goToLoginWhenExpiredOut(){
+	$.ajax({
+		type: 'GET',
+		// url: <?php echo "'".__DIR__."\..\login.php?action=1'" ?>,
+		url: <?php echo "'./login.php?{$sql_id}={$Gget_ID}'" ?>,
+		//url: <?php echo "'./login.php?{$sql_id}={$Gget_ID}&action=1'" ?>,
+		dataType : 'text',
+		error : function() {
+		  alert('Loading a process page of LOGIN failed!');
+		},
+		success: function(data) {
+			$('article').html(data);
+		}
+	});
+}
+
 
 	function onblur_event(){
 		alert("빈공간은 사용할 수 없습니다.");

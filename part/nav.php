@@ -18,7 +18,7 @@ $(function(){
 	$("#tstResult").click(function(){
 		$.ajax({
 			type: 'GET',
-			url: 'part/nav_test.php?test=[- arti2 -]',
+			url: 'part/nav_test.php?test=[- wrt time -]',
 			dataType : 'text',
 			error : function() {
 			  alert('Fail!!');
