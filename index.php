@@ -143,8 +143,23 @@
 		
 
 	function submitWhatForm(whatProcess, cPg){
-		<!-- sUrl= './' +whatProcess +'?bgnpage=' +cPg; -->
-		<!-- alert(sUrl); -->
+		// sUrl= './' +whatProcess +'?bgnpage=' +cPg;
+		// alert(sUrl);
+		
+		if(whatProcess === 'register_act.php') {
+			txloginID = document.getElementById("form-loginID").value;
+			txnameNic = document.getElementById("form-nameNic").value;
+			txloginPW = document.getElementById("form-loginPW").value;
+			txloginPWcf = document.getElementById("form-loginPWcf").value;
+			
+			// alert(txloginID +" | " +txnameNic +" | " +txloginPW +" | " +txloginPWcf);
+			
+			if(txloginID  ==="" || txloginID===null) { alert("Require ID"); return; }
+			if(txnameNic  ==="" || txnameNic===null) { alert("Require 별명"); return; }
+			if(txloginPW  ==="" || txloginPW===null) { alert("Require 암호"); return; }
+			if(txloginPWcf==="" || txloginPWcf===null) { alert("Require 암호 학인"); return; }
+		}
+		
 		var queryString = $("form[name=whatForm]").serialize();
 		
 		$.ajax({
@@ -166,6 +181,7 @@
 	
 	
 function goToLoginWhenExpiredOut(){
+	// alert("goToLoginWhenExpiredOut()");
 	$.ajax({
 		type: 'GET',
 		// url: <?php echo "'".__DIR__."\..\login.php?action=1'" ?>,

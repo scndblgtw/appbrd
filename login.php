@@ -29,7 +29,7 @@
 
 <div>
   <!-- <form class="" name="loginForm" action="login_process.php" method="post"> -->
-  <form class="" name="loginForm">
+  <form class="" name="whatForm">
 	<label for="form-title"><h3>사용자 로그인</h3></label>
     <div class="form-group">
        <label for="form-loginID">아이디:</label>
@@ -43,7 +43,7 @@
 
 	<!-- <input type="hidden" role="uploadcare-uploader" /> -->
     <input type="hidden" />
-    <input type="button" value="로그인" class="btn btn-success" onClick="submitLoginForm();">
+    <input type="button" value="로그인" class="btn btn-success" onClick="submitWhatForm('login_act.php');">
     <!-- <input type="submit" value="로그인" name="login" class="btn btn-success"> -->
 	<input type="button" value="취소" class="btn btn-success" onClick="returnBackTheArticle2(<?php echo $Gget_ID ?>);">
   
@@ -108,12 +108,9 @@ function returnBackTheArticle2(inx){
 
 
 
-
-
-
 function submitLoginForm(){
 	// alert("submitLoginForm()");
-	var queryString = $("form[name=loginForm]").serialize();
+	var queryString = $("form[name=whatForm]").serialize();
 	
 	// alert("submitLoginForm( " +queryString +" )");
 	$.ajax({
@@ -131,6 +128,8 @@ function submitLoginForm(){
 		}
 	});
 }
+
+
 
 
 

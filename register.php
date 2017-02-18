@@ -40,7 +40,7 @@
 		}
 	?>
     <!-- <form class="" action="register_process.php" method="post"> -->
-    <form class="" name="registerForm">
+    <form class="" name="whatForm">
 	  <label for="form-title"><h3>회원 가입</h3></label>
       <div class="form-group">
         <label for="form-loginID">아이디:</label>
@@ -64,7 +64,7 @@
 	  
       <!-- <input type="hidden" role="uploadcare-uploader" /> -->
       <!-- <input type="submit" value="확인" name="login" class="btn btn-success"> -->
-      <input type="button" value="확인" class="btn btn-success" onClick="submitRegisterForm();">
+      <input type="button" value="확인" class="btn btn-success" onClick="submitWhatForm('register_act.php');">
 	  <input type="button" value="취소" class="btn btn-success" onClick="returnBackTheArticle2in(<?php echo $Gget_ID?>, <?php echo $crrPage ?>);">
 	  
 	  <!-- <a href="./register.php" class="btn btn-info">회원가입</a> -->
@@ -75,7 +75,7 @@
 
 function submitRegisterForm(){
 	// alert("submitLoginForm()");
-	var queryString = $("form[name=registerForm]").serialize();
+	var queryString = $("form[name=whatForm]").serialize();
 	
 	txloginID = document.getElementById("form-loginID").value;
 	txnameNic = document.getElementById("form-nameNic").value;
