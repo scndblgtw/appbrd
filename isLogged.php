@@ -24,6 +24,6 @@
 		$loginID = $_SESSION['loginID'];
 		
         $_SESSION['loginTime'] = null;
-		echo "<script>refreshHeader();goToLoginWhenExpiredOut();</script>";
+		echo "<script>refreshHeader();goToLoginForm();</script>";
   }
 ?>

@@ -45,7 +45,7 @@
     <input type="hidden" />
     <input type="button" value="로그인" class="btn btn-success" onClick="submitWhatForm('login_act.php');">
     <!-- <input type="submit" value="로그인" name="login" class="btn btn-success"> -->
-	<input type="button" value="취소" class="btn btn-success" onClick="returnBackTheArticle2(<?php echo $Gget_ID ?>);">
+	<input type="button" value="취소" class="btn btn-success" onClick="returnBackTheArticle2in(<?php echo $Gget_ID ?>);">
   
 	<!-- <a href="./register.php" class="btn btn-info">회원가입</a> -->
 	<input type="button" value="회원가입" class="btn btn-info" onClick="gotoRegisterForm();">
@@ -61,49 +61,4 @@ if($Gget_AGAIN == 1) {
 
 
 <script>
-function gotoRegisterForm(){
-	$.ajax({
-		type: 'GET',
-		// url: <?php echo "'".__DIR__."\..\login.php?action=1'" ?>,
-		url: <?php echo "'./register.php?{$sql_id}={$Gget_ID}'" ?>,
-		// url: <?php echo "'./register.php?{$sql_id}={$Gget_ID}&action=1'" ?>,
-		dataType : 'text',
-		error : function() {
-		  alert('Loading a process page of REGISTER failed!');
-		},
-		success: function(data) {
-			$('article').html(data);
-		}
-	});
-}
-
-
-
-
-
-function returnBackTheArticle() {
-	// alert("returnBackTheArticle");
-    //document.getElementById("demo").style.color = "red";
-	$('article').load('part/article.php?id=<?php echo $Gget_ID ?>');
-}
-function returnBackTheArticle2(inx){
-	// alert("returnBackTheArticle2");	
-	//$("#tstButton").click(function(){
-	//alert("inx= " +inx);
-	
-		$.ajax({
-			type: 'GET',
-			//url: 'part/article.php?id=<?php //echo $Gget_ID ?>',
-			url: 'part/article.php?id=' +inx,
-			dataType : 'text',
-			error : function() {
-			  alert('Fail!!');
-			},
-			success: function(data) {
-				$('article').html(data);
-			}
-		});
-	//})
-}
-
 </script>

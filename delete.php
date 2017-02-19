@@ -40,7 +40,9 @@
 	} else {
 	  echo 'No artice!';
 	}
-	?>		
+	
+	require_once(__DIR__."/./isLogged.php");
+	?>
 </div>
 
 <br><br>	

@@ -49,7 +49,9 @@
 	  // echo "<br>".$loginID;
 	  // echo "<br>".strip_tags($row['description'], "<a><h1><h2><h3><h4><h5><ul><ol><li><p><br>");
 	  // exit;
-	}		
+	}
+	
+	require_once(__DIR__."/./isLogged.php");
 ?>
 
 <!-- <form class="" action="modify_process.php" method="post"> -->

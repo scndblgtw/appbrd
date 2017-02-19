@@ -18,7 +18,7 @@ $(function(){
 	$("#tstResult").click(function(){
 		$.ajax({
 			type: 'GET',
-			url: 'part/nav_test.php?test=[- rgstr3 -]',
+			url: 'part/nav_test.php?test=[- 2 -]',
 			dataType : 'text',
 			error : function() {
 			  alert('Fail!!');

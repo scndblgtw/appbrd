@@ -64,7 +64,7 @@
 			
 	  
     <div class="container-fluid">      
-	  <header class="row">		  
+	  <header class="row">
 		  <script type="text/javascript">
 		  $(function(){
 			$.ajax({
@@ -113,8 +113,6 @@
 			refreshNavMy();
 			</script>
 		</nav>
-		
-		
 		
       </div>
     </div>
@@ -180,13 +178,11 @@
 	
 	
 	
-	function goToLoginWhenExpiredOut(){
-		// alert("goToLoginWhenExpiredOut()");
+	function goToLoginForm(){
+		// alert("goToLoginForm()");
 		$.ajax({
 			type: 'GET',
-			// url: <?php echo "'".__DIR__."\..\login.php?action=1'" ?>,
 			url: <?php echo "'./login.php?{$sql_id}={$Gget_ID}'" ?>,
-			//url: <?php echo "'./login.php?{$sql_id}={$Gget_ID}&action=1'" ?>,
 			dataType : 'text',
 			error : function() {
 			  alert('Loading a process page of LOGIN failed!');
@@ -201,6 +197,49 @@
 	function onblur_event(){
 		alert("빈공간은 사용할 수 없습니다.");
 	}
+	
+	
+
+	function gotoRegisterForm(){
+		$.ajax({
+			type: 'GET',
+			url: <?php echo "'./register.php?{$sql_id}={$Gget_ID}'" ?>,
+			dataType : 'text',
+			error : function() {
+			  alert('Loading a process page of REGISTER failed!');
+			},
+			success: function(data) {
+				$('article').html(data);
+			}
+		});
+	}
+	
+	function logoutSession(){
+		$.ajax({
+			type: 'GET',
+			// url: <?php echo "'".__DIR__."\..\login.php?action=1'" ?>,
+			url: <?php echo "'./logout_act.php'" ?>,
+			dataType : 'text',
+			error : function() {
+			  alert('Loading a process of LOGOUT failed!');
+			},
+			success: function(data) {
+				$('article').html(data);
+				refreshHeader();
+			}
+		});
+	}
+
+	function setWhiteBG(){
+		document.getElementById("target").className='white';
+	}	
+	function setGrayBG(){
+		document.getElementById("target").className='gray';
+	}
+	function setBlackBG(){
+		document.getElementById("target").className='black';
+	}
+	
 	</script>
 
 

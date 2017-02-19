@@ -27,17 +27,7 @@
   
   
   $sql_id = "id";
-?>
-
-  <!-- Bootstrap -->
-  <!-- <link href="./bootstrap-3.3.4-dist/css/bootstrap.min.css" rel="stylesheet"> -->
-
-  <!-- <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script> -->
-  
-
-  
-  <!-- <script src="./script.js">  </script> -->
-
+?> 
 
 
 <nav class="navbar navbar-default">
@@ -114,21 +104,17 @@
 			
 			  <div class="btn-group" roll="group">
 			  <?php
-				// if(isset($isLogined)) {
 				if($isLogined == true) {
 					// echo "<a class='btn btn-default'>[$loginID]</a>";
 					echo '<a class="btn btn-warning" onClick="logoutSession();">Logout</a>';
-					// echo '<a href="./logout_process.php" class="btn btn-warning">Logout</a>';
 				} else {
 				  if($Gget_action == 1) {
 					//echo '<li><a href="./login.php?action=1" class="btn btn-info">Login</a></li>';
 				  }else if($Gget_action == 2){
 					//echo '<li><a href="./register.php?action=2" class="btn btn-info">회원가입</a></li>';
 				  }else {
-					echo '<a id="ax_login" class="btn btn-success">Login</a>';
-					// echo '<li><a href="./login.php?action=1" class="btn btn-info">Login</a></li>';
-					// echo '<a href="./register.php?action=2" class="btn btn-info">회원가입</a>';
-					echo '<a id="ax_register" class="btn btn-info">회원가입</a>';
+					echo '<a class="btn btn-success" onClick="goToLoginForm();">Login</a>';
+					echo '<a class="btn btn-info" onClick="gotoRegisterForm();">회원가입</a>';
 				  }
 				}
 			  ?>
@@ -141,9 +127,9 @@
             <li>
 			
 			  <div class="btn-group" roll="group">
-				<input type="button" value="white" id="white_btn" class="btn btn-default" />
-				<input type="button" value="gray" id="gray_btn" class="btn btn-default"/>
-				<input type="button" value="black" id="black_btn" class="btn btn-default"/>
+				<input type="button" value="white" class="btn btn-default" onClick="setWhiteBG();"/>
+				<input type="button" value="gray" class="btn btn-default" onClick="setGrayBG();"/>
+				<input type="button" value="black" class="btn btn-default" onClick="setBlackBG();"/>
 			  </div>
 			
 			</li>
@@ -153,84 +139,4 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
-  
-  
   <!-- <script src="./script/jsHeader.js">  </script> -->
-
-<script>
-
-//alert("jsHeader.js@header");
-
-
-function logoutSession(){
-	$.ajax({
-		type: 'GET',
-		// url: <?php echo "'".__DIR__."\..\login.php?action=1'" ?>,
-		url: <?php echo "'./logout_act.php'" ?>,
-		dataType : 'text',
-		error : function() {
-		  alert('Loading a process of LOGOUT failed!');
-		},
-		success: function(data) {
-			$('article').html(data);
-			refreshHeader();
-		}
-	});
-}
-
-$(function(){
-	$("#ax_register").click(function(){
-		$.ajax({
-			type: 'GET',
-			// url: <?php echo "'".__DIR__."\..\login.php?action=1'" ?>,
-			url: <?php echo "'./register.php?{$sql_id}={$Gget_ID}'" ?>,
-			//url: <?php echo "'./register.php?{$sql_id}={$Gget_ID}&action=1'" ?>,
-			dataType : 'text',
-			error : function() {
-				alert('Loading a process page of REGISTER failed!');
-			},
-			success: function(data) {
-				$('article').html(data);
-			}
-		});
-	})
-})
-
-$(function(){
-	$("#ax_login").click(function(){
-		$.ajax({
-			type: 'GET',
-			// url: <?php echo "'".__DIR__."\..\login.php?action=1'" ?>,
-			url: <?php echo "'./login.php?{$sql_id}={$Gget_ID}'" ?>,
-			//url: <?php echo "'./login.php?{$sql_id}={$Gget_ID}&action=1'" ?>,
-			dataType : 'text',
-			error : function() {
-			  alert('Loading a process page of LOGIN failed!');
-			},
-			success: function(data) {
-				$('article').html(data);
-			}
-		});
-	})
-})
-
-
-
-wbtn = document.getElementById('white_btn');
-wbtn.addEventListener('click', function() {
-  document.getElementById("target").className='white';
-})
-
-gbtn = document.getElementById('gray_btn');
-gbtn.addEventListener('click', function() {
-  document.getElementById("target").className='gray';
-})
-
-bbtn = document.getElementById('black_btn');
-bbtn.addEventListener('click', function() {
-  document.getElementById("target").className='black';
-})
-
-
-</script>

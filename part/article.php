@@ -98,9 +98,7 @@
 <div id="control">
 <?php
 	$row_loginID = isset($row['loginID']) ? $row['loginID'] : "false";
-	
-	// require_once(__DIR__."/../isLogged.php");
-				
+					
 	if(isset($isLogined) && $isLogined===true) {
 		if($loginID == $row_loginID) {
 		  echo '<a class="btn btn-success" id="ax_modify">수정</a>';
