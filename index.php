@@ -154,10 +154,10 @@
 			
 			// alert(txloginID +" | " +txnameNic +" | " +txloginPW +" | " +txloginPWcf);
 			
-			if(txloginID  ==="" || txloginID===null) { alert("Require ID"); return; }
-			if(txnameNic  ==="" || txnameNic===null) { alert("Require 별명"); return; }
-			if(txloginPW  ==="" || txloginPW===null) { alert("Require 암호"); return; }
-			if(txloginPWcf==="" || txloginPWcf===null) { alert("Require 암호 학인"); return; }
+			if(txloginID  ==="" || txloginID===null) { alert("필수: ID"); return; }
+			if(txnameNic  ==="" || txnameNic===null) { alert("필수: 별명"); return; }
+			if(txloginPW  ==="" || txloginPW===null) { alert("필수: 암호"); return; }
+			if(txloginPWcf==="" || txloginPWcf===null) { alert("필수: 암호 학인"); return; }
 		}
 		
 		var queryString = $("form[name=whatForm]").serialize();
@@ -180,22 +180,22 @@
 	
 	
 	
-function goToLoginWhenExpiredOut(){
-	// alert("goToLoginWhenExpiredOut()");
-	$.ajax({
-		type: 'GET',
-		// url: <?php echo "'".__DIR__."\..\login.php?action=1'" ?>,
-		url: <?php echo "'./login.php?{$sql_id}={$Gget_ID}'" ?>,
-		//url: <?php echo "'./login.php?{$sql_id}={$Gget_ID}&action=1'" ?>,
-		dataType : 'text',
-		error : function() {
-		  alert('Loading a process page of LOGIN failed!');
-		},
-		success: function(data) {
-			$('article').html(data);
-		}
-	});
-}
+	function goToLoginWhenExpiredOut(){
+		// alert("goToLoginWhenExpiredOut()");
+		$.ajax({
+			type: 'GET',
+			// url: <?php echo "'".__DIR__."\..\login.php?action=1'" ?>,
+			url: <?php echo "'./login.php?{$sql_id}={$Gget_ID}'" ?>,
+			//url: <?php echo "'./login.php?{$sql_id}={$Gget_ID}&action=1'" ?>,
+			dataType : 'text',
+			error : function() {
+			  alert('Loading a process page of LOGIN failed!');
+			},
+			success: function(data) {
+				$('article').html(data);
+			}
+		});
+	}
 
 
 	function onblur_event(){

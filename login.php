@@ -106,32 +106,4 @@ function returnBackTheArticle2(inx){
 	//})
 }
 
-
-
-function submitLoginForm(){
-	// alert("submitLoginForm()");
-	var queryString = $("form[name=whatForm]").serialize();
-	
-	// alert("submitLoginForm( " +queryString +" )");
-	$.ajax({
-		type: 'POST',
-		url: './login_act.php',
-		data: queryString,
-		dataType : 'text',
-		error : function() {
-		  alert('Fail!!');
-		},
-		success: function(data) {
-			//$('header').load("./part/header.php");
-			$('article').html(data);
-			refreshHeader();
-		}
-	});
-}
-
-
-
-
-
-
 </script>
