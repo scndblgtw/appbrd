@@ -44,7 +44,6 @@
 	  <label for="form-title"><h3>회원 가입</h3></label>
       <div class="form-group">
         <label for="form-loginID">아이디:</label>
-        <!-- <input type="text" class="form-control" name="loginID" id="form-loginID" placeholder="prefered ID" onblur="onblur_event()" required> -->
 		<input type="text" class="form-control" name="loginID" id="form-loginID" placeholder="prefered ID" required>
       </div>
 	  

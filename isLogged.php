@@ -4,8 +4,7 @@
   $current = time();
   $sss_duration = 30;
   if(GLOBAL_TST) {	
-	  echo "lst".$last."+".$sss_duration."(drtn)=".($last +$sss_duration)."<br>";
-	  echo " | crr".$current."|";
+	  echo "".$last."(lst)+".$sss_duration."=".($last +$sss_duration)." | crr".$current."|";
   }
   
   

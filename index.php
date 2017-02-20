@@ -118,7 +118,8 @@
     </div>
 
 
-	<script src="./script/jsIndex.js">  </script>
+	<!-- <script src="./script/jsIndex.js"></script> -->
+	<script src="./lib/jsIndex.js"></script>
 
 	<script> 
 		function refreshHeader(){
@@ -191,14 +192,7 @@
 				$('article').html(data);
 			}
 		});
-	}
-
-
-	function onblur_event(){
-		alert("빈공간은 사용할 수 없습니다.");
-	}
-	
-	
+	}	
 
 	function gotoRegisterForm(){
 		$.ajax({
@@ -229,27 +223,12 @@
 			}
 		});
 	}
-
-	function setWhiteBG(){
-		document.getElementById("target").className='white';
-	}	
-	function setGrayBG(){
-		document.getElementById("target").className='gray';
-	}
-	function setBlackBG(){
-		document.getElementById("target").className='black';
-	}
-	
 	</script>
-
-
     <!-- End. row 4 TW-Bootstrap -->
 
-  <?php require("part/body_bottom.php"); ?>
+	<?php require("part/body_bottom.php"); ?>
 
 		
-  <!-- <a href="">  </a> -->
-  <!-- <input type="button" id="listButton" value="리스트출력" /> -->
   
   
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
