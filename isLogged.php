@@ -1,6 +1,4 @@
 ﻿<?php
-  
-  
   $last = isset($_SESSION['loginTime']) ? $_SESSION['loginTime'] : -1;
   
   $current = time();
@@ -24,6 +22,10 @@
 		$loginID = $_SESSION['loginID'];
 		
         $_SESSION['loginTime'] = null;
-		echo "<script>refreshHeader();goToLoginForm();</script>";
+		
+		
+		$canLogin = isset($canLogin) ? $canLogin : false;
+		if($canLogin)
+			echo "<script>refreshHeader();goToLoginForm();</script>";
   }
 ?>

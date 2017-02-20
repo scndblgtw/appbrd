@@ -40,8 +40,8 @@
   // var_dump($row);
   // echo '---';
   
-  
-	require_once(__DIR__."/./isLogged.php");
+  $canLogin = true;
+  require_once(__DIR__."/./isLogged.php");
 ?>
 
 

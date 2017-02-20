@@ -30,28 +30,19 @@
   session_start();
   $isLogined = $_SESSION['isLogined'];
   $loginID = $_SESSION['loginID'];
-?>
 
-
-
-<?php
-	if(empty($Gget_ID)){
-	  echo "<br><a class='error_red'>[X] The article which will be modified is None.</a><br>";
-	  exit;
-	} else {
-	  // $sql = "SELECT ".$G_table_appitems.".id, title, loginID, description FROM ".$G_table_appitems." LEFT JOIN ".$G_table_users." ON ".$G_table_appitems.".user_id=".$G_table_users.".id WHERE ".$G_table_appitems.".id=".$Gget_ID;
-	  $sql = "SELECT ".$G_table_appitems.".id, title, description FROM ".$G_table_appitems." WHERE ".$G_table_appitems.".id=".$Gget_ID;
-	  $result = mysqli_query($conn, $sql);
-	  $row = mysqli_fetch_assoc($result);
-	  // var_dump($row);
-	  // echo "<br><br>";
-	  // echo "<br>".htmlspecialchars($row['title']);
-	  // echo "<br>".$loginID;
-	  // echo "<br>".strip_tags($row['description'], "<a><h1><h2><h3><h4><h5><ul><ol><li><p><br>");
-	  // exit;
-	}
-	
-	require_once(__DIR__."/./isLogged.php");
+  if(empty($Gget_ID)){
+    echo "<br><a class='error_red'>[X] The article which will be modified is None.</a><br>";
+    exit;
+  } else {
+    // $sql = "SELECT ".$G_table_appitems.".id, title, loginID, description FROM ".$G_table_appitems." LEFT JOIN ".$G_table_users." ON ".$G_table_appitems.".user_id=".$G_table_users.".id WHERE ".$G_table_appitems.".id=".$Gget_ID;
+    $sql = "SELECT ".$G_table_appitems.".id, title, description FROM ".$G_table_appitems." WHERE ".$G_table_appitems.".id=".$Gget_ID;
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+  }
+  
+  $canLogin = true;
+  require_once(__DIR__."/./isLogged.php");
 ?>
 
 <!-- <form class="" action="modify_process.php" method="post"> -->

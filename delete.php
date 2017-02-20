@@ -1,5 +1,5 @@
 ﻿<div>
-	<?php
+  <?php
 	require(__DIR__."/config/config.php");
 	require(__DIR__."/lib/db.php");
 	$conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
@@ -27,22 +27,23 @@
     if(GLOBAL_TST) {	echo ",loginID=";  var_dump($loginID);	}
   
   
-	if(empty($Gget_ID) === false){ // '===' is better than '=='
-	  // echo file_get_contents($Gget_ID.".txt");
-	  // $sql = "SELECT * FROM ".$G_table_appitems." WHERE id=";
-	  $sql = "SELECT ".$G_table_appitems.".id, title, loginID, description FROM ".$G_table_appitems." LEFT JOIN ".$G_table_users." ON ".$G_table_appitems.".user_id=".$G_table_users.".id WHERE ".$G_table_appitems.".id=".$Gget_ID;
-	  // $sql = "SELECT ".$G_table_appitems.".id, title, loginID, description FROM ".$G_table_appitems." WHERE ".$G_table_appitems.".id=".$Gget_ID;
-	  $result = mysqli_query($conn, $sql);
-	  $row = mysqli_fetch_assoc($result);
-	  echo '<h2>'.htmlspecialchars($row['title']).'</h2>';
-	  echo '<p>'.htmlspecialchars($row['loginID']).'</p>';
-	  echo "<pre>".strip_tags($row['description'], "<a><h1><h2><h3><h4><h5><ul><ol><li><p><br>")."</pre>";
-	} else {
-	  echo 'No artice!';
-	}
-	
-	require_once(__DIR__."/./isLogged.php");
-	?>
+  if(empty($Gget_ID) === false){ // '===' is better than '=='
+    // echo file_get_contents($Gget_ID.".txt");
+    // $sql = "SELECT * FROM ".$G_table_appitems." WHERE id=";
+    $sql = "SELECT ".$G_table_appitems.".id, title, loginID, description FROM ".$G_table_appitems." LEFT JOIN ".$G_table_users." ON ".$G_table_appitems.".user_id=".$G_table_users.".id WHERE ".$G_table_appitems.".id=".$Gget_ID;
+    // $sql = "SELECT ".$G_table_appitems.".id, title, loginID, description FROM ".$G_table_appitems." WHERE ".$G_table_appitems.".id=".$Gget_ID;
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    echo '<h2>'.htmlspecialchars($row['title']).'</h2>';
+    echo '<p>'.htmlspecialchars($row['loginID']).'</p>';
+    echo "<pre>".strip_tags($row['description'], "<a><h1><h2><h3><h4><h5><ul><ol><li><p><br>")."</pre>";
+  } else {
+    echo 'No artice!';
+  }
+  
+    $canLogin = true;
+    require_once(__DIR__."/./isLogged.php");
+  ?>
 </div>
 
 <br><br>	
