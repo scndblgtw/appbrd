@@ -23,8 +23,16 @@
         $_SESSION['loginTime'] = null;
 		
 		
-		$canLogin = isset($canLogin) ? $canLogin : false;
-		if($canLogin)
+		$goLoginScr = isset($goLoginScr) ? $goLoginScr : false;
+		$refreshHdr = isset($refreshHdr) ? $refreshHdr : false;
+		$rfrshCtrlArcv = isset($rfrshCtrlArcv) ? $rfrshCtrlArcv : false;
+		if($goLoginScr)
 			echo "<script>refreshHeader();goToLoginForm();</script>";
+		else if($refreshHdr)
+			echo "<script>refreshHeader();</script>";
+		else if($rfrshCtrlArcv) {
+			$Gget_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
+			echo "<script>refreshHeader();</script>";
+		}
   }
 ?>

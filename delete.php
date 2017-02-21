@@ -41,7 +41,7 @@
     echo 'No artice!';
   }
   
-    $canLogin = true;
+    $goLoginScr = true;
     require_once(__DIR__."/./isLogged.php");
   ?>
 </div>

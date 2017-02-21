@@ -41,7 +41,7 @@
     $row = mysqli_fetch_assoc($result);
   }
   
-  $canLogin = true;
+  $goLoginScr = true;
   require_once(__DIR__."/./isLogged.php");
 ?>
 

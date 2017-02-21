@@ -97,6 +97,9 @@
 
 <div id="control">
 <?php
+	$refreshHdr = true;
+	require_once(__DIR__."/../isLogged.php");
+
 	$row_loginID = isset($row['loginID']) ? $row['loginID'] : "false";
 					
 	if(isset($isLogined) && $isLogined===true) {

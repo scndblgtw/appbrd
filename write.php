@@ -40,7 +40,7 @@
   // var_dump($row);
   // echo '---';
   
-  $canLogin = true;
+  $goLoginScr = true;
   require_once(__DIR__."/./isLogged.php");
 ?>
 

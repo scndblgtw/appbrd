@@ -18,7 +18,7 @@ $(function(){
 	$("#tstResult").click(function(){
 		$.ajax({
 			type: 'GET',
-			url: 'part/nav_test.php?test=[- lib2 -]',
+			url: 'part/nav_test.php?test=[- ^ -]',
 			dataType : 'text',
 			error : function() {
 			  alert('Fail!!');
@@ -39,7 +39,10 @@ $(function(){
 	
     <ol class="nav nav-pills nav-stacked">
 
-    <?php 
+    <?php
+	  $refreshHdr = true;
+	  require_once(__DIR__."/../isLogged.php");
+	
 	  // 현재 쪽 번호 @nav 하단 쪽 번호.  0쪽 부터 시작
 	  // echo "_GET[bgnpage]= ".$_GET["bgnpage"]."<br>";
 	  $crrPage = isset($_GET["bgnpage"]) && $_GET["bgnpage"]!==0? $_GET["bgnpage"] : 0;
@@ -59,13 +62,6 @@ $(function(){
     ?>
     </ol>
 	
-	
-	
-	<?php //echo "<br>"; ?>
-	<!-- <div class="center_tag"> -->
-		<!-- <input type="button" id="tstButton" value="[]" /> -->
-		<!-- <span id="tstResult">[*******]</span> -->
-	<!-- </div> -->
 	
 	
 	
