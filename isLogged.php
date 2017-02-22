@@ -2,7 +2,7 @@
   $last = isset($_SESSION['loginTime']) ? $_SESSION['loginTime'] : -1;
   
   $current = time();
-  $sss_duration = 30;
+  $sss_duration = 15;
   if(GLOBAL_TST) {	
 	  echo "".$last."(lst)+".$sss_duration."=".($last +$sss_duration)." | crr".$current."|";
   }
@@ -32,7 +32,7 @@
 			echo "<script>refreshHeader();</script>";
 		else if($rfrshCtrlArcv) {
 			$Gget_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
-			echo "<script>refreshHeader();</script>";
+			echo "<script>refreshHeader();showControl($Gget_ID )</script>";
 		}
   }
 ?>

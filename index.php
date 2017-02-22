@@ -127,6 +127,7 @@
 		}
 
 		function returnBackTheArticle2in(idx, bp){
+			// alert(idx +"  " +bp);
 			$.ajax({
 				type: 'GET',
 				url: 'part/article.php?id='+idx+'&bgnpage='+bp,
@@ -220,6 +221,21 @@
 			success: function(data) {
 				$('article').html(data);
 				refreshHeader();
+			}
+		});
+	}
+
+	function showControl(idx, crrPage){
+		//alert(idx);
+		$.ajax({
+			type: 'GET',
+			url: 'part/control.php?<?php echo $sql_id ?>=' +idx +"&bgnpage=" +crrPage,
+			dataType : 'text',
+			error : function() {
+			  alert('Loading a process of control failed!');
+			},
+			success: function(data) {
+				$('#control').html(data);
 			}
 		});
 	}

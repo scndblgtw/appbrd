@@ -94,85 +94,31 @@
 	}
 ?>
 
-
-<div id="control">
-<?php
-	$refreshHdr = true;
-	require_once(__DIR__."/../isLogged.php");
-
-	$row_loginID = isset($row['loginID']) ? $row['loginID'] : "false";
-					
-	if(isset($isLogined) && $isLogined===true) {
-		if($loginID == $row_loginID) {
-		  echo '<a class="btn btn-success" id="ax_modify">수정</a>';
-		  // echo '<a href="./modify.php?id='.$Gget_ID.'&uid='.$user_id.'" class="btn btn-success">수정</a>';
-		  // echo '<a href="./delete.php?id='.$Gget_ID.'&uid='.$user_id.'" class="btn btn-success">삭제</a>';
-		  echo '<a class="btn btn-success" id="ax_delete">삭제</a>';
-		}
-		// echo '<a href="./write.php" class="btn btn-success" id="button_a_tag_align">쓰기</a>';
-		echo '<a class="btn btn-success" id="ax_write_float">쓰기</a>';
-		// echo '<a class="btn btn-success" id="button_a_tag_align">쓰기</a>';
-	}
-?>
+<div id="control">		
+	<script>
+		showControl(<?php echo $Gget_ID.', '.$crrPage ?>);
+		// $(function(){
+		// alert(555);
+			// $.ajax({
+				// type: 'GET',
+				// <?php echo "url: 'part/control.php'"?>,
+				// dataType : 'text',
+				// error : function() {
+				  // alert('Loading control failed!');
+				// },
+				// success: function(data) {
+				  // $('#control').html(data);
+				// }
+			// });
+		// })
+	</script>
 </div>
+
+
+	<script>
+
+	</script>
 	
-<script type="text/javascript">
-$(function(){
-	$("#ax_write_float").click(function(){
-		$.ajax({
-			type: 'GET',
-			url: <?php echo "'./write.php?id=".$Gget_ID."'" ?>,
-			// url: <?php //echo "'./write.php?id=".$Gget_ID."&uid=".$user_id."'" ?>,
-			// url: <?php //echo __DIR__."'/../delete.php?id=".$Gget_ID."&uid=".$user_id."'" ?>,
-			dataType : 'text',
-			error : function() {
-			  alert('Loading a process page of WRITE failed!');
-			},
-			success: function(data) {
-				$('article').html(data);
-			}
-		});
-	})	
-})
-$(function(){
-	$("#ax_modify").click(function(){
-		$.ajax({
-			type: 'GET',
-			url: <?php echo "'./modify.php?id=".$Gget_ID."&bgnpage=".$crrPage."'" ?>,
-			// url: <?php //echo "'./modify.php?id=".$Gget_ID."&uid=".$user_id."'" ?>,
-			// url: <?php //echo __DIR__."'/../delete.php?id=".$Gget_ID."&uid=".$user_id."'" ?>,
-			dataType : 'text',
-			error : function() {
-			  alert('Loading a process page of MODIFY failed!');
-			},
-			success: function(data) {
-				$('article').html(data);
-			}
-		});
-	})	
-})
-$(function(){
-	$("#ax_delete").click(function(){
-		$.ajax({
-			type: 'GET',
-			url: <?php echo "'./delete.php?id=".$Gget_ID."&bgnpage=".$crrPage."'" ?>,
-			// url: <?php //echo "'./delete.php?id=".$Gget_ID."&uid=".$user_id."'" ?>,
-			// url: <?php //echo __DIR__."'/../delete.php?id=".$Gget_ID."&uid=".$user_id."'" ?>,
-			dataType : 'text',
-			error : function() {
-			  alert('Loading a process page of DELETE failed!');
-			},
-			success: function(data) {
-				$('article').html(data);
-			}
-		});
-	})	
-})
-</script>
-
-
-
-
 <?php require(__DIR__."/../part/article_bottom.php"); ?>
 	
 	
