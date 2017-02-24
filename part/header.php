@@ -21,9 +21,7 @@
   
   session_start();
   $isLogined = isset($_SESSION['isLogined']) ? $_SESSION['isLogined'] : false;
-  // echo "[@header, *]isLogined=";  var_dump($isLogined);
   $loginID = isset($_SESSION['loginID']) ? $_SESSION['loginID'] : null;
-  // echo "[@header, *]loginID=";  var_dump($loginID);
   
   
   $sql_id = "id";

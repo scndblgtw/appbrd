@@ -109,7 +109,8 @@
 	
 	
   
-header("Location:$entry_ip/index.php?id=".$id);
+header("Location:$entry_ip/index.php?id=".$id);	//Should not reach here!
+echo "Should not reach here! @login_act.php"; exit;
 ?>
 
 

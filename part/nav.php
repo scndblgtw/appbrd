@@ -10,6 +10,12 @@
   
   
   $sql_id = "id";
+  
+  session_start();
+  $isLogined = isset($_SESSION['isLogined']) ? $_SESSION['isLogined'] : false;
+  if(GLOBAL_TST) {	echo "[]isLogined=";  var_dump($isLogined);	}
+  $loginID = isset($_SESSION['loginID']) ? $_SESSION['loginID'] : null;
+  if(GLOBAL_TST) {	echo ",loginID=";  var_dump($loginID);	}
 ?>
 	
 <script>
@@ -18,7 +24,7 @@ $(function(){
 	$("#tstResult").click(function(){
 		$.ajax({
 			type: 'GET',
-			url: 'part/nav_test.php?test=[- 312 -]',
+			url: 'part/nav_test.php?test=[- refreshHdr2 -]',
 			dataType : 'text',
 			error : function() {
 			  alert('Fail!!');

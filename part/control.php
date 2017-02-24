@@ -35,8 +35,9 @@
 ?>
 
 <?php
-	// $rfrshCtrlArcv = true;
-	// require_once(__DIR__."/../isLogged.php");
+	$refreshHdr = true;
+	require_once(__DIR__."/../isLogged.php");
+	echo "<br>";
 	
 	$row_loginID = isset($row['loginID']) ? $row['loginID'] : "false";
 					

@@ -226,7 +226,7 @@
 	}
 
 	function showControl(idx, crrPage){
-		//alert(idx);
+		// alert("showControl(" +idx +",  " +crrPage +")");
 		$.ajax({
 			type: 'GET',
 			url: 'part/control.php?<?php echo $sql_id ?>=' +idx +"&bgnpage=" +crrPage,

@@ -14,7 +14,7 @@
   $G_table_users = "users";
   
   // == crrPage @nav.php file
-  $crrPage = isset($_GET["bgnpage"]) ? $_GET["bgnpage"] : ""; // from nav.php
+  $crrPage = isset($_GET["bgnpage"]) ? $_GET["bgnpage"] : 0; // from nav.php
   if(GLOBAL_TST) {	echo ",bgnpage=".$crrPage;	}
     
   $LIMIT_PER_PAGE = 4; // from nav.php
@@ -90,7 +90,8 @@
 		// echo "<script>refreshNavMy()</script>";
 		
     } else {
-		echo "<br><br><br><br><h1>No article selected.</h1><br><br><br><br>";
+		echo "<br><br><br><br><h1>No article selected.</h1><br><br><br><br>";	//Should not reach here!
+		echo "Should not reach here! @article.php"; exit;
 	}
 ?>
 
