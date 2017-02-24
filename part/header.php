@@ -1,4 +1,6 @@
 <?php
+  // if(!defined('_DOOR_OPEN_')) { echo "_DOOR_OPEN_ is NO!"; exit; }
+  
   require_once(__DIR__."/../config/config.php");
   
   $Gget_action = isset($_GET["action"]) ? $_GET["action"] : "";

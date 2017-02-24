@@ -5,6 +5,8 @@
   require(__DIR__."/config/config.php");// require("./config/config.php");
   require(__DIR__."/lib/db.php");// require("lib/db.php");
 
+  // if(!defined('_DOOR_OPEN_')) { echo "_DOOR_OPEN_ is NO!"; exit; }
+  
   
   $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
     
