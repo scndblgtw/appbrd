@@ -4,8 +4,8 @@
   
   $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
   
-  $Gget_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
-  if(GLOBAL_TST) {	echo "[**]Gget_ID=";  var_dump($Gget_ID);	}
+  $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
+  if(GLOBAL_TST) {	echo "[**]GET_ID=";  var_dump($GET_ID);	}
   
   $G_table_appitems = "appitems";
   $G_table_users = "users";
@@ -26,8 +26,8 @@
   
   
   
-  	// if($Gget_ID == -5) {
-	  $sql = "SELECT ".$G_table_appitems.".id, title, loginID, description, user_id, created_date FROM ".$G_table_appitems." LEFT JOIN ".$G_table_users." ON ".$G_table_appitems.".user_id=".$G_table_users.".id WHERE ".$G_table_appitems.".id=".$Gget_ID;
+  	// if($GET_ID == -5) {
+	  $sql = "SELECT ".$G_table_appitems.".id, title, loginID, description, user_id, created_date FROM ".$G_table_appitems." LEFT JOIN ".$G_table_users." ON ".$G_table_appitems.".user_id=".$G_table_users.".id WHERE ".$G_table_appitems.".id=".$GET_ID;
 	  $result = mysqli_query($conn, $sql);
 	  $row = mysqli_fetch_assoc($result);
 	// }
@@ -54,12 +54,12 @@
 <script type="text/javascript">
 $(function(){
 	$("#ax_write_float").click(function(){
-		// alert(<?php echo "'./write.php?id=".$Gget_ID."'" ?>);
+		// alert(<?php echo "'./write.php?id=".$GET_ID."'" ?>);
 		$.ajax({
 			type: 'GET',
-			url: <?php echo "'./write.php?id=".$Gget_ID."'" ?>,
-			// url: <?php //echo "'./write.php?id=".$Gget_ID."&uid=".$user_id."'" ?>,
-			// url: <?php //echo __DIR__."'/../delete.php?id=".$Gget_ID."&uid=".$user_id."'" ?>,
+			url: <?php echo "'./write.php?id=".$GET_ID."'" ?>,
+			// url: <?php //echo "'./write.php?id=".$GET_ID."&uid=".$user_id."'" ?>,
+			// url: <?php //echo __DIR__."'/../delete.php?id=".$GET_ID."&uid=".$user_id."'" ?>,
 			dataType : 'text',
 			error : function() {
 			  alert('Loading a process page of WRITE failed!');
@@ -74,9 +74,9 @@ $(function(){
 	$("#ax_modify").click(function(){
 		$.ajax({
 			type: 'GET',
-			url: <?php echo "'./modify.php?id=".$Gget_ID."&bgnpage=".$crrPage."'" ?>,
-			// url: <?php //echo "'./modify.php?id=".$Gget_ID."&uid=".$user_id."'" ?>,
-			// url: <?php //echo __DIR__."'/../delete.php?id=".$Gget_ID."&uid=".$user_id."'" ?>,
+			url: <?php echo "'./modify.php?id=".$GET_ID."&bgnpage=".$crrPage."'" ?>,
+			// url: <?php //echo "'./modify.php?id=".$GET_ID."&uid=".$user_id."'" ?>,
+			// url: <?php //echo __DIR__."'/../delete.php?id=".$GET_ID."&uid=".$user_id."'" ?>,
 			dataType : 'text',
 			error : function() {
 			  alert('Loading a process page of MODIFY failed!');
@@ -91,9 +91,9 @@ $(function(){
 	$("#ax_delete").click(function(){
 		$.ajax({
 			type: 'GET',
-			url: <?php echo "'./delete.php?id=".$Gget_ID."&bgnpage=".$crrPage."'" ?>,
-			// url: <?php //echo "'./delete.php?id=".$Gget_ID."&uid=".$user_id."'" ?>,
-			// url: <?php //echo __DIR__."'/../delete.php?id=".$Gget_ID."&uid=".$user_id."'" ?>,
+			url: <?php echo "'./delete.php?id=".$GET_ID."&bgnpage=".$crrPage."'" ?>,
+			// url: <?php //echo "'./delete.php?id=".$GET_ID."&uid=".$user_id."'" ?>,
+			// url: <?php //echo __DIR__."'/../delete.php?id=".$GET_ID."&uid=".$user_id."'" ?>,
 			dataType : 'text',
 			error : function() {
 			  alert('Loading a process page of DELETE failed!');

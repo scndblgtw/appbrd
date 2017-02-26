@@ -32,8 +32,8 @@
 		else if($refreshHdr)
 			echo "<script>refreshHeader();</script>";
 		// else if($rfrshCtrlArcv) {
-			// $Gget_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
-			// echo "<script>refreshHeader();showControl($Gget_ID )</script>";	// infinite refeat for calling here
+			// $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
+			// echo "<script>refreshHeader();showControl($GET_ID )</script>";	// infinite refeat for calling here
 		// }
   }
 ?>

@@ -12,8 +12,8 @@
     
   
   
-  $Gget_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
-  if(GLOBAL_TST) {	echo "[]Gget_ID=";  var_dump($Gget_ID);	}
+  $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
+  if(GLOBAL_TST) {	echo "[]GET_ID=";  var_dump($GET_ID);	}
   
   $G_table_appitems = "appitems";
   $G_table_users = "users";
@@ -94,7 +94,7 @@
 			$(function(){
 				$.ajax({
 					type: 'GET',
-					<?php echo "url: 'part/article.php?{$sql_id}={$Gget_ID}'"?>,
+					<?php echo "url: 'part/article.php?{$sql_id}={$GET_ID}'"?>,
 					dataType : 'text',
 					error : function() {
 					  alert('Loading article failed!');
@@ -125,7 +125,7 @@
 
 	<script> 
 		function refreshHeader(){
-			$('header').load('part/header.php?id=<?php echo $Gget_ID ?>');	// load()으로 작동. //html()는 반응 없음.
+			$('header').load('part/header.php?id=<?php echo $GET_ID ?>');	// load()으로 작동. //html()는 반응 없음.
 		}
 
 		function returnBackTheArticle2in(idx, bp){
@@ -186,7 +186,7 @@
 		// alert("goToLoginForm()");
 		$.ajax({
 			type: 'GET',
-			url: <?php echo "'./login.php?{$sql_id}={$Gget_ID}'" ?>,
+			url: <?php echo "'./login.php?{$sql_id}={$GET_ID}'" ?>,
 			dataType : 'text',
 			error : function() {
 			  alert('Loading a process page of LOGIN failed!');
@@ -200,7 +200,7 @@
 	function gotoRegisterForm(){
 		$.ajax({
 			type: 'GET',
-			url: <?php echo "'./register.php?{$sql_id}={$Gget_ID}'" ?>,
+			url: <?php echo "'./register.php?{$sql_id}={$GET_ID}'" ?>,
 			dataType : 'text',
 			error : function() {
 			  alert('Loading a process page of REGISTER failed!');

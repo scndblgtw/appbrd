@@ -7,9 +7,9 @@
   // echo "'".__DIR__."/../login.php?action=1'<br>";
   // echo "'".__DIR__."\..\login.php?action=1'" ;
   
-  $Gget_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
-  //$Gget_ID = $_GET["id"];
-  //echo "[@header, *]Gget_ID=";  var_dump($Gget_ID);
+  $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
+  //$GET_ID = $_GET["id"];
+  //echo "[@header, *]GET_ID=";  var_dump($GET_ID);
   
   // $crrPage = isset($_GET["bgnpage"]) && $_GET["bgnpage"]!==0? $_GET["bgnpage"] : 0;
   // if(GLOBAL_TST) { echo $crrPage;	}
@@ -74,7 +74,7 @@
 		
 			  <a><?php if(GLOBAL_TST) {	echo "[]isLogined=";  var_dump($isLogined); echo ",loginID=";  var_dump($loginID);} ?></a>
 			  <div class="btn-group" roll="group">
-				<!-- <a class='btn btn-default'><?php //echo "[, *]Gget_ID=";  var_dump($Gget_ID);?></a> -->
+				<!-- <a class='btn btn-default'><?php //echo "[, *]GET_ID=";  var_dump($GET_ID);?></a> -->
 				<!-- <input type="button" value="white" id="white_btn" class="btn btn-default" /> -->
 				
 				<!-- <a class='btn btn-default'><?php //echo "[@header, *]isLogined=";  var_dump($isLogined); ?></a> -->

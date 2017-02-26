@@ -9,8 +9,8 @@
   // $conn = db_init();
   
   
-  $Gget_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
-  if(GLOBAL_TST) {	echo "[]Gget_ID=";  var_dump($Gget_ID);	}
+  $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
+  if(GLOBAL_TST) {	echo "[]GET_ID=";  var_dump($GET_ID);	}
 	
   $crrPage = isset($_GET["bgnpage"]) && $_GET["bgnpage"]!==0? $_GET["bgnpage"] : 0;
   if(GLOBAL_TST) {	echo ",bgnpage=".$crrPage;	}
@@ -67,7 +67,7 @@
       <input type="hidden" role="uploadcare-uploader" />
       <!-- <input type="submit" value="쓰기 완료" name="name" class="btn btn-success"> -->
       <input type="button" value="쓰기 완료" class="btn btn-success" onClick="submitWhatForm('write_act.php');">
-	  <input type="button" value="취소" class="btn btn-success" onClick="returnBackTheArticle2in(<?php echo $Gget_ID?>, <?php echo $crrPage ?>);">
+	  <input type="button" value="취소" class="btn btn-success" onClick="returnBackTheArticle2in(<?php echo $GET_ID?>, <?php echo $crrPage ?>);">
     </form>
 	
 	

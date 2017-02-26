@@ -4,8 +4,8 @@
   
   $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
   
-  $Gget_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
-  if(GLOBAL_TST) {	echo "[]Gget_ID=";  var_dump($Gget_ID);	}
+  $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
+  if(GLOBAL_TST) {	echo "[]GET_ID=";  var_dump($GET_ID);	}
   
   $Gget_rldNav = isset($_GET["rldNav"]) ? $_GET["rldNav"] : false;
   if(GLOBAL_TST) {	echo ",Gget_rldNav=";  var_dump($Gget_rldNav);	}
@@ -40,40 +40,40 @@
   
   
   
-	// echo "<br><br>_get[id]=".$Gget_ID."<br><br>";
-    if(empty($Gget_ID) === false){ // '===' is better than '=='
-		if		 ($Gget_ID == -6) {
+	// echo "<br><br>_get[id]=".$GET_ID."<br><br>";
+    if(empty($GET_ID) === false){ // '===' is better than '=='
+		if		 ($GET_ID == -6) {
 			// echo "<script>refreshNavMy()</script>";
 			echo "<br><br><br><br><h1>The article has been deleted.</h1><br><br><br><br>";
 			
-		} else if($Gget_ID == -4) {
+		} else if($GET_ID == -4) {
 			echo "<br><br><br><br><h1>You are logged out.</h1><br><br><br><br>";
 			
-		} else if($Gget_ID == -3) {
+		} else if($GET_ID == -3) {
 			echo "<br><br><br><br><h1>There is NO ID.</h1><br><br><br><br>";
 			
-		} else if($Gget_ID == -2) {
+		} else if($GET_ID == -2) {
 			echo "<br><br><br><br><h1>Password ERROR.</h1><br><br><br><br>";
 			
-		} else if($Gget_ID == -1) {
+		} else if($GET_ID == -1) {
 			echo "<br><br><br><br><h1>Welcome to log in.</h1><br><br><br><br>";
 			
 		} else {
 			
 			//Display the first item on each page of navi.
-			if($Gget_ID == -5) {
+			if($GET_ID == -5) {
 				$result = mysqli_query($conn, 'SELECT * FROM '.$G_table_appitems." ORDER BY created_date DESC LIMIT 1");
 				// $result = mysqli_query($conn, 'SELECT * FROM '.$G_table_appitems." ORDER BY created_date DESC LIMIT ".$crrPage.", 1");
 				$row = mysqli_fetch_assoc($result);
-				$Gget_ID = $row['id'];
+				$GET_ID = $row['id'];
 				
-				// echo '<script>alert("Gget_ID == -5");</script>';
+				// echo '<script>alert("GET_ID == -5");</script>';
 			}
 			
-		  // echo file_get_contents($Gget_ID.".txt");
+		  // echo file_get_contents($GET_ID.".txt");
 		  // $sql = "SELECT * FROM ".$G_table_appitems." WHERE id=";
-		  // $sql = "SELECT ".$G_table_appitems.".id, title, loginID, description, user_id, created_date FROM ".$G_table_appitems." LEFT JOIN ".$G_table_users." ON ".$G_table_appitems.".user_id=".$G_table_users.".id WHERE ".$G_table_appitems.".id=".$Gget_ID;
-		  $sql = "SELECT ".$G_table_appitems.".id, title, loginID, description, user_id, created_date FROM ".$G_table_appitems." LEFT JOIN ".$G_table_users." ON ".$G_table_appitems.".user_id=".$G_table_users.".id WHERE ".$G_table_appitems.".id=".$Gget_ID;
+		  // $sql = "SELECT ".$G_table_appitems.".id, title, loginID, description, user_id, created_date FROM ".$G_table_appitems." LEFT JOIN ".$G_table_users." ON ".$G_table_appitems.".user_id=".$G_table_users.".id WHERE ".$G_table_appitems.".id=".$GET_ID;
+		  $sql = "SELECT ".$G_table_appitems.".id, title, loginID, description, user_id, created_date FROM ".$G_table_appitems." LEFT JOIN ".$G_table_users." ON ".$G_table_appitems.".user_id=".$G_table_users.".id WHERE ".$G_table_appitems.".id=".$GET_ID;
 		  $result = mysqli_query($conn, $sql);
 		  $row = mysqli_fetch_assoc($result);
 		  echo '<h2>'.htmlspecialchars($row['title']).'</h2>';
@@ -97,7 +97,7 @@
 
 <div id="control">		
 	<script>
-		showControl(<?php echo $Gget_ID.', '.$crrPage ?>);
+		showControl(<?php echo $GET_ID.', '.$crrPage ?>);
 		// $(function(){
 		// alert(555);
 			// $.ajax({

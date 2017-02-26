@@ -24,7 +24,7 @@ $(function(){
 	$("#tstResult").click(function(){
 		$.ajax({
 			type: 'GET',
-			url: 'part/nav_test.php?test=[- 3b3b3b -]',
+			url: 'part/nav_test.php?test=[- quotation -]',
 			dataType : 'text',
 			error : function() {
 			  alert('Fail!!');

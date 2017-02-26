@@ -5,9 +5,9 @@
   // $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
 
   
-  $Gget_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
-  // $Gget_ID = $_GET["id"];
-  if(GLOBAL_TST) { echo "[, *]Gget_ID=";  var_dump($Gget_ID);	}
+  $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
+  // $GET_ID = $_GET["id"];
+  if(GLOBAL_TST) { echo "[, *]GET_ID=";  var_dump($GET_ID);	}
 	
   $Gget_AGAIN = isset($_GET["again"]) ? $_GET["again"] : "";
   //$G_table_appitems = "appitems";
@@ -45,7 +45,7 @@
     <input type="hidden" />
     <input type="button" value="로그인" class="btn btn-success" onClick="submitWhatForm('login_act.php');">
     <!-- <input type="submit" value="로그인" name="login" class="btn btn-success"> -->
-	<input type="button" value="취소" class="btn btn-success" onClick="returnBackTheArticle2in(<?php echo $Gget_ID ?>);">
+	<input type="button" value="취소" class="btn btn-success" onClick="returnBackTheArticle2in(<?php echo $GET_ID ?>);">
   
 	<!-- <a href="./register.php" class="btn btn-info">회원가입</a> -->
 	<input type="button" value="회원가입" class="btn btn-info" onClick="gotoRegisterForm();">

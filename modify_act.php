@@ -14,7 +14,7 @@
   // exit;
   
   $willUpdateId = $_POST['willUpdateId'];
-  $Gpost_ID = $_POST["id"];
+  $POST_ID = $_POST["id"];
   $G_table_appitems = "appitems";
   $G_table_users = "users";
 
