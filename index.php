@@ -39,6 +39,10 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
   <link rel="stylesheet" type="text/css" href="./style.css">
+  <!-- :::4me Generic page styles -->
+  <!-- <link rel="stylesheet" href="jQuery-File-Upload/css/style.css"> -->
+  <!-- :::4me CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+  <link rel="stylesheet" href="jQuery-File-Upload/css/jquery.fileupload.css">
 
   <!-- Bootstrap -->
   <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">

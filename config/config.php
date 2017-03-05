@@ -7,6 +7,6 @@ $config = array(
   "dname"=>"appbbs"
 );
 
-  define('GLOBAL_TST', true);
+  define('GLOBAL_TST', false);
   // define('_DOOR_OPEN_', true);	// Currently not used
 ?>
