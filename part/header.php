@@ -16,10 +16,10 @@
   
   
   
-  ini_set("session.gc_probability", 1);
-  ini_set("session.gc_divisor", 1);
-  ini_set("session.cache_expire", 10); 
-  ini_set("session.gc_maxlifetime", 10);
+  // ini_set("session.gc_probability", 1);
+  // ini_set("session.gc_divisor", 1);
+  // ini_set("session.cache_expire", 10); 
+  // ini_set("session.gc_maxlifetime", 10);
   
   session_start();
   $isLogined = isset($_SESSION['isLogined']) ? $_SESSION['isLogined'] : false;
