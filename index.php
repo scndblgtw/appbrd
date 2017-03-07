@@ -13,7 +13,7 @@
   
   
   $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
-  if(GLOBAL_TST) {	echo "[]GET_ID=";  var_dump($GET_ID);	}
+  if(GLOBAL_TST) {	echo "<span class='dev_val_color'> []GET_ID=";  var_dump($GET_ID);	echo "</span>"; }
   
   $G_table_appitems = "appitems";
   $G_table_users = "users";
@@ -67,9 +67,9 @@
 	</script>
 
 </head>
-<body id="target">		
-			
-	  
+<body id="target">
+	<?php  //if(GLOBAL_TST) {	echo "<span class='dev_val_color'> []GET_ID=";  var_dump($GET_ID);	echo "</span>"; } ?>
+  
     <div class="container-fluid">      
 	  <header class="row">
 		  <script type="text/javascript">

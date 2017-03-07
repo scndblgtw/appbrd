@@ -10,10 +10,10 @@
   
   
   $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
-  if(GLOBAL_TST) {	echo "[]GET_ID=";  var_dump($GET_ID);	}
+  if(GLOBAL_TST) {	echo "<span class='dev_val_color'> []GET_ID=";  var_dump($GET_ID);	}
 	
   $crrPage = isset($_GET["bgnpage"]) && $_GET["bgnpage"]!==0? $_GET["bgnpage"] : 0;
-  if(GLOBAL_TST) {	echo ",bgnpage=".$crrPage;	}
+  if(GLOBAL_TST) {	echo ", bgnpage=".$crrPage;	}
   
   
   $G_table_appitems = "appitems";
@@ -32,9 +32,9 @@
   
   session_start();
   $isLogined = isset($_SESSION['isLogined']) ? $_SESSION['isLogined'] : false;
-  if(GLOBAL_TST) {	echo "[]isLogined=";  var_dump($isLogined);	}
+  if(GLOBAL_TST) {	echo ", isLogined=";  var_dump($isLogined);	}
   $loginID = isset($_SESSION['loginID']) ? $_SESSION['loginID'] : null;
-  if(GLOBAL_TST) {	echo "[]loginID=";  var_dump($loginID);	}
+  if(GLOBAL_TST) {	echo ", loginID=";  var_dump($loginID);	echo "</span>"; }
   // $result = mysqli_query($conn, 'SELECT * FROM '.$G_table_appitems);
   // $row = mysqli_fetch_assoc($result);
   // var_dump($row);

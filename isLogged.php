@@ -4,7 +4,7 @@
   $current = time();
   $sss_duration = 60*30;
   if(GLOBAL_TST) {	
-	  echo "".$last."(lst)+".$sss_duration."=".($last +$sss_duration)." | crr".$current."|";
+	  echo "<span class='dev_val_color'>[]".$last."(lst)+".$sss_duration."=".($last +$sss_duration).", crr".$current;
   }
   
   
@@ -12,9 +12,9 @@
   
   if( $current < ($last +$sss_duration) && $isLogined === true) {
         $_SESSION['loginTime'] = time();
-	
+		echo "</span>";
   } else {
-		if(GLOBAL_TST){	echo "Sssn xprd|none.<br>";	}
+		if(GLOBAL_TST){	echo ", Sssn xprd, none.</span><br>";	}
 		$_SESSION['isLogined'] = false;
 		$isLogined = $_SESSION['isLogined'];
 		

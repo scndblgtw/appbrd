@@ -8,10 +8,10 @@
   
   
   $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
-  if(GLOBAL_TST) { echo "[]GET_ID=";  var_dump($GET_ID);	}
+  if(GLOBAL_TST) { echo "<span class='dev_val_color'> []GET_ID=";  var_dump($GET_ID);	}
 	
   $crrPage = isset($_GET["bgnpage"]) && $_GET["bgnpage"]!==0? $_GET["bgnpage"] : 0;
-  if(GLOBAL_TST) { echo ",bgnpage=".$crrPage;	}
+  if(GLOBAL_TST) { echo "[]bgnpage=".$crrPage;	echo "</span>"; }
   
   
   

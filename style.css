@@ -59,6 +59,10 @@ article {
   // color:red;
 }
 
+.dev_val_color {
+	color:orange;
+}
+
 .error_red {
 	color:red;
 }

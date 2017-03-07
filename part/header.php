@@ -72,7 +72,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
 		
-			  <a><?php if(GLOBAL_TST) {	echo "[]isLogined=";  var_dump($isLogined); echo ",loginID=";  var_dump($loginID);} ?></a>
+			  <a><?php if(GLOBAL_TST) {	echo "<span class='dev_val_color'> []isLogined="; var_dump($isLogined); echo ", loginID="; var_dump($loginID); echo "</span>"; } ?></a>
 			  <div class="btn-group" roll="group">
 				<!-- <a class='btn btn-default'><?php //echo "[, *]GET_ID=";  var_dump($GET_ID);?></a> -->
 				<!-- <input type="button" value="white" id="white_btn" class="btn btn-default" /> -->

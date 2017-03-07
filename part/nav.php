@@ -13,9 +13,9 @@
   
   session_start();
   $isLogined = isset($_SESSION['isLogined']) ? $_SESSION['isLogined'] : false;
-  if(GLOBAL_TST) {	echo "[]isLogined=";  var_dump($isLogined);	}
+  if(GLOBAL_TST) {	echo "<span class='dev_val_color'> []isLogined=";  var_dump($isLogined);	}
   $loginID = isset($_SESSION['loginID']) ? $_SESSION['loginID'] : null;
-  if(GLOBAL_TST) {	echo ",loginID=";  var_dump($loginID);	}
+  if(GLOBAL_TST) {	echo ", loginID=";  var_dump($loginID);	echo "</span>"; }
 ?>
 	
 <script>
@@ -24,7 +24,7 @@ $(function(){
 	$("#tstResult").click(function(){
 		$.ajax({
 			type: 'GET',
-			url: 'part/nav_test.php?test=[- 60*30 -]',
+			url: 'part/nav_test.php?test=[- span -]',
 			dataType : 'text',
 			error : function() {
 			  alert('Fail!!');
@@ -141,10 +141,10 @@ $(function(){
 	  }
 	  
 	  if(GLOBAL_TST) {	
-		  echo "<br><br><br>";
+		  echo "<br><br><br><span class='dev_val_color'>";
 		  echo "<span id='tstResult'>[*******]</span>"." | ttlItems= ".$row['total']."<br>";
 		  echo "ttlPages=".$totalPages." | ttlPagesRmn=".$totalPagesRemain."<br>";
-		  echo "crrPage= ".$crrPage." | crrPgGrp= ".$crrPgGrp."<br>";
+		  echo "crrPage= ".$crrPage." | crrPgGrp= ".$crrPgGrp."<br></span>";
 	  }
 	  
 	  // if($i > $totalPages-1) {	// 마지막 쪽을 넘길 경우 링크 삭제

@@ -5,17 +5,17 @@
   $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
   
   $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
-  if(GLOBAL_TST) {	echo "[]GET_ID=";  var_dump($GET_ID);	}
+  if(GLOBAL_TST) {	echo "<span class='dev_val_color'> []GET_ID=";  var_dump($GET_ID);	}
   
   $Gget_rldNav = isset($_GET["rldNav"]) ? $_GET["rldNav"] : false;
-  if(GLOBAL_TST) {	echo ",Gget_rldNav=";  var_dump($Gget_rldNav);	}
+  if(GLOBAL_TST) {	echo ", Gget_rldNav=";  var_dump($Gget_rldNav);	}
   
   $G_table_appitems = "appitems";
   $G_table_users = "users";
   
   // == crrPage @nav.php file
   $crrPage = isset($_GET["bgnpage"]) ? $_GET["bgnpage"] : 0; // from nav.php
-  if(GLOBAL_TST) {	echo ",bgnpage=".$crrPage;	}
+  if(GLOBAL_TST) {	echo ", bgnpage=".$crrPage;	}
     
   $LIMIT_PER_PAGE = 4; // from nav.php
 	
@@ -31,9 +31,9 @@
   
   session_start();
   $isLogined = isset($_SESSION['isLogined']) ? $_SESSION['isLogined'] : false;
-  if(GLOBAL_TST) {	echo ",isLogined=";  var_dump($isLogined);	}
+  if(GLOBAL_TST) {	echo ", isLogined=";  var_dump($isLogined);	}
   $loginID = isset($_SESSION['loginID']) ? $_SESSION['loginID'] : null;
-  if(GLOBAL_TST) {	echo ",loginID=";  var_dump($loginID);	}
+  if(GLOBAL_TST) {	echo ", loginID=";  var_dump($loginID);	echo "</span>"; }
   
 
   // exit;
