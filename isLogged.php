@@ -26,14 +26,10 @@
 		
 		$goLoginScr = isset($goLoginScr) ? $goLoginScr : false;
 		$refreshHdr = isset($refreshHdr) ? $refreshHdr : false;
-		// $rfrshCtrlArcv = isset($rfrshCtrlArcv) ? $rfrshCtrlArcv : false;
+		
 		if($goLoginScr)
 			echo "<script>refreshHeader();goToLoginForm();</script>";
 		else if($refreshHdr)
 			echo "<script>refreshHeader();</script>";
-		// else if($rfrshCtrlArcv) {
-			// $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
-			// echo "<script>refreshHeader();showControl($GET_ID )</script>";	// infinite refeat for calling here
-		// }
   }
 ?>

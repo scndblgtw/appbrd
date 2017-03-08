@@ -64,6 +64,10 @@
 			}
 		});
 	}
+	
+	function refreshHeader(){
+		$('header').load('part/header.php?id=<?php echo $GET_ID ?>');	// load()으로 작동. //html()는 반응 없음.
+	}
 	</script>
 
 </head>
@@ -72,20 +76,8 @@
   
     <div class="container-fluid">      
 	  <header class="row">
-		  <script type="text/javascript">
-		  $(function(){
-			$.ajax({
-				type: 'GET',
-				<?php echo "url: 'part/header.php'"?>,
-				dataType : 'text',
-				error : function() {
-				  alert('Loading HEADER failed!');
-				},
-				success: function(data) {
-				  $('header').html(data);
-				}
-			});
-		  })
+		  <script type="text/javascript">		  
+			refreshHeader();
 		  </script>
 	  </header>
 
@@ -129,9 +121,9 @@
 	<script src="./lib/jsIndex.js"></script>
 
 	<script> 
-		function refreshHeader(){
-			$('header').load('part/header.php?id=<?php echo $GET_ID ?>');	// load()으로 작동. //html()는 반응 없음.
-		}
+		// function refreshHeader(){
+			// $('header').load('part/header.php?id=<?php echo $GET_ID ?>');	// load()으로 작동. //html()는 반응 없음.
+		// }
 
 		function returnBackTheArticle2in(idx, bp){
 			// alert(idx +"  " +bp);
