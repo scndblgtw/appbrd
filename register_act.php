@@ -35,7 +35,7 @@
 	  echo "<br>The ID ".$loginID." OK.<br>";
 	  
 		if($loginPW == $loginPWcf) {
-		  echo "<br>[OK]Two passwords are the same.<br>";			
+		  // echo "<br>[OK]Two passwords are the same.<br>";			
 		  $sql = "INSERT INTO ".$G_table_users."(loginID, nameNic, loginPW, joined_date) VALUES('".$loginID."', '".$nameNic."', '".$loginPW."', now())";
 		  mysqli_query($conn, $sql);
   

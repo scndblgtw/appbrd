@@ -48,71 +48,22 @@
   <!-- Bootstrap -->
   <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-  
-	
-	<script>
-	function refreshNavMy(nextHori){
-		$.ajax({
-			type: 'GET',
-			url: "part/nav.php?bgnpage=" +nextHori,
-			dataType : 'text',
-			error : function() {
-			alert('Loading article failed!');
-			},
-			success: function(data) {
-				$('nav#mymy').html(data);
-			}
-		});
-	}
-	
-	function refreshHeader(){
-		$('header').load('part/header.php?id=<?php echo $GET_ID ?>');	// load()으로 작동. //html()는 반응 없음.
-	}
-	</script>
 
 </head>
 <body id="target">
-	<?php  //if(GLOBAL_TST) {	echo "<span class='dev_val_color'> []GET_ID=";  var_dump($GET_ID);	echo "</span>"; } ?>
-  
     <div class="container-fluid">      
 	  <header class="row">
-		  <script type="text/javascript">		  
-			refreshHeader();
-		  </script>
 	  </header>
 
-
       <!-- Start. row 4 TW-Bootstrap -->
-      <div class="row">
-		
+      <div class="row">		
 		<div class="col-md-9">
-          <article>		  
-			<script>
-			$(function(){
-				$.ajax({
-					type: 'GET',
-					<?php echo "url: 'part/article.php?{$sql_id}={$GET_ID}'"?>,
-					dataType : 'text',
-					error : function() {
-					  alert('Loading article failed!');
-					},
-					success: function(data) {
-						$('article').html(data);
-					}
-				});
-			})
-			</script>
+          <article>
           </article>
         </div>
 		
-
-	  
-		<nav class="col-md-3" id="mymy">			
-			<script>
-			refreshNavMy();
-			</script>
-		</nav>
-		
+		<nav class="col-md-3" id="mymy">
+		</nav>		
       </div>
     </div>
 
@@ -121,24 +72,24 @@
 	<script src="./lib/jsIndex.js"></script>
 
 	<script> 
-		// function refreshHeader(){
-			// $('header').load('part/header.php?id=<?php echo $GET_ID ?>');	// load()으로 작동. //html()는 반응 없음.
-		// }
+	function refreshHeader(){
+		$('header').load('part/header.php?id=<?php echo $GET_ID ?>');	// load()으로 작동. //html()는 반응 없음.
+	}
 
-		function returnBackTheArticle2in(idx, bp){
-			// alert(idx +"  " +bp);
-			$.ajax({
-				type: 'GET',
-				url: 'part/article.php?id='+idx+'&bgnpage='+bp,
-				dataType : 'text',
-				error : function() {
-				  alert('Fail!!');
-				},
-				success: function(data) {
-					$('article').html(data);	//load()는 반응 없음.
-				}
-			});
-		}
+	function returnBackTheArticle2in(idx, bp){
+		// alert(idx +"  " +bp);
+		$.ajax({
+			type: 'GET',
+			url: 'part/article.php?id='+idx+'&bgnpage='+bp,
+			dataType : 'text',
+			error : function() {
+			  alert('Fail!!');
+			},
+			success: function(data) {
+				$('article').html(data);	//load()는 반응 없음.
+			}
+		});
+	}
 		
 
 	function submitWhatForm(whatProcess, cPg){
@@ -238,12 +189,30 @@
 			}
 		});
 	}
+	
+	function refreshNavMy(nextHori){
+		$.ajax({
+			type: 'GET',
+			url: "part/nav.php?bgnpage=" +nextHori,
+			dataType : 'text',
+			error : function() {
+			alert('Loading article failed!');
+			},
+			success: function(data) {
+				$('nav#mymy').html(data);
+			}
+		});
+	}
+	
+	refreshHeader();
+	$('article').load("part/article.php?");	
+	refreshNavMy();
+	
 	</script>
     <!-- End. row 4 TW-Bootstrap -->
 
 	<?php require("part/body_bottom.php"); ?>
 
-		
   
   
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
