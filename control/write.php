@@ -2,8 +2,8 @@
   // echo __DIR__."<br>";				// C:\Bitnami\wampstack-5.6.28-1\apache2\htdocs\appbrd
   // echo __FILE__."<BR>";				// C:\Bitnami\wampstack-5.6.28-1\apache2\htdocs\appbrd\index.php
   // echo dirname(__FILE__)."<BR>";	// C:\Bitnami\wampstack-5.6.28-1\apache2\htdocs\appbrd
-  require(__DIR__."/config/config.php");
-  require(__DIR__."/lib/db.php");
+  require(__DIR__."/../config/config.php");
+  require(__DIR__."/../lib/db.php");
   $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
   // $conn = db_init("localhost", "root", "987654321", "opentutorials");
   // $conn = db_init();
@@ -41,7 +41,7 @@
   // echo '---';
   
   $goLoginScr = true;
-  require_once(__DIR__."/./isLogged.php");
+  require_once(__DIR__."/../isLogged.php");
 ?>
 
 
@@ -66,7 +66,7 @@
 
       <input type="hidden" role="uploadcare-uploader" />
       <!-- <input type="submit" value="쓰기 완료" name="name" class="btn btn-success"> -->
-      <input type="button" value="쓰기 완료" class="btn btn-success" onClick="submitWhatForm('write_act.php');">
+      <input type="button" value="쓰기 완료" class="btn btn-success" onClick="submitWhatForm('control/write_act.php');">
 	  <input type="button" value="취소" class="btn btn-success" onClick="returnBackTheArticle2in(<?php echo $GET_ID?>, <?php echo $crrPage ?>);">
     </form>
 	

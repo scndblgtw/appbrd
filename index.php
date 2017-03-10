@@ -90,7 +90,6 @@
 			}
 		});
 	}
-		
 
 	function submitWhatForm(whatProcess, cPg){
 		// sUrl= './' +whatProcess +'?bgnpage=' +cPg;

@@ -1,7 +1,7 @@
 ﻿<div>
   <?php
-	require(__DIR__."/config/config.php");
-	require(__DIR__."/lib/db.php");
+	require(__DIR__."/../config/config.php");
+	require(__DIR__."/../lib/db.php");
 	$conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
   
   
@@ -42,7 +42,7 @@
   }
   
     $goLoginScr = true;
-    require_once(__DIR__."/./isLogged.php");
+    require_once(__DIR__."/../isLogged.php");
   ?>
 </div>
 
@@ -61,7 +61,7 @@
 	?>
 	
 	<input type="hidden" role="uploadcare-uploader" />
-	<input type="button" value="예" class="btn btn-success" onClick="submitWhatForm('delete_act.php', <?php echo $crrPage ?>);">
+	<input type="button" value="예" class="btn btn-success" onClick="submitWhatForm('control/delete_act.php', <?php echo $crrPage ?>);">
 	<!-- <input type="submit" value="예" name="notYet" class="btn btn-success"> -->
 	<!-- <input type="button" value="취소" class="btn btn-success" onClick="history.back();"> -->
 	<input type="button" value="취소" class="btn btn-success" onClick="returnBackTheArticle2in(<?php echo $GET_ID?>, <?php echo $crrPage ?>);">

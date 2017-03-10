@@ -54,11 +54,11 @@
 <script type="text/javascript">
 $(function(){
 	$("#ax_write_float").click(function(){
-		// alert(<?php echo "'./write.php?id=".$GET_ID."'" ?>);
+		// alert(<?php echo "'./control/write.php?id=".$GET_ID."'" ?>);
 		$.ajax({
 			type: 'GET',
-			url: <?php echo "'./write.php?id=".$GET_ID."'" ?>,
-			// url: <?php //echo "'./write.php?id=".$GET_ID."&uid=".$user_id."'" ?>,
+			url: <?php echo "'./control/write.php?id=".$GET_ID."'" ?>,
+			// url: <?php //echo "'./control/write.php?id=".$GET_ID."&uid=".$user_id."'" ?>,
 			// url: <?php //echo __DIR__."'/../delete.php?id=".$GET_ID."&uid=".$user_id."'" ?>,
 			dataType : 'text',
 			error : function() {
@@ -74,7 +74,7 @@ $(function(){
 	$("#ax_modify").click(function(){
 		$.ajax({
 			type: 'GET',
-			url: <?php echo "'./modify.php?id=".$GET_ID."&bgnpage=".$crrPage."'" ?>,
+			url: <?php echo "'./control/modify.php?id=".$GET_ID."&bgnpage=".$crrPage."'" ?>,
 			// url: <?php //echo "'./modify.php?id=".$GET_ID."&uid=".$user_id."'" ?>,
 			// url: <?php //echo __DIR__."'/../delete.php?id=".$GET_ID."&uid=".$user_id."'" ?>,
 			dataType : 'text',
@@ -91,7 +91,7 @@ $(function(){
 	$("#ax_delete").click(function(){
 		$.ajax({
 			type: 'GET',
-			url: <?php echo "'./delete.php?id=".$GET_ID."&bgnpage=".$crrPage."'" ?>,
+			url: <?php echo "'./control/delete.php?id=".$GET_ID."&bgnpage=".$crrPage."'" ?>,
 			// url: <?php //echo "'./delete.php?id=".$GET_ID."&uid=".$user_id."'" ?>,
 			// url: <?php //echo __DIR__."'/../delete.php?id=".$GET_ID."&uid=".$user_id."'" ?>,
 			dataType : 'text',
