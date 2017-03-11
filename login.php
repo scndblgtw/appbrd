@@ -48,7 +48,7 @@
 	<input type="button" value="취소" class="btn btn-success" onClick="returnBackTheArticle2in(<?php echo $GET_ID ?>);">
   
 	<!-- <a href="./register.php" class="btn btn-info">회원가입</a> -->
-	<input type="button" value="회원가입" class="btn btn-info" onClick="gotoRegisterForm();">
+	<input type="button" value="회원가입" class="btn btn-info" onClick="goLoginForm('register.php');">
   </form>
 
 

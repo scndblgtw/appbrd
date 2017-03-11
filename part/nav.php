@@ -24,7 +24,7 @@ $(function(){
 	$("#tstResult").click(function(){
 		$.ajax({
 			type: 'GET',
-			url: 'part/nav_test.php?test=[- no . -]',
+			url: 'part/nav_test.php?test=[- goLoginForm -]',
 			dataType : 'text',
 			error : function() {
 			  alert('Fail!!');

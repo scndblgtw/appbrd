@@ -105,16 +105,15 @@
 			  <div class="btn-group" roll="group">
 			  <?php
 				if($isLogined == true) {
-					// echo "<a class='btn btn-default'>[$loginID]</a>";
-					echo '<a class="btn btn-warning" onClick="logoutSession();">Logout</a>';
+					echo '<a class="btn btn-warning" onClick="goLoginForm('."'logout_act.php'".');">Logout</a>';
 				} else {
 				  if($Gget_action == 1) {
-					//echo '<li><a href="./login.php?action=1" class="btn btn-info">Login</a></li>';
+					  
 				  }else if($Gget_action == 2){
-					//echo '<li><a href="./register.php?action=2" class="btn btn-info">회원가입</a></li>';
+
 				  }else {
-					echo '<a class="btn btn-success" onClick="goToLoginForm();">Login</a>';
-					echo '<a class="btn btn-info" onClick="gotoRegisterForm();">회원가입</a>';
+					echo '<a class="btn btn-success" onClick="goLoginForm('."'login.php'".')">Login</a>';
+					echo '<a class="btn btn-info" onClick="goLoginForm('."'register.php'".');">회원가입</a>';
 				  }
 				}
 			  ?>

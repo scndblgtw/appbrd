@@ -28,7 +28,7 @@
 		$refreshHdr = isset($refreshHdr) ? $refreshHdr : false;
 		
 		if($goLoginScr)
-			echo "<script>refreshHeader();goToLoginForm();</script>";
+			echo "<script>refreshHeader();goLoginForm('login.php');</script>";
 		else if($refreshHdr)
 			echo "<script>refreshHeader();</script>";
   }

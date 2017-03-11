@@ -127,52 +127,20 @@
 		});
 	}
 	
-	
-	
-	function goToLoginForm(){
-		// alert("goToLoginForm()");
+	function goLoginForm(whatProcess){	//goToLoginForm, gotoRegisterForm, logoutSession
 		$.ajax({
 			type: 'GET',
-			url: <?php echo "'./login.php?{$sql_id}={$GET_ID}'" ?>,
+			url: './' +whatProcess +<?php echo "'?{$sql_id}={$GET_ID}'" ?>,
 			dataType : 'text',
 			error : function() {
-			  alert('Loading a process page of LOGIN failed!');
+			  alert('Loading a process page of ' +whatProcess +' failed!');
 			},
 			success: function(data) {
 				$('article').html(data);
+				if(whatProcess === 'logout_act.php') refreshHeader();
 			}
 		});
 	}	
-
-	function gotoRegisterForm(){
-		$.ajax({
-			type: 'GET',
-			url: <?php echo "'./register.php?{$sql_id}={$GET_ID}'" ?>,
-			dataType : 'text',
-			error : function() {
-			  alert('Loading a process page of REGISTER failed!');
-			},
-			success: function(data) {
-				$('article').html(data);
-			}
-		});
-	}
-	
-	function logoutSession(){
-		$.ajax({
-			type: 'GET',
-			// url: <?php echo "'".__DIR__."\..\login.php?action=1'" ?>,
-			url: <?php echo "'./logout_act.php'" ?>,
-			dataType : 'text',
-			error : function() {
-			  alert('Loading a process of LOGOUT failed!');
-			},
-			success: function(data) {
-				$('article').html(data);
-				refreshHeader();
-			}
-		});
-	}
 
 	function showControl(idx, crrPage){
 		// alert("showControl(" +idx +",  " +crrPage +")");
