@@ -2,8 +2,8 @@
   // echo __DIR__."<br>";				// C:\Bitnami\wampstack-5.6.28-1\apache2\htdocs\appbrd
   // echo __FILE__."<BR>";				// C:\Bitnami\wampstack-5.6.28-1\apache2\htdocs\appbrd\index.php
   // echo dirname(__FILE__)."<BR>";	// C:\Bitnami\wampstack-5.6.28-1\apache2\htdocs\appbrd
-  require(__DIR__."/config/config.php");// require("./config/config.php");
-  require(__DIR__."/lib/db.php");// require("lib/db.php");
+  require(__DIR__."/misc/config.php");// require("./misc/config.php");
+  require(__DIR__."/misc/db.php");// require("lib/db.php");
 
   // if(!defined('_DOOR_OPEN_')) { echo "_DOOR_OPEN_ is NO!"; exit; }
   
@@ -39,7 +39,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-  <link rel="stylesheet" type="text/css" href="./style.css">
+  <link rel="stylesheet" type="text/css" href="./misc/style.css">
   <!-- :::4me Generic page styles -->
   <!-- <link rel="stylesheet" href="jQuery-File-Upload/css/style.css"> -->
   <!-- :::4me CSS to style the file input field as button and adjust the Bootstrap progress bars -->
@@ -69,7 +69,7 @@
 
 
 	<!-- <script src="./script/jsIndex.js"></script> -->
-	<script src="./lib/jsIndex.js"></script>
+	<script src="./misc/jsIndex.js"></script>
 
 	<script> 
 	function refreshHeader(){

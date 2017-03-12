@@ -1,6 +1,6 @@
 ﻿<?php
-  require(__DIR__."/../config/config.php");
-  require(__DIR__."/../lib/db.php");
+  require(__DIR__."/../misc/config.php");
+  require(__DIR__."/../misc/db.php");
   
   $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
   

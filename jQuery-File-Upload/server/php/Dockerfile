@@ -34,5 +34,5 @@ RUN DEBIAN_FRONTEND=noninteractive \
     /tmp/* \
     /usr/share/doc/* \
     /var/cache/* \
-    /var/lib/apt/lists/* \
+    /var/misc/apt/lists/* \
     /var/tmp/*

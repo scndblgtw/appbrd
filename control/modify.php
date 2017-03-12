@@ -2,8 +2,8 @@
   // echo __DIR__."<br>";				// C:\Bitnami\wampstack-5.6.28-1\apache2\htdocs\appbrd
   // echo __FILE__."<BR>";				// C:\Bitnami\wampstack-5.6.28-1\apache2\htdocs\appbrd\index.php
   // echo dirname(__FILE__)."<BR>";	// C:\Bitnami\wampstack-5.6.28-1\apache2\htdocs\appbrd
-  require(__DIR__."/../config/config.php");
-  require(__DIR__."/../lib/db.php");
+  require(__DIR__."/../misc/config.php");
+  require(__DIR__."/../misc/db.php");
   $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
   
   
