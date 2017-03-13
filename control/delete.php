@@ -1,37 +1,29 @@
 ﻿<div>
-  <?php
+<?php
 	require(__DIR__."/../misc/config.php");
 	require(__DIR__."/../misc/db.php");
 	$conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
   
   
-    $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
+	$GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
 	if(GLOBAL_TST) {	echo "<span class='dev_val_color'> []GET_ID=";  var_dump($GET_ID);	}
 	
 	$crrPage = isset($_GET["bgnpage"]) && $_GET["bgnpage"]!==0? $_GET["bgnpage"] : 0;
-    if(GLOBAL_TST) {	echo ", bgnpage=".$crrPage;	}
+	if(GLOBAL_TST) {	echo ", bgnpage=".$crrPage;	}
 	
 	
 	$G_table_appitems = "appitems";
 	$G_table_users = "users";
   
-  // ini_set("session.gc_probability", 1);
-  // ini_set("session.gc_divisor", 1);
-  // ini_set("session.cache_expire", 10); 
-  // ini_set("session.gc_maxlifetime", 10);
-  
 	session_start();
 	$isLogined = isset($_SESSION['isLogined']) ? $_SESSION['isLogined'] : false;
-    if(GLOBAL_TST) {	echo ", isLogined=";  var_dump($isLogined);	}
-    $loginID = isset($_SESSION['loginID']) ? $_SESSION['loginID'] : null;
-    if(GLOBAL_TST) {	echo ", loginID=";  var_dump($loginID);	echo "</span>"; }
+	if(GLOBAL_TST) {	echo ", isLogined=";  var_dump($isLogined);	}
+	$loginID = isset($_SESSION['loginID']) ? $_SESSION['loginID'] : null;
+	if(GLOBAL_TST) {	echo ", loginID=";  var_dump($loginID);	echo "</span>"; }
   
   
   if(empty($GET_ID) === false){ // '===' is better than '=='
-    // echo file_get_contents($GET_ID.".txt");
-    // $sql = "SELECT * FROM ".$G_table_appitems." WHERE id=";
     $sql = "SELECT ".$G_table_appitems.".id, title, loginID, description FROM ".$G_table_appitems." LEFT JOIN ".$G_table_users." ON ".$G_table_appitems.".user_id=".$G_table_users.".id WHERE ".$G_table_appitems.".id=".$GET_ID;
-    // $sql = "SELECT ".$G_table_appitems.".id, title, loginID, description FROM ".$G_table_appitems." WHERE ".$G_table_appitems.".id=".$GET_ID;
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
     echo '<h2>'.htmlspecialchars($row['title']).'</h2>';
@@ -41,9 +33,9 @@
     echo 'No artice!';
   }
   
-    $goLoginScr = true;
-    require_once(__DIR__."/../isLogged.php");
-  ?>
+	$goLoginScr = true;
+	require_once(__DIR__."/../isLogged.php");
+?>
 </div>
 
 <br><br>	
@@ -57,17 +49,9 @@
 	
 	<?php
     echo '<input type="hidden" size="2" name="willDeleteId"  value="'.$GET_ID.'">'."\n";
-	//echo '<input type="hidden" size="2" name="uid"  value="'.$Gget_user_id.'">'."\n";
 	?>
 	
 	<input type="hidden" role="uploadcare-uploader" />
 	<input type="button" value="예" class="btn btn-success" onClick="submitWhatForm('control/delete_act.php', <?php echo $crrPage ?>);">
-	<!-- <input type="submit" value="예" name="notYet" class="btn btn-success"> -->
-	<!-- <input type="button" value="취소" class="btn btn-success" onClick="history.back();"> -->
 	<input type="button" value="취소" class="btn btn-success" onClick="returnBackTheArticle2in(<?php echo $GET_ID?>, <?php echo $crrPage ?>);">
-	<!-- <input type="button" value="취소" class="btn btn-success" onClick="$('article').load('article.php', {id:<?php echo $GET_ID ?>});"> -->
-	<!-- <input type="button" value="취소" class="btn btn-success" onClick="$('article').load('article.php?id=<?php echo $GET_ID ?>');"> -->
 </form>
-
-<script>
-</script>

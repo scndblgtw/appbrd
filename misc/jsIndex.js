@@ -1,4 +1,3 @@
-
 function refreshHeader(){
 	$('header').load('part/header.php');
 }

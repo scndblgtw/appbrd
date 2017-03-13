@@ -14,14 +14,15 @@
         $_SESSION['loginTime'] = time();
 		echo "</span>";
   } else {
+		
 		if(GLOBAL_TST){	echo ", Sssn xprd, none.</span><br>";	}
 		$_SESSION['isLogined'] = false;
 		$isLogined = $_SESSION['isLogined'];
 		
-        $_SESSION['loginID'] = null;
+		$_SESSION['loginID'] = null;
 		$loginID = $_SESSION['loginID'];
 		
-        $_SESSION['loginTime'] = null;
+		$_SESSION['loginTime'] = null;
 		
 		
 		$goLoginScr = isset($goLoginScr) ? $goLoginScr : false;

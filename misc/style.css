@@ -10,16 +10,6 @@ body.black{
   background-color:black;
   color:white;
 }
-/* header { NOT-WORKING */
-  /* border:green 5px solid; */
-  /* margin-left:20px; */
-  /* margin-right:20px;	 */
-/* } */
-
-/*header img{
-  float:right;
-  width: 100px;
-}*/
 
 #ax_write_float {
 	float: right;
@@ -68,29 +58,29 @@ article {
 }
 
 .header_item_solid {
-       border:green 5px solid;
-       padding:10px;
-       margin:10px;
+	border:green 5px solid;
+	padding:10px;
+	margin:10px;
 }
 
 .header_item_dotted {
-       border:green 5px dotted;
-       padding:10px;
-       margin:10px;
+	border:green 5px dotted;
+	padding:10px;
+	margin:10px;
 }
 
 .header_item_dotted_yellow {
-       border:yellow 5px dotted;
-       padding:10px;
-       margin:10px;
+	border:yellow 5px dotted;
+	padding:10px;
+	margin:10px;
 }
 
 .header_item_solid_tomato {
-       border:tomato 5px solid;
-       padding:10px;
-       margin:10px;
+	border:tomato 5px solid;
+	padding:10px;
+	margin:10px;
 }
 
 #logo{
-  width:100px;
+	width:100px;
 }

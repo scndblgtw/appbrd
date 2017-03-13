@@ -1,16 +1,7 @@
 <?php
-  // echo __DIR__."<br>";				// C:\Bitnami\wampstack-5.6.28-1\apache2\htdocs\appbrd
-  // echo __FILE__."<BR>";				// C:\Bitnami\wampstack-5.6.28-1\apache2\htdocs\appbrd\index.php
-  // echo dirname(__FILE__)."<BR>";	// C:\Bitnami\wampstack-5.6.28-1\apache2\htdocs\appbrd
   require(__DIR__."/misc/config.php");
   require(__DIR__."/misc/db.php");
   $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
-
-
-  // ini_set("session.gc_probability", 1);
-  // ini_set("session.gc_divisor", 1);
-  // ini_set("session.cache_expire", 10); 
-  // ini_set("session.gc_maxlifetime", 10);
   
   session_start();
   
@@ -20,10 +11,9 @@
 	$loginPW = mysqli_real_escape_string($conn, $_POST['loginPW']);
 	$loginPWcf = mysqli_real_escape_string($conn, $_POST['loginPWcf']);
 	
-    $G_table_users = "users";
+	$G_table_users = "users";
 
 	
-	// $sql = "SELECT id, nameNic, loginPW FROM ".$G_table_users." WHERE loginID='$loginID'";  //????????
 	$sql = "SELECT id, nameNic, loginPW FROM ".$G_table_users." WHERE loginID='".$loginID."'";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_assoc($result);
@@ -52,5 +42,5 @@
 		exit;
 	}
 	
-header("Location:$entry_ip/register.php?id=".$id);
+	header("Location:$entry_ip/register.php?id=".$id);
 ?>

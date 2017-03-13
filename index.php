@@ -1,20 +1,11 @@
 ﻿<?php
-  // echo __DIR__."<br>";				// C:\Bitnami\wampstack-5.6.28-1\apache2\htdocs\appbrd
-  // echo __FILE__."<BR>";				// C:\Bitnami\wampstack-5.6.28-1\apache2\htdocs\appbrd\index.php
-  // echo dirname(__FILE__)."<BR>";	// C:\Bitnami\wampstack-5.6.28-1\apache2\htdocs\appbrd
   require(__DIR__."/misc/config.php");// require("./misc/config.php");
   require(__DIR__."/misc/db.php");// require("lib/db.php");
-
-  // if(!defined('_DOOR_OPEN_')) { echo "_DOOR_OPEN_ is NO!"; exit; }
-  
+ 
   
   $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
     
-  
-  
-  $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
-  if(GLOBAL_TST) {	echo "<span class='dev_val_color'> []GET_ID=";  var_dump($GET_ID);	echo "</span>"; }
-  
+   
   $G_table_appitems = "appitems";
   $G_table_users = "users";
   
@@ -51,24 +42,24 @@
 
 </head>
 <body id="target">
-    <div class="container-fluid">      
-	  <header class="row">
-	  </header>
-
-      <!-- Start. row 4 TW-Bootstrap -->
-      <div class="row">		
-		<div class="col-md-9">
-          <article>
-          </article>
-        </div>
+	<div class="container-fluid">      
+		<header class="row">
+		</header>
+	
+		<!-- Start. row 4 TW-Bootstrap -->
+		<div class="row">		
+			<div class="col-md-9">
+				<article>
+				</article>
+			</div>
 		
-		<nav class="col-md-3" id="mymy">
-		</nav>		
-      </div>
-    </div>
+			<nav class="col-md-3" id="mymy">
+			</nav>		
+		</div>
+	</div>
 
 	<script src="./misc/jsIndex.js"></script>
-    <!-- End. row 4 TW-Bootstrap -->
+	<!-- End. row 4 TW-Bootstrap -->
 
 	
 	
@@ -76,10 +67,10 @@
 
   
   
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="./bootstrap/js/bootstrap.min.js"></script>  
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="./bootstrap/js/bootstrap.min.js"></script>  
 
 </body>
 </html>

@@ -1,7 +1,4 @@
 ﻿<?php
-  // echo __DIR__."<br>";				// C:\Bitnami\wampstack-5.6.28-1\apache2\htdocs\appbrd
-  // echo __FILE__."<BR>";				// C:\Bitnami\wampstack-5.6.28-1\apache2\htdocs\appbrd\index.php
-  // echo dirname(__FILE__)."<BR>";	// C:\Bitnami\wampstack-5.6.28-1\apache2\htdocs\appbrd
   require(__DIR__."/../misc/config.php");
   require(__DIR__."/../misc/db.php");
   $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
@@ -22,10 +19,6 @@
   
   $sql_id = "id";
   
-  // ini_set("session.gc_probability", 1);
-  // ini_set("session.gc_divisor", 1);
-  // ini_set("session.cache_expire", 10); 
-  // ini_set("session.gc_maxlifetime", 10);
   
   session_start();
   $isLogined = $_SESSION['isLogined'];
@@ -35,7 +28,6 @@
     echo "<br><a class='error_red'>[X] The article which will be modified is None.</a><br>";
     exit;
   } else {
-    // $sql = "SELECT ".$G_table_appitems.".id, title, loginID, description FROM ".$G_table_appitems." LEFT JOIN ".$G_table_users." ON ".$G_table_appitems.".user_id=".$G_table_users.".id WHERE ".$G_table_appitems.".id=".$GET_ID;
     $sql = "SELECT ".$G_table_appitems.".id, title, description FROM ".$G_table_appitems." WHERE ".$G_table_appitems.".id=".$GET_ID;
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
@@ -49,7 +41,6 @@
 <form class="" name="whatForm">
   <div class="form-group">
     <label for="form-title">제목:</label>
-    <!-- <input type="text" class="form-control" name="title" id="form-title" value=<?php //echo "'".htmlspecialchars($row['title'])."'"?>> -->
     <input type="text" class="form-control" name="title" id="form-title" value=<?php echo '"'.htmlspecialchars($row['title']).'"'?>>
   </div>
 
@@ -68,10 +59,6 @@
   ?>
   
   <input type="hidden" role="uploadcare-uploader" />
-  <!-- <input type="submit" value="수정 완료" name="name" class="btn btn-success"> -->
   <input type="button" value="수정 완료" class="btn btn-success" onClick="submitWhatForm('control/modify_act.php', <?php echo $crrPage ?>);">
   <input type="button" value="취소" class="btn btn-success" onClick="returnBackTheArticle2in(<?php echo $GET_ID?>, <?php echo $crrPage ?>);">
 </form>
-
-<script>
-</script>
