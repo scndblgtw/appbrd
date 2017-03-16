@@ -30,8 +30,9 @@
 
 <!-- <form class="" action="write_process.php" method="post"> -->
 <form class="" name="whatForm">
-	<img id="launcher_icon_img" src=".\control/Pavicon512x512.png" width="75" height="75" alt="xXx"/>
+	<img id="launcher_icon_img" src="./Pavicon512x512_empty.png" width="75" height="75" alt=" Upload image"/>
 	<label id="id_float_center" for="form-loginID">작성자: <?php echo $loginID?></label>
+	<input type="hidden" class="form-control" name="loginID" id="form-loginID" value=<?php echo $loginID?>>
 	
   <div>
     <!-- <label for="form-title">제목:</label> -->
@@ -42,8 +43,9 @@
     <!-- <label for="form-description">본문:</label> -->
     <textarea class="form-control" name="description" id="form-description" rows="10" placeholder="앱 설명을 적으세요"></textarea>
   </div>
-
-  <input type="hidden" role="uploadcare-uploader" />
+	
+	<input type="hidden" name="imgFile" id="form-imgFile" />
+  <!-- <input type="hidden" role="uploadcare-uploader" /> -->
   <!-- <input type="submit" value="쓰기 완료" name="name" class="btn btn-success"> -->
   <input type="button" value="쓰기 완료" class="btn btn-success" onClick="submitWhatForm('control/write_act.php');">
 	<input type="button" value="취소" class="btn btn-success" onClick="returnBackTheArticle2in(<?php echo $GET_ID?>, <?php echo $crrPage ?>);">
@@ -106,6 +108,9 @@ $(function () {
 								// });
 								// http://stackoverflow.com/questions/554273/changing-the-image-source-using-jquery
 								// http://plaboratory.org/archives/2999
+								
+								
+								document.getElementById("form-imgFile").value = file.name;
              });
         },
         progressall: function (e, data) {

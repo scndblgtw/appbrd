@@ -28,7 +28,7 @@
     echo "<br><a class='error_red'>[X] The article which will be modified is None.</a><br>";
     exit;
   } else {
-    $sql = "SELECT ".$G_table_appitems.".id, title, description FROM ".$G_table_appitems." WHERE ".$G_table_appitems.".id=".$GET_ID;
+    $sql = "SELECT ".$G_table_appitems.".id, title, description, img_file FROM ".$G_table_appitems." WHERE ".$G_table_appitems.".id=".$GET_ID;
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
   }
@@ -39,14 +39,13 @@
 
 <!-- <form class="" action="modify_process.php" method="post"> -->
 <form class="" name="whatForm">
-  <div class="form-group">
+	<img id="launcher_icon_img" src=".\control/Pavicon512x512_empty.png" width="75" height="75" alt="xXx"/>
+	<label id="id_float_center" for="form-loginID">작성자: <?php echo $loginID?></label>
+	<input type="hidden" class="form-control" name="loginID" id="form-loginID" value=<?php echo $loginID?>> 
+	
+	<div class="form-group">
     <label for="form-title">제목:</label>
     <input type="text" class="form-control" name="title" id="form-title" value=<?php echo '"'.htmlspecialchars($row['title']).'"'?>>
-  </div>
-
-  <div class="form-group">
-    <label for="form-loginID">작성자: <?php echo $loginID?></label>
-	<input type="hidden" class="form-control" name="loginID" id="form-loginID" value=<?php echo $loginID?>>
   </div>
 
   <div class="form-group">
@@ -62,3 +61,9 @@
   <input type="button" value="수정 완료" class="btn btn-success" onClick="submitWhatForm('control/modify_act.php', <?php echo $crrPage ?>);">
   <input type="button" value="취소" class="btn btn-success" onClick="returnBackTheArticle2in(<?php echo $GET_ID?>, <?php echo $crrPage ?>);">
 </form>
+
+<script>
+	var sTmp = './jQuery-File-Upload/server/php/files/thumbnail/' +"<?php echo htmlspecialchars($row['img_file'])?>";
+	// $('<p/>').text(sTmp).appendTo('#files');
+	$("#launcher_icon_img").attr("src", sTmp);
+</script>
