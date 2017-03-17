@@ -23,14 +23,19 @@
   
   
   if(empty($GET_ID) === false){ // '===' is better than '=='
-    $sql = "SELECT ".$G_table_appitems.".id, title, loginID, description FROM ".$G_table_appitems." LEFT JOIN ".$G_table_users." ON ".$G_table_appitems.".user_id=".$G_table_users.".id WHERE ".$G_table_appitems.".id=".$GET_ID;
+    $sql = "SELECT ".$G_table_appitems.".id, title, created_date, updated_date, img_file, description FROM ".$G_table_appitems." WHERE ".$G_table_appitems.".id=".$GET_ID;
+    // $sql = "SELECT ".$G_table_appitems.".id, title, loginID, description FROM ".$G_table_appitems." LEFT JOIN ".$G_table_users." ON ".$G_table_appitems.".user_id=".$G_table_users.".id WHERE ".$G_table_appitems.".id=".$GET_ID;
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
     echo '<h2>'.htmlspecialchars($row['title']).'</h2>';
-    echo '<p>'.htmlspecialchars($row['loginID']).'</p>';
+		
+		echo '<img id="launcher_icon_img" src="" width="75" height="75" onCLick="loadThumbnail('."'".htmlspecialchars($row['img_file'])."'".')"/>';
+	  echo '<span>  <span> loginID</span>';
+		echo '<span id="article_date_float">c: <span>'.htmlspecialchars($row['created_date']).'</span> <br> u: <span>'.htmlspecialchars($row['updated_date']).'</span></span>  </span>';
+		
     echo "<pre>".strip_tags($row['description'], "<a><h1><h2><h3><h4><h5><ul><ol><li><p><br>")."</pre>";
   } else {
-    echo 'No artice!';
+    echo 'No article!';
   }
   
 	$goLoginScr = true;
@@ -55,3 +60,9 @@
 	<input type="button" value="예" class="btn btn-success" onClick="submitWhatForm('control/delete_act.php', <?php echo $crrPage ?>);">
 	<input type="button" value="취소" class="btn btn-success" onClick="returnBackTheArticle2in(<?php echo $GET_ID?>, <?php echo $crrPage ?>);">
 </form>
+
+<script>
+$(document).ready(function(){
+	loadThumbnail('<?php echo htmlspecialchars($row['img_file']) ?>');
+});
+</script>
