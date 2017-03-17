@@ -40,6 +40,17 @@
   <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 
+	<script>
+	function loadThumbnail(sName) {	
+		if(sName == "") {
+			var sTmp = "";	//'./Pavicon512x512_empty.png';
+		} else {
+			var sTmp = './jQuery-File-Upload/server/php/files/thumbnail/' +sName;
+		}
+		$("#launcher_icon_img").attr("src", sTmp);
+	}
+	</script>
+	
 </head>
 <body id="target">
 	<div class="container-fluid">      

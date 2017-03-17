@@ -52,13 +52,14 @@
 			$GET_ID = $row['id'];
 		}
 		
-	  $sql = "SELECT ".$G_table_appitems.".id, title, loginID, description, user_id, created_date, img_file FROM ".$G_table_appitems." LEFT JOIN ".$G_table_users." ON ".$G_table_appitems.".user_id=".$G_table_users.".id WHERE ".$G_table_appitems.".id=".$GET_ID;
+	  $sql = "SELECT ".$G_table_appitems.".id, title, loginID, description, user_id, created_date, updated_date, img_file FROM ".$G_table_appitems." LEFT JOIN ".$G_table_users." ON ".$G_table_appitems.".user_id=".$G_table_users.".id WHERE ".$G_table_appitems.".id=".$GET_ID;
 	  $result = mysqli_query($conn, $sql);
 	  $row = mysqli_fetch_assoc($result);
 		
 	  echo '<h2>'.htmlspecialchars($row['title']).'</h2>';
-		echo '<img id="launcher_icon_img" src="" width="75" height="75" alt="no image"/>';
-	  echo '<span><span>&#32; '.htmlspecialchars($row['loginID']).'</span><span id="article_date_float">'.htmlspecialchars($row['created_date']).'</span></span>';
+		echo '<img id="launcher_icon_img" src="" width="75" height="75" onCLick="loadThumbnail('."'".htmlspecialchars($row['img_file'])."'".')"/>';
+	  echo '<span>  <span>&#32; '.htmlspecialchars($row['loginID']).'</span>';
+		echo '<span id="article_date_float">c: <span>'.htmlspecialchars($row['created_date']).'</span> <br> u: <span>'.htmlspecialchars($row['updated_date']).'</span></span>  </span>';
 	  echo "<pre>".$row['description']."</pre>";
 	  $user_id = $row['user_id'];
 	}
@@ -75,14 +76,9 @@
 </div>
 
 <script>
-	var sName = "<?php echo htmlspecialchars($row['img_file'])?>";
-	
-	if(sName == "") {
-		var sTmp = './Pavicon512x512_empty.png';
-	} else {
-		var sTmp = './jQuery-File-Upload/server/php/files/thumbnail/' +sName;
-	}
-	$("#launcher_icon_img").attr("src", sTmp);
+$(function() {
+	loadThumbnail('<?php echo htmlspecialchars($row['img_file']) ?>');
+});
 </script>
 	
 <?php require(__DIR__."/../part/article_bottom.php"); ?>

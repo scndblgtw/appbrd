@@ -99,7 +99,7 @@ $(function () {
 								// var sTmp = ".\\jQuery-File-Upload\\server\\php\\files\\" +file.name;	//oOo. require Double-rSlash(//).
 								// var sTmp = './jQuery-File-Upload/server/php/files/' +file.name;		//oOo
 								// var sTmp = '.\jQuery-File-Upload\server\\php\files\\' +file.name;	// xXx
-								var sTmp = './jQuery-File-Upload/server/php/files/thumbnail/' +file.name;		//oOo
+								var sTmp = url + 'files/thumbnail/' +file.name;		//oOo
 								// $('<p/>').text(sTmp).appendTo('#files');
 								$("#launcher_icon_img").attr("src", sTmp);
 								// alert(sTmp);

@@ -63,7 +63,7 @@
 </form>
 
 <script>
-	var sTmp = './jQuery-File-Upload/server/php/files/thumbnail/' +"<?php echo htmlspecialchars($row['img_file'])?>";
-	// $('<p/>').text(sTmp).appendTo('#files');
-	$("#launcher_icon_img").attr("src", sTmp);
+$(document).ready(function(){
+	loadThumbnail('<?php echo htmlspecialchars($row['img_file']) ?>');
+});
 </script>
