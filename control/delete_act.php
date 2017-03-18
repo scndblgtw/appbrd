@@ -9,10 +9,30 @@
   $willDeleteTopicId = $_POST['willDeleteId'];
   echo "$ willDeleteTopicId = ".$willDeleteTopicId."\n";
   
+  $img_file = $_POST['img_file'];
+  echo "$ img_file = ".$img_file."\n";
 	
   $user_id = $_POST['uid'];
   echo "$ user_id = ".$user_id."\n";
-  
+	
+	echo "<br><br><br>";
+	$url = '../jQuery-File-Upload/server/php/files/';	// Default
+	$urlThumb = 'thumbnail/';
+	$tmp = $url.$img_file;
+	echo $tmp."<br>";
+	if(is_file($tmp)) {
+		unlink($tmp);
+		echo "Deleted:: ".$img_file."<br>";
+	} else
+		echo "No file:: ".$img_file."<br>";
+	
+	$tmp = $url.$urlThumb.$img_file;
+	echo $tmp."<br>";
+	if(is_file($tmp)) {
+		unlink($tmp);
+		echo "Deleted:: ".$urlThumb.$img_file."<br>";
+	} else
+		echo "No file:: ".$urlThumb.$img_file."<br>";
 
   $G_table_appitems = "appitems";
   $G_table_users = "users";

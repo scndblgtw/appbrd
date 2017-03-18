@@ -54,7 +54,11 @@
 	c: <span><?php echo htmlspecialchars($row['created_date'])?></span> <br>
 	u: <span><?php echo htmlspecialchars($row['updated_date'])?></span>
 	</span>
-
+	
+  <?php
+		if(GLOBAL_TST) {	echo "<span class='dev_val_color'> []img_file=";  echo htmlspecialchars($row['img_file']);	echo "</span>";	}
+  ?>
+	
   <div class="form-group">
     <!-- <label for="form-description">본문:</label> -->
     <textarea class="form-control" name="description" id="form-description" rows="10"><?php echo strip_tags($row['description'], "<a><h1><h2><h3><h4><h5><ul><ol><li><p><br>")?> </textarea>

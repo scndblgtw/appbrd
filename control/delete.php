@@ -32,6 +32,7 @@
 		echo '<img id="launcher_icon_img" src="" width="75" height="75" onCLick="loadThumbnail('."'".htmlspecialchars($row['img_file'])."'".')"/>';
 	  echo '<span>  <span> loginID</span>';
 		echo '<span id="article_date_float">c: <span>'.htmlspecialchars($row['created_date']).'</span> <br> u: <span>'.htmlspecialchars($row['updated_date']).'</span></span>  </span>';
+		if(GLOBAL_TST) {	echo "<span class='dev_val_color'> []img_file=";  echo htmlspecialchars($row['img_file']);	echo "</span>";	}
 		
     echo "<pre>".strip_tags($row['description'], "<a><h1><h2><h3><h4><h5><ul><ol><li><p><br>")."</pre>";
   } else {
@@ -54,6 +55,7 @@
 	
 	<?php
     echo '<input type="hidden" size="2" name="willDeleteId"  value="'.$GET_ID.'">'."\n";
+    echo '<input type="hidden" name="img_file"  value="'.htmlspecialchars($row['img_file']).'">'."\n";
 	?>
 	
 	<input type="hidden" role="uploadcare-uploader" />

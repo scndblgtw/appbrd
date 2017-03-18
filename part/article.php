@@ -60,6 +60,7 @@
 		echo '<img id="launcher_icon_img" src="" width="75" height="75" onCLick="loadThumbnail('."'".htmlspecialchars($row['img_file'])."'".')"/>';
 	  echo '<span>  <span>&#32; '.htmlspecialchars($row['loginID']).'</span>';
 		echo '<span id="article_date_float">c: <span>'.htmlspecialchars($row['created_date']).'</span> <br> u: <span>'.htmlspecialchars($row['updated_date']).'</span></span>  </span>';
+		if(GLOBAL_TST) {	echo "<span class='dev_val_color'> []img_file=";  echo htmlspecialchars($row['img_file']);	echo "</span>";	}
 	  echo "<pre>".$row['description']."</pre>";
 	  $user_id = $row['user_id'];
 	}
