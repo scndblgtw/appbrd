@@ -15,14 +15,40 @@
   $loginID = mysqli_real_escape_string($conn, $_POST['loginID']);
   $loginPW = $_POST['loginPW'];	//Undefined index:
   $description = mysqli_real_escape_string($conn, $_POST['description']);
-  $imgFile = mysqli_real_escape_string($conn, $_POST['imgFile']);
-
+  $img_file = mysqli_real_escape_string($conn, $_POST['img_file']);
+  $img_file_old = $_POST['img_file_old'];
+  echo "$ img_file_old = ".$img_file_old."\n";
+	
+	echo "<br><br><br>";
+	$url = '../jQuery-File-Upload/server/php/files/';	// Default
+	$urlThumb = 'thumbnail/';
+	
+	if($img_file !== $img_file_old) {
+		$tmp = $url.$img_file_old;
+		if(is_file($tmp)) {
+			unlink($tmp);
+			echo "Deleted:: ";
+		} else
+			echo "No file:: ";
+		echo $img_file_old."<br>";
+		
+		$tmp = $url.$urlThumb.$img_file_old;
+		if(is_file($tmp)) {
+			unlink($tmp);
+			echo "Deleted:: ";
+		} else
+			echo "No file:: ";	
+		echo $urlThumb.$img_file_old."<br>";
+	}
+	
+	// exit;
+	
   $sql_id = "id";
   $sql_title = "title";
   $sql_description = "description";
 	$sql_updated_date = "updated_date";
 	$sql_img_file = "img_file";
-	$sql = "UPDATE ".$G_table_appitems." SET ".$sql_title."='".$title."', ".$sql_updated_date."=now(), ".$sql_img_file."='".$imgFile."', ".$sql_description."='".$description."' WHERE ".$sql_id."='".$willUpdateId."';";
+	$sql = "UPDATE ".$G_table_appitems." SET ".$sql_title."='".$title."', ".$sql_updated_date."=now(), ".$sql_img_file."='".$img_file."', ".$sql_description."='".$description."' WHERE ".$sql_id."='".$willUpdateId."';";
 	
 	echo $sql;
 	// exit;
