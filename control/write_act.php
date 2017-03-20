@@ -11,7 +11,7 @@
   $loginID = mysqli_real_escape_string($conn, $_POST['loginID']);	//Undefined index:
   $loginPW = $_POST['loginPW'];	//Undefined index:
   $description = mysqli_real_escape_string($conn, $_POST['description']);
-  $imgFile = mysqli_real_escape_string($conn, $_POST['imgFile']);
+  $imgFile = mysqli_real_escape_string($conn, $_POST['img_File']);
 
 	echo "<br>".$title."<br>";
 	echo "<br>".$loginID."<br>";
