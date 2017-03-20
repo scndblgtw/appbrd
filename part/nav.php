@@ -21,7 +21,7 @@ $(function(){
 	$("#tstResult").click(function(){
 		$.ajax({
 			type: 'GET',
-			url: 'part/nav_test.php?test=[- auto2 -]',
+			url: 'part/nav_test.php?test=[-  -]',
 			dataType : 'text',
 			error : function() {
 			  alert('Fail!!');

@@ -55,7 +55,7 @@
 	
 	<?php
     echo '<input type="hidden" size="2" name="willDeleteId"  value="'.$GET_ID.'">'."\n";
-    echo '<input type="hidden" name="img_file"  value="'.htmlspecialchars($row['img_file']).'">'."\n";
+    echo '<input type="hidden" name="imgFile"  value="'.htmlspecialchars($row['img_file']).'">'."\n";
 	?>
 	
 	<input type="hidden" role="uploadcare-uploader" />

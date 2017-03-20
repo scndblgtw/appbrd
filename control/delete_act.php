@@ -9,7 +9,7 @@
   $willDeleteTopicId = $_POST['willDeleteId'];
   echo "$ willDeleteTopicId = ".$willDeleteTopicId."\n";
   
-  $img_file = $_POST['img_file'];
+  $img_file = $_POST['imgFile'];
   echo "$ img_file = ".$img_file."\n";
 	
   $user_id = $_POST['uid'];
