@@ -46,7 +46,7 @@
 	
 	<img id="launcher_icon_img" src=".\control/" width="75" height="75"/>
 	<input type="hidden" name="img_file" id="form-imgFile" value="<?php echo htmlspecialchars($row['img_file'])?>" />
-	<input type="hidden" name="img_file_old"  value="<?php echo htmlspecialchars($row['img_file'])?>" />;
+	<input type="hidden" name="img_file_old" id="form-imgFile-old" value="<?php echo htmlspecialchars($row['img_file'])?>" />;
 	
 	<label id="id_float_center" for="form-loginID"> <?php echo $loginID?></label>
 	<input type="hidden" class="form-control" name="loginID" id="form-loginID" value=<?php echo $loginID?>>
@@ -71,7 +71,7 @@
   
   <input type="hidden" role="uploadcare-uploader" />
   <input type="button" value="수정 완료" class="btn btn-success" onClick="submitWhatForm('control/modify_act.php', <?php echo $crrPage ?>);">
-  <input type="button" value="취소" class="btn btn-success" onClick="returnBackTheArticle2in(<?php echo $GET_ID?>, <?php echo $crrPage ?>);">
+  <input type="button" value="취소" class="btn btn-success" onClick="document.getElementById('form-imgFile').value !== document.getElementById('form-imgFile-old').value ? returnBackTheArticle3in(<?php echo $GET_ID?>, <?php echo $crrPage ?>, document.getElementById('form-imgFile').value ) : returnBackTheArticle2in(<?php echo $GET_ID?>, <?php echo $crrPage ?>)">
 </form>
 
 <script>

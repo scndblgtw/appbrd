@@ -17,6 +17,24 @@ function returnBackTheArticle2in(idx, bp){
 	});
 }
 
+function returnBackTheArticle3in(idx, bp, fl_ld){
+	// alert(fl_ld);
+	tmpUrl = 'control/mpty_fl_ld.php?id='+idx +'&bgnpage='+bp +'&fl_ld='+fl_ld;			
+	// alert(tmpUrl);
+
+	$.ajax({
+		type: 'GET',
+		url: tmpUrl,
+		dataType : 'text',
+		error : function() {
+		  alert('Fail!!');
+		},
+		success: function(data) {
+			$('article').html(data);	//load()는 반응 없음.
+		}
+	});
+}
+
 function submitWhatForm(whatProcess, cPg){
 	// sUrl= './' +whatProcess +'?bgnpage=' +cPg;
 	// alert(sUrl);
