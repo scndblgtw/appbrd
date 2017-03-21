@@ -44,6 +44,6 @@
 	
 	// exit;
 	
-
-	header("Location:$entry_ip/../part/article.php?id=".$GET_ID."&bgnpage=".$crrPage);
+	if( isset($_GET["id"]) && isset($_GET["bgnpage"]) )
+		header("Location:$entry_ip/../part/article.php?id=".$GET_ID."&bgnpage=".$crrPage);
 ?>

@@ -97,7 +97,7 @@ $(function () {
 
 function deleteOldFileEveryTime(fl_ld){
 	// alert(fl_ld);
-	tmpUrl = 'control/mpty_fl_ld_vrytm.php?fl_ld='+fl_ld;			
+	tmpUrl = 'control/mpty_fl_ld.php?fl_ld='+fl_ld;			
 	// alert(tmpUrl);
 
 	$.ajax({
