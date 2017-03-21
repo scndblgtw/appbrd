@@ -28,6 +28,10 @@
 <script>
 /*jslint unparam: true */
 /*global window, $ */
+
+var theOriginImg = null;
+var theDeletedImg;
+
 $(function () {
     'use strict';
     // Change this to the location of your server-side upload handler:
@@ -55,6 +59,14 @@ $(function () {
 								// http://stackoverflow.com/questions/554273/changing-the-image-source-using-jquery
 								// http://plaboratory.org/archives/2999
 								
+								if(!theOriginImg) {
+									theOriginImg = document.getElementById("form-imgFile").value;
+									alert("theOriginImg = " +theOriginImg);
+								}else {
+									theDeletedImg = document.getElementById("form-imgFile").value;
+									alert("theDeletedImg = " +theDeletedImg);
+									deleteOldFileEveryTime( theDeletedImg );
+								}
 								
 								document.getElementById("form-imgFile").value = file.name;
              });
@@ -82,4 +94,23 @@ $(function () {
     }).prop('disabled', !$.support.fileInput)
         .parent().addClass($.support.fileInput ? undefined : 'disabled');
 });
+
+function deleteOldFileEveryTime(fl_ld){
+	// alert(fl_ld);
+	tmpUrl = 'control/mpty_fl_ld_vrytm.php?fl_ld='+fl_ld;			
+	// alert(tmpUrl);
+
+	$.ajax({
+		type: 'GET',
+		url: tmpUrl,
+		dataType : 'text',
+		error : function() {
+		  alert('Fail!!');
+		},
+		success: function(data) {
+			// $('article').html(data);	//load()는 반응 없음.
+			alert("Deleted : " +theDeletedImg);
+		}
+	});
+}
 </script>

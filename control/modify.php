@@ -70,8 +70,8 @@
   ?>
   
   <input type="hidden" role="uploadcare-uploader" />
-  <input type="button" value="수정 완료" class="btn btn-success" onClick="submitWhatForm('control/modify_act.php', <?php echo $crrPage ?>);">
-  <input type="button" value="취소" class="btn btn-success" onClick="document.getElementById('form-imgFile').value !== document.getElementById('form-imgFile-old').value ? returnBackTheArticle3in(<?php echo $GET_ID?>, <?php echo $crrPage ?>, document.getElementById('form-imgFile').value ) : returnBackTheArticle2in(<?php echo $GET_ID?>, <?php echo $crrPage ?>)">
+  <input type="button" value="수정 완료" class="btn btn-success" onClick="theOriginImg=null;submitWhatForm('control/modify_act.php', <?php echo $crrPage ?>);">
+  <input type="button" value="취소" class="btn btn-success" onClick="theOriginImg=null;document.getElementById('form-imgFile').value !== document.getElementById('form-imgFile-old').value ? returnBackTheArticle3in(<?php echo $GET_ID?>, <?php echo $crrPage ?>, document.getElementById('form-imgFile').value ) : returnBackTheArticle2in(<?php echo $GET_ID?>, <?php echo $crrPage ?>)">
 </form>
 
 <script>
