@@ -60,7 +60,7 @@ $(function () {
 								// http://plaboratory.org/archives/2999
 								
 								if(!theOriginImg) {
-									theOriginImg = document.getElementById("form-imgFile").value;
+									theOriginImg = document.getElementById("form-imgFile").value ? document.getElementById("form-imgFile").value : "no-image.nJpg";
 									alert("theOriginImg = " +theOriginImg);
 								}else {
 									theDeletedImg = document.getElementById("form-imgFile").value;

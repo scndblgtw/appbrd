@@ -48,8 +48,8 @@
 	
   <!-- <input type="hidden" role="uploadcare-uploader" /> -->
   <!-- <input type="submit" value="쓰기 완료" name="name" class="btn btn-success"> -->
-  <input type="button" value="쓰기 완료" class="btn btn-success" onClick="submitWhatForm('control/write_act.php');">
-	<input type="button" value="취소" class="btn btn-success" onClick="document.getElementById('form-imgFile').value ? returnBackTheArticle3in(<?php echo $GET_ID?>, <?php echo $crrPage ?>, document.getElementById('form-imgFile').value ) : returnBackTheArticle2in(<?php echo $GET_ID?>, <?php echo $crrPage ?>)">
+  <input type="button" value="쓰기 완료" class="btn btn-success" onClick="theOriginImg=null;submitWhatForm('control/write_act.php');">
+	<input type="button" value="취소" class="btn btn-success" onClick="theOriginImg=null;document.getElementById('form-imgFile').value ? returnBackTheArticle3in(<?php echo $GET_ID?>, <?php echo $crrPage ?>, document.getElementById('form-imgFile').value ) : returnBackTheArticle2in(<?php echo $GET_ID?>, <?php echo $crrPage ?>)">
 </form>
 
 <?php
