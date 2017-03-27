@@ -17,6 +17,7 @@
   $description = mysqli_real_escape_string($conn, $_POST['description']);
   $img_file = mysqli_real_escape_string($conn, $_POST['imgFile']);
   $img_file_old = mysqli_real_escape_string($conn, $_POST['imgFileOld']);
+  $urlGglPly = mysqli_real_escape_string($conn, $_POST['urlGglPly']);
   echo "$ img_file_old = ".$img_file_old."\n";
 	
 	echo "<br><br><br>";
@@ -48,9 +49,12 @@
   $sql_description = "description";
 	$sql_updated_date = "updated_date";
 	$sql_img_file = "img_file";
-	$sql = "UPDATE ".$G_table_appitems." SET ".$sql_title."='".$title."', ".$sql_updated_date."=now(), ".$sql_img_file."='".$img_file."', ".$sql_description."='".$description."' WHERE ".$sql_id."='".$willUpdateId."';";
+  $sql_url_gglply = "url_gglply";
+	$sql = "UPDATE ".$G_table_appitems." SET ".$sql_title."='".$title."', ".$sql_updated_date."=now(), ".$sql_img_file."='".$img_file."', ".$sql_description."='".$description."', ".$sql_url_gglply."='".$urlGglPly."' WHERE ".$sql_id."='".$willUpdateId."';";
 	
-	echo $sql;
+	// echo $sql;
+	// echo "<br><br>";
+	// var_dump($sql);
 	// exit;
 
 	$result = mysqli_query($conn, $sql);

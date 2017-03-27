@@ -52,16 +52,35 @@
 			$GET_ID = $row['id'];
 		}
 		
-	  $sql = "SELECT ".$G_table_appitems.".id, title, loginID, description, user_id, created_date, updated_date, img_file FROM ".$G_table_appitems." LEFT JOIN ".$G_table_users." ON ".$G_table_appitems.".user_id=".$G_table_users.".id WHERE ".$G_table_appitems.".id=".$GET_ID;
+	  // $sql = "SELECT ".$G_table_appitems.".id, title, loginID, description, user_id, created_date, updated_date, img_file FROM ".$G_table_appitems." LEFT JOIN ".$G_table_users." ON ".$G_table_appitems.".user_id=".$G_table_users.".id WHERE ".$G_table_appitems.".id=".$GET_ID;
+	  $sql = "SELECT ".$G_table_appitems.".id, title, loginID, description, user_id, url_gglply, created_date, updated_date, UNIX_TIMESTAMP(updated_date) AS updated_ux_ts, img_file FROM ".$G_table_appitems." LEFT JOIN ".$G_table_users." ON ".$G_table_appitems.".user_id=".$G_table_users.".id WHERE ".$G_table_appitems.".id=".$GET_ID;
 	  $result = mysqli_query($conn, $sql);
 	  $row = mysqli_fetch_assoc($result);
 		
 	  echo '<h2>'.htmlspecialchars($row['title']).'</h2>';
 		echo '<img id="launcher_icon_img" src="" width="75" height="75" onCLick="loadThumbnail('."'".htmlspecialchars($row['img_file'])."'".')"/>';
-	  echo '<span>  <span>&#32; '.htmlspecialchars($row['loginID']).'</span>';
-		echo '<span id="article_date_float">c: <span>'.htmlspecialchars($row['created_date']).'</span> <br> u: <span>'.htmlspecialchars($row['updated_date']).'</span></span>  </span>';
-		if(GLOBAL_TST) {	echo "<span class='dev_val_color'> []img_file=";  echo htmlspecialchars($row['img_file']);	echo "</span>";	}
-	  echo "<pre>".$row['description']."</pre>";
+	  echo '<span>';
+		echo '<span>';
+		echo '&#32; <a href="'.htmlspecialchars($row['url_gglply']).'" target="_blank">[다운▽</a>';
+		echo '&#32; <a href="'.htmlspecialchars($row['url_gglply']).'"> 로드▼＂]</a>';
+		echo '&#32; @올린이: '.htmlspecialchars($row['loginID']);
+		
+		$unx_tmp = htmlspecialchars($row['updated_date']);
+		if($unx_tmp == 0)
+			echo '&#32; |created : <span>'.htmlspecialchars($row['created_date']).'</span>';
+		else
+			echo '&#32; |updated: <span>'.htmlspecialchars($row['updated_date']).'</span>';
+		echo '</span>';
+		echo '</span>';
+		echo "<pre>".$row['description']."</pre>";
+		
+		if(GLOBAL_TST) {
+			echo "<span class='dev_val_color'> []img_file=";  echo htmlspecialchars($row['img_file']);
+			echo '&#32;| created : <span>'.htmlspecialchars($row['created_date']).'</span>';
+			echo '&#32;| updated: <span>'.htmlspecialchars($row['updated_date']).'</span>';
+			echo '&#32;| uUnxTS: <span>'.htmlspecialchars($row['updated_ux_ts']).'</span>';
+			echo "</span>";
+		}
 	  $user_id = $row['user_id'];
 	}
 	

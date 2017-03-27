@@ -28,7 +28,7 @@
     echo "<br><a class='error_red'>[X] The article which will be modified is None.</a><br>";
     exit;
   } else {
-    $sql = "SELECT ".$G_table_appitems.".id, title, description, created_date, updated_date, img_file FROM ".$G_table_appitems." WHERE ".$G_table_appitems.".id=".$GET_ID;
+    $sql = "SELECT ".$G_table_appitems.".id, title, description, created_date, updated_date, img_file, url_gglply, UNIX_TIMESTAMP(updated_date) AS updated_ux_ts FROM ".$G_table_appitems." WHERE ".$G_table_appitems.".id=".$GET_ID;
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
   }
@@ -51,9 +51,11 @@
 	<label id="id_float_center" for="form-loginID"> <?php echo $loginID?></label>
 	<input type="hidden" class="form-control" name="loginID" id="form-loginID" value=<?php echo $loginID?>>
 	
-	<span id="article_date_float">
-	c: <span><?php echo htmlspecialchars($row['created_date'])?></span> <br>
-	u: <span><?php echo htmlspecialchars($row['updated_date'])?></span>
+	<!-- <span id="article_date_float"> -->
+	<span>
+	| c: <span><?php echo htmlspecialchars($row['created_date'])?></span>
+	| u: <span><?php echo htmlspecialchars($row['updated_date'])?></span>
+	| ux: <span><?php echo htmlspecialchars($row['updated_ux_ts'])?></span>
 	</span>
 	
   <?php
@@ -65,6 +67,10 @@
     <textarea class="form-control" name="description" id="form-description" rows="10"><?php echo strip_tags($row['description'], "<a><h1><h2><h3><h4><h5><ul><ol><li><p><br>")?> </textarea>
   </div>
 
+	<div class="form-group">
+    <input type="text" class="form-control" name="urlGglPly" id="form-urlGglPly" value=<?php echo '"'.htmlspecialchars($row['url_gglply']).'"'?>>
+  </div>
+	
   <?php
     echo '<input type="hidden" size="2" name="willUpdateId" value="'.$GET_ID.'">'."\n";
   ?>

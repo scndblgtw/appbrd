@@ -12,10 +12,12 @@
   $loginPW = $_POST['loginPW'];	//Undefined index:
   $description = mysqli_real_escape_string($conn, $_POST['description']);
   $imgFile = mysqli_real_escape_string($conn, $_POST['imgFile']);
+  $urlGglPly = mysqli_real_escape_string($conn, $_POST['urlGglPly']);
 
 	echo "<br>".$title."<br>";
 	echo "<br>".$loginID."<br>";
 	echo "<br>".$imgFile."<br>";
+	echo "<br>".$urlGglPly."<br>";
 	// exit;
 
 	$sql = "SELECT * FROM ".$G_table_users." WHERE loginID='".$loginID."'";
@@ -30,7 +32,7 @@
 		$user_id = $row['id'];
 	}
 
-	$sql = "INSERT INTO ".$G_table_appitems."(title, description, user_id, created_date, img_file) VALUES('".$title."', '".$description."', '".$user_id."', now(), '".$imgFile."')";
+	$sql = "INSERT INTO ".$G_table_appitems."(title, description, user_id, created_date, img_file, url_gglply) VALUES('".$title."', '".$description."', '".$user_id."', now(), '".$imgFile."', '".$urlGglPly."')";
 	$result = mysqli_query($conn, $sql);
 	$id = mysqli_insert_id($conn);
 

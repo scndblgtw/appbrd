@@ -38,12 +38,16 @@
 	
   <div>
     <!-- <label for="form-title">제목:</label> -->
-		<input class="form-control" type="text" name="title" id="form-title" placeholder="앱 타이틀을 여기에.">
+		<input class="form-control" type="text" name="title" id="form-title" placeholder="앱 이름.">
   </div>
 
   <div>
     <!-- <label for="form-description">본문:</label> -->
-    <textarea class="form-control" name="description" id="form-description" rows="10" placeholder="앱 설명을 적으세요"></textarea>
+    <textarea class="form-control" name="description" id="form-description" rows="10" placeholder="앱 설명을 적으세요."></textarea>
+  </div>
+	
+  <div>
+		<input class="form-control" type="text" name="urlGglPly" id="form-urlGglPly" placeholder="앱 주소."><br>
   </div>
 	
   <!-- <input type="hidden" role="uploadcare-uploader" /> -->

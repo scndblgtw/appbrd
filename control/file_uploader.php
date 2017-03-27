@@ -61,10 +61,10 @@ $(function () {
 								
 								if(!theOriginImg) {
 									theOriginImg = document.getElementById("form-imgFile").value ? document.getElementById("form-imgFile").value : "no-image.nJpg";
-									alert("theOriginImg = " +theOriginImg);
+									// alert("theOriginImg = " +theOriginImg);
 								}else {
 									theDeletedImg = document.getElementById("form-imgFile").value;
-									alert("theDeletedImg = " +theDeletedImg);
+									// alert("theDeletedImg = " +theDeletedImg);
 									deleteOldFileEveryTime( theDeletedImg );
 								}
 								
@@ -109,7 +109,7 @@ function deleteOldFileEveryTime(fl_ld){
 		},
 		success: function(data) {
 			// $('article').html(data);	//load()는 반응 없음.
-			alert("Deleted : " +theDeletedImg);
+			// alert("Deleted : " +theDeletedImg);
 		}
 	});
 }
