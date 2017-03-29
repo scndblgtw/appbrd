@@ -26,7 +26,7 @@
   $isLogined = isset($_SESSION['isLogined']) ? $_SESSION['isLogined'] : false;
   if(GLOBAL_TST) {	echo ", isLogined=";  var_dump($isLogined);	}
   $loginID = isset($_SESSION['loginID']) ? $_SESSION['loginID'] : null;
-  if(GLOBAL_TST) {	echo ", loginID=";  var_dump($loginID);	echo "</span>"; }
+  if(GLOBAL_TST) {	echo ", loginID=";  var_dump($loginID);	echo "<br></span>"; }
   
 
   if(empty($GET_ID) === false){ // '===' is better than '=='
@@ -58,7 +58,7 @@
 	  $row = mysqli_fetch_assoc($result);
 		
 		echo '<img id="launcher_icon_img" src="" width="75" height="75" onCLick="loadThumbnail('."'".htmlspecialchars($row['img_file'])."'".')"/>';
-	  echo '<span id="h2_id">'.htmlspecialchars($row['title']).'</span><br>';
+	  echo '&#32; <span id="h2_id">'.htmlspecialchars($row['title']).'</span><br>';
 	  echo '<span>';
 		echo '<span>';
 		echo '&#32; <a href="'.htmlspecialchars($row['url_gglply']).'" target="_blank">[다운▽</a>';
