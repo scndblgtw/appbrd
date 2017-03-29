@@ -30,10 +30,10 @@
 
 <!-- <form class="" action="write_process.php" method="post"> -->
 <form class="" name="whatForm">
-	<img id="launcher_icon_img" src="./Pavicon512x512_empty.png" width="75" height="75" alt=" Upload image"/>
+	<img id="launcher_icon_img" src="./defaulcon512x512_empty.png" width="75" height="75" alt=" Upload image"/>
 	<input type="hidden" name="imgFile" id="form-imgFile" />
 	
-	<label id="id_float_center" for="form-loginID"> <?php echo $loginID?></label>
+	<label id="id_float_center" for="form-loginID"> <?php echo "@".$loginID?></label>
 	<input type="hidden" class="form-control" name="loginID" id="form-loginID" value=<?php echo $loginID?>>
 	
   <div>

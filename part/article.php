@@ -57,13 +57,13 @@
 	  $result = mysqli_query($conn, $sql);
 	  $row = mysqli_fetch_assoc($result);
 		
-	  echo '<h2>'.htmlspecialchars($row['title']).'</h2>';
 		echo '<img id="launcher_icon_img" src="" width="75" height="75" onCLick="loadThumbnail('."'".htmlspecialchars($row['img_file'])."'".')"/>';
+	  echo '<span id="h2_id">'.htmlspecialchars($row['title']).'</span><br>';
 	  echo '<span>';
 		echo '<span>';
 		echo '&#32; <a href="'.htmlspecialchars($row['url_gglply']).'" target="_blank">[다운▽</a>';
-		echo '&#32; <a href="'.htmlspecialchars($row['url_gglply']).'"> 로드▼＂]</a>';
-		echo '&#32; @올린이: '.htmlspecialchars($row['loginID']);
+		echo '&#32; <a href="'.htmlspecialchars($row['url_gglply']).'" target="_blank"> 로드▼＂]</a>';
+		echo '&#32; @'.htmlspecialchars($row['loginID']);
 		
 		$unx_tmp = htmlspecialchars($row['updated_date']);
 		if($unx_tmp == 0)

@@ -44,11 +44,11 @@
     <input type="text" class="form-control" name="title" id="form-title" value=<?php echo '"'.htmlspecialchars($row['title']).'"'?>>
   </div>
 	
-	<img id="launcher_icon_img" src=".\control/" width="75" height="75"/>
+	<img id="launcher_icon_img" src="" width="75" height="75"/>
 	<input type="hidden" name="imgFile" id="form-imgFile" value="<?php echo htmlspecialchars($row['img_file'])?>" />
 	<input type="hidden" name="imgFileOld" id="form-imgFile-old" value="<?php echo htmlspecialchars($row['img_file'])?>" />
 	
-	<label id="id_float_center" for="form-loginID"> <?php echo $loginID?></label>
+	<label id="id_float_center" for="form-loginID"> <?php echo "@".$loginID?></label>
 	<input type="hidden" class="form-control" name="loginID" id="form-loginID" value=<?php echo $loginID?>>
 	
 	<!-- <span id="article_date_float"> -->

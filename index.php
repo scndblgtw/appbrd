@@ -43,7 +43,7 @@
 	<script>
 	function loadThumbnail(sName) {	
 		if(sName == "") {
-			var sTmp = "";	//'./Pavicon512x512_empty.png';
+			var sTmp = "./defaulcon512x512_empty.png";
 		} else {
 			var sTmp = './jQuery-File-Upload/server/php/files/thumbnail/' +sName;
 		}
