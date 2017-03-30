@@ -17,7 +17,7 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <a class="navbar-brand" href="<?php echo $entry_ip ?>\index.php">
-        <img alt="Qrvit" src="./appbrd_p72.png" width="48" height="48">
+        <img alt="Qrvit" src="./appbrd_p72.png" width="20" height="20">
       </a>
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -25,7 +25,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="<?php echo $entry_ip ?>\index.php">Qrvit</a>
+      <a class="navbar-brand" href="<?php echo $entry_ip ?>\index.php"></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

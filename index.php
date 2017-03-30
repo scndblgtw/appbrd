@@ -58,7 +58,7 @@
 		</header>
 	
 		<!-- Start. row 4 TW-Bootstrap -->
-		<div class="row">		
+		<div class="row" id="partArticleNav-padding-LR">		
 			<div class="col-md-9">
 				<article>
 				</article>
