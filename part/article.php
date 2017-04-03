@@ -100,5 +100,3 @@ $(function() {
 	loadThumbnail('<?php echo htmlspecialchars($row['img_file']) ?>');
 });
 </script>
-	
-<?php require(__DIR__."/../part/article_bottom.php"); ?>

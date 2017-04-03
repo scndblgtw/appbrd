@@ -34,7 +34,7 @@
   <!-- :::4me Generic page styles -->
   <!-- <link rel="stylesheet" href="jQuery-File-Upload/css/style.css"> -->
   <!-- :::4me CSS to style the file input field as button and adjust the Bootstrap progress bars -->
-  <link href="jQuery-File-Upload/css/jquery.fileupload.css" rel="stylesheet">
+  <link href="./jQuery-File-Upload/css/jquery.fileupload.css" rel="stylesheet">
   <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	
 	
@@ -67,20 +67,21 @@
 			<nav class="col-md-3" id="mymy">
 			</nav>		
 		</div>
+		
+		<div class="row" id="partArticleNav-padding-LR">
+			<div class="col-md-3">
+			</div>	
+			<div class="col-md-6">		
+				<?php require(__DIR__."/part/services3th.php"); ?>
+			</div>
+		</div>
 	</div>
 
 	<script src="./misc/jsIndex.js"></script>
 	<!-- End. row 4 TW-Bootstrap -->
 
 	
-	
-	<?php require("part/body_bottom.php"); ?>
 
-  
-  
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="./bootstrap/js/bootstrap.min.js"></script>
 	<script src="./bootstrap/plugins/bootbox.min.js"></script>
 	
