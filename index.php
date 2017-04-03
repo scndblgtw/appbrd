@@ -30,14 +30,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-  <link rel="stylesheet" type="text/css" href="./misc/style.css">
+  <link href="./misc/style.css" rel="stylesheet" type="text/css" >
   <!-- :::4me Generic page styles -->
   <!-- <link rel="stylesheet" href="jQuery-File-Upload/css/style.css"> -->
   <!-- :::4me CSS to style the file input field as button and adjust the Bootstrap progress bars -->
-  <link rel="stylesheet" href="jQuery-File-Upload/css/jquery.fileupload.css">
-
-  <!-- Bootstrap -->
+  <link href="jQuery-File-Upload/css/jquery.fileupload.css" rel="stylesheet">
   <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	
+	
   <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 
 	<script>
@@ -81,7 +81,8 @@
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="./bootstrap/js/bootstrap.min.js"></script>  
-
+	<script src="./bootstrap/js/bootstrap.min.js"></script>
+	<script src="./bootstrap/plugins/bootbox.min.js"></script>
+	
 </body>
 </html>

@@ -52,7 +52,7 @@ $(function () {
 								var sTmp = url + 'files/thumbnail/' +file.name;		//oOo
 								// $('<p/>').text(sTmp).appendTo('#files');
 								$("#launcher_icon_img").attr("src", sTmp);
-								// alert(sTmp);
+								// dlgAlrtPlgn(sTmp);
 								// $('yourimageselector').attr('src', 'newsrc').load(function(){
 										// this.width;   // Note: $(this).width() will not work for in memory images
 								// });
@@ -61,10 +61,10 @@ $(function () {
 								
 								if(!theOriginImg) {
 									theOriginImg = document.getElementById("form-imgFile").value ? document.getElementById("form-imgFile").value : "no-image.nJpg";
-									// alert("theOriginImg = " +theOriginImg);
+									// dlgAlrtPlgn("theOriginImg = " +theOriginImg);
 								}else {
 									theDeletedImg = document.getElementById("form-imgFile").value;
-									// alert("theDeletedImg = " +theDeletedImg);
+									// dlgAlrtPlgn("theDeletedImg = " +theDeletedImg);
 									deleteOldFileEveryTime( theDeletedImg );
 								}
 								
@@ -90,26 +90,26 @@ $(function () {
                     // .append(error);
             // }
         // });
-				// alert("Done!");
+				// dlgAlrtPlgn("Done!");
     }).prop('disabled', !$.support.fileInput)
         .parent().addClass($.support.fileInput ? undefined : 'disabled');
 });
 
 function deleteOldFileEveryTime(fl_ld){
-	// alert(fl_ld);
+	// dlgAlrtPlgn(fl_ld);
 	tmpUrl = 'control/mpty_fl_ld.php?fl_ld='+fl_ld;			
-	// alert(tmpUrl);
+	// dlgAlrtPlgn(tmpUrl);
 
 	$.ajax({
 		type: 'GET',
 		url: tmpUrl,
 		dataType : 'text',
 		error : function() {
-		  alert('Fail!!');
+		  dlgAlrtPlgn('Fail!!');
 		},
 		success: function(data) {
 			// $('article').html(data);	//load()는 반응 없음.
-			// alert("Deleted : " +theDeletedImg);
+			// dlgAlrtPlgn("Deleted : " +theDeletedImg);
 		}
 	});
 }

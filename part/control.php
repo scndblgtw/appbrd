@@ -58,7 +58,7 @@ $(function(){
 			url: <?php echo "'./control/write.php?id=".$GET_ID."'" ?>,
 			dataType : 'text',
 			error : function() {
-			  alert('Loading a process page of WRITE failed!');
+			  dlgAlrtPlgn('Loading a process page of WRITE failed!');
 			},
 			success: function(data) {
 				$('article').html(data);
@@ -73,7 +73,7 @@ $(function(){
 			url: <?php echo "'./control/modify.php?id=".$GET_ID."&bgnpage=".$crrPage."'" ?>,
 			dataType : 'text',
 			error : function() {
-			  alert('Loading a process page of MODIFY failed!');
+			  dlgAlrtPlgn('Loading a process page of MODIFY failed!');
 			},
 			success: function(data) {
 				$('article').html(data);
@@ -88,7 +88,7 @@ $(function(){
 			url: <?php echo "'./control/delete.php?id=".$GET_ID."&bgnpage=".$crrPage."'" ?>,
 			dataType : 'text',
 			error : function() {
-			  alert('Loading a process page of DELETE failed!');
+			  dlgAlrtPlgn('Loading a process page of DELETE failed!');
 			},
 			success: function(data) {
 				$('article').html(data);

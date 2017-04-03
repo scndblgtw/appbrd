@@ -2,14 +2,21 @@ function refreshHeader(){
 	$('header').load('part/header.php');
 }
 
+function dlgAlrtPlgn(dlgMssg){
+	if(!dlgMssg) dlgMssg="test";
+    bootbox.alert(dlgMssg, function() {
+        console.log(dlgMssg);
+    });
+}
+
 function returnBackTheArticle2in(idx, bp){
-	// alert(idx +"  " +bp);
+	// dlgAlrtPlgn(idx +"  " +bp);
 	$.ajax({
 		type: 'GET',
 		url: 'part/article.php?id='+idx+'&bgnpage='+bp,
 		dataType : 'text',
 		error : function() {
-		  alert('Fail!!');
+		  dlgAlrtPlgn('Fail!!');
 		},
 		success: function(data) {
 			$('article').html(data);	//load()는 반응 없음.
@@ -18,16 +25,16 @@ function returnBackTheArticle2in(idx, bp){
 }
 
 function returnBackTheArticle3in(idx, bp, fl_ld){
-	// alert(fl_ld);
+	// dlgAlrtPlgn(fl_ld);
 	tmpUrl = 'control/mpty_fl_ld.php?id='+idx +'&bgnpage='+bp +'&fl_ld='+fl_ld;			
-	// alert(tmpUrl);
+	// dlgAlrtPlgn(tmpUrl);
 
 	$.ajax({
 		type: 'GET',
 		url: tmpUrl,
 		dataType : 'text',
 		error : function() {
-		  alert('Fail!!');
+		  dlgAlrtPlgn('Fail!!');
 		},
 		success: function(data) {
 			$('article').html(data);	//load()는 반응 없음.
@@ -37,7 +44,7 @@ function returnBackTheArticle3in(idx, bp, fl_ld){
 
 function submitWhatForm(whatProcess, cPg){
 	// sUrl= './' +whatProcess +'?bgnpage=' +cPg;
-	// alert(sUrl);
+	// dlgAlrtPlgn(sUrl);
 	
 	if(whatProcess === 'register_act.php') {
 		txloginID = document.getElementById("form-loginID").value;
@@ -45,12 +52,12 @@ function submitWhatForm(whatProcess, cPg){
 		txloginPW = document.getElementById("form-loginPW").value;
 		txloginPWcf = document.getElementById("form-loginPWcf").value;
 		
-		// alert(txloginID +" | " +txnameNic +" | " +txloginPW +" | " +txloginPWcf);
+		// dlgAlrtPlgn(txloginID +" | " +txnameNic +" | " +txloginPW +" | " +txloginPWcf);
 		
-		if(txloginID  ==="" || txloginID===null) { alert("필수: ID"); return; }
-		if(txnameNic  ==="" || txnameNic===null) { alert("필수: 별명"); return; }
-		if(txloginPW  ==="" || txloginPW===null) { alert("필수: 암호"); return; }
-		if(txloginPWcf==="" || txloginPWcf===null) { alert("필수: 암호 학인"); return; }
+		if(txloginID  ==="" || txloginID===null) { dlgAlrtPlgn("필수: ID"); return; }
+		if(txnameNic  ==="" || txnameNic===null) { dlgAlrtPlgn("필수: 별명"); return; }
+		if(txloginPW  ==="" || txloginPW===null) { dlgAlrtPlgn("필수: 암호"); return; }
+		if(txloginPWcf==="" || txloginPWcf===null) { dlgAlrtPlgn("필수: 암호 학인"); return; }
 	}
 	
 	var queryString = $("form[name=whatForm]").serialize();
@@ -61,7 +68,7 @@ function submitWhatForm(whatProcess, cPg){
 		data: queryString,
 		dataType : 'text',
 		error : function() {
-		  alert('Fail!!');
+		  dlgAlrtPlgn('Fail!!');
 		},
 		success: function(data) {
 			//$('header').load("./part/header.php");
@@ -77,7 +84,7 @@ function goLoginForm(whatProcess){	//goToLoginForm, gotoRegisterForm, logoutSess
 		url: './' +whatProcess,
 		dataType : 'text',
 		error : function() {
-		  alert('Loading a process page of ' +whatProcess +' failed!');
+		  dlgAlrtPlgn('Loading a process page of ' +whatProcess +' failed!');
 		},
 		success: function(data) {
 			$('article').html(data);
@@ -87,13 +94,13 @@ function goLoginForm(whatProcess){	//goToLoginForm, gotoRegisterForm, logoutSess
 }
 
 function showControl(idx, crrPage){
-	// alert("showControl(" +idx +",  " +crrPage +")");
+	// dlgAlrtPlgn("showControl(" +idx +",  " +crrPage +")");
 	$.ajax({
 		type: 'GET',
 		url: 'part/control.php?id=' +idx +"&bgnpage=" +crrPage,
 		dataType : 'text',
 		error : function() {
-		  alert('Loading a process of control failed!');
+		  dlgAlrtPlgn('Loading a process of control failed!');
 		},
 		success: function(data) {
 			$('#control').html(data);
@@ -107,7 +114,7 @@ function refreshNavMy(nextHori){
 		url: "part/nav.php?bgnpage=" +nextHori,
 		dataType : 'text',
 		error : function() {
-		alert('Loading article failed!');
+		dlgAlrtPlgn('Loading article failed!');
 		},
 		success: function(data) {
 			$('nav#mymy').html(data);

@@ -7,5 +7,5 @@
 		"dname"=>"appbbs"
 	);
 
-	define('GLOBAL_TST', false);
+	define('GLOBAL_TST', true);
 ?>

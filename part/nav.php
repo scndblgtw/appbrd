@@ -24,7 +24,7 @@ $(function(){
 			url: 'part/nav_test.php?test=[-  -]',
 			dataType : 'text',
 			error : function() {
-			  alert('Fail!!');
+			  dlgAlrtPlgn('Fail!!');
 			},
 			success: function(data) {
 				$('#tstResult').html(data);
@@ -136,7 +136,7 @@ $(function(){
 					url: varStr,
 					dataType : 'text',
 					error : function() {
-					  alert('Fail!!');
+					  dlgAlrtPlgn('Fail!!');
 					},
 					success: function(data) {
 						$('article').html(data);
