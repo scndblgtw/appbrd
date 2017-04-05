@@ -44,6 +44,10 @@
 		if($loginID == $row_loginID) {
 		  echo '<a class="btn btn-success" id="ax_modify">수정</a>';
 		  echo '<a class="btn btn-success" id="ax_delete">삭제</a>';
+		} else {
+
+		  echo '<a class="btn btn-default">수정</a>';
+		  echo '<a class="btn btn-default">삭제</a>';
 		}
 		echo '<a class="btn btn-success" id="ax_write_float">쓰기</a>';
 	}
