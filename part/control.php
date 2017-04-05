@@ -14,7 +14,7 @@
   $crrPage = isset($_GET["bgnpage"]) ? $_GET["bgnpage"] : ""; // from nav.php
   if(GLOBAL_TST) {	echo ", bgnpage=".$crrPage;	}
     
-  $LIMIT_PER_PAGE = 4; // from nav.php
+
   
   // $sql_id = "id";
   

@@ -13,7 +13,7 @@
   $G_table_appitems = "appitems";
   
   
-  $LIMIT_PER_PAGE = 4; // from nav.php
+
   $sql_id = "id";
   
   

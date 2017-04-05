@@ -15,7 +15,7 @@
   
   
   
-  $LIMIT_PER_PAGE = 4; // from nav.php
+
   
   $sql_id = "id";
   

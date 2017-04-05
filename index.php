@@ -9,7 +9,7 @@
   $G_table_appitems = "appitems";
   $G_table_users = "users";
   
-  $LIMIT_PER_PAGE = 10; // from nav.php
+
 	
 	
   $sql_id = "id";
