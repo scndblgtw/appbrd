@@ -69,10 +69,26 @@
 						if($isLogined == true) {
 							echo "[$loginID]";
 						} else {
-							echo "[- - - -]";				
+							echo "[-]";				
 						}
 					?>
 					</a>
+				</li>
+        <li>
+					<?php
+						if($isLogined == true) {
+						echo '<li><a class="btn btn-warning" onClick="goLoginForm('."'logout_act.php'".')">Logout</a></li>';
+						} else {
+							if($GET_action == 1) {
+								
+							}else if($GET_action == 2){
+					
+							}else {
+								echo '<li><a class="btn btn-success" onClick="goLoginForm('."'login.php'".')">Login</a></li>';
+								echo '<li><a class="btn btn-info" onClick="goLoginForm('."'register.php'".')">Register</a></li>';
+							}
+						}
+					?>
 				</li>
         <!-- <li><a href="#">Link</a></li> -->
         <!-- <li><a href="#">Link</a></li> -->
@@ -80,24 +96,11 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 					<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<?php
-							if($isLogined == true) {
-							echo '<li><a class="btn btn-warning" onClick="goLoginForm('."'logout_act.php'".')">Logout</a></li>';
-							} else {
-								if($GET_action == 1) {
-									
-								}else if($GET_action == 2){
-					
-								}else {
-									echo '<li><a class="btn btn-success" onClick="goLoginForm('."'login.php'".')">Login</a></li>';
-									echo '<li><a class="btn btn-info" onClick="goLoginForm('."'register.php'".')">Register</a></li>';
-								}
-							}
-						?>
 						<li role="separator" class="divider"></li>
 						<li><a type="button" value="white" class="btn btn-default" onClick="setWhiteBG();">white</a></li>
 						<li><a type="button" value="gray" class="btn btn-default" onClick="setGrayBG();">gray</a></li>
 						<li><a type="button" value="black" class="btn btn-default" onClick="setBlackBG();">black</a></li>
+						<li role="separator" class="divider"></li>
 					</ul>
         </li>
 				
