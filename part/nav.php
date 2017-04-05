@@ -21,7 +21,7 @@ $(function(){
 	$("#tstResult").click(function(){
 		$.ajax({
 			type: 'GET',
-			url: 'part/nav_test.php?test=[-  -]',
+			url: 'part/nav_test.php?test=[- 2 -]',
 			dataType : 'text',
 			error : function() {
 			  dlgAlrtPlgn('Fail!!');
@@ -43,7 +43,7 @@ $(function(){
 	  // 현재 쪽 번호 @nav 하단 쪽 번호.  0쪽 부터 시작
 	  $crrPage = isset($_GET["bgnpage"]) && $_GET["bgnpage"]!==0? $_GET["bgnpage"] : 0;
 	
-	  $LIMIT_PER_PAGE = 8; //===> @ index.php //nav에서 한쪽 당 보여줄 아이템 개수
+	  // $LIMIT_PER_PAGE = 8; //===> @ index.php //nav에서 한쪽 당 보여줄 아이템 개수
 	  	  
 	
 	  $result = mysqli_query($conn, 'SELECT * FROM '.$G_table_appitems." ORDER BY created_date DESC LIMIT ".$crrPage*$LIMIT_PER_PAGE.", ".$LIMIT_PER_PAGE);
@@ -65,7 +65,7 @@ $(function(){
 	  $totalPages = $totalPagesRemain > 0 ? $totalPages +1 : $totalPages;
 	  
 	  
-	  $PAGE_PER_GROUP = 4;
+	  // $PAGE_PER_GROUP = 4;
 	  
 	  //현재 쪽 포함한 그룹 번호. 번호는 0 그룹 부터 시작
 	  $crrPgGrp = (int)($crrPage /$PAGE_PER_GROUP);
@@ -81,14 +81,17 @@ $(function(){
 	  // 현재 위치 변수는 0 부터 시작한다
 	  
 		  
-		  
+
+		echo "<br>";
+	  echo '<nav aria-label="Page navigation">';
+	  echo '<ul class="pagination pagination-sm">';
 	  $leftArrow = $crrPgGrp*$PAGE_PER_GROUP -1;
 	  if($leftArrow >= 0) {
-		echo "<br><a onClick='refreshNavMy(0);'>&#32;&lt;&lt;&#32</a>";
-		echo "<a onClick='refreshNavMy($leftArrow);'>&#32;&lt;</a>";
+		echo "<li><a onClick='refreshNavMy(0);'>&#32;&lt;&lt;&#32</a></li>";
+		echo "<li><a onClick='refreshNavMy($leftArrow);'>&#32;&lt;</a></li>";
 	  }else {
-		echo "<br><span>&#32;&lt;&lt;&#32</span>";
-		echo "<span>&#32;&lt;</span>";	  
+		echo "<li><span>&#32;&lt;&lt;&#32</span></li>";
+		echo "<li><span>&#32;&lt;</span></li>";	  
 	  }
 	  echo "&#32;";
 			
@@ -96,24 +99,27 @@ $(function(){
 	  $result = mysqli_query($conn, 'SELECT * FROM '.$G_table_appitems." ORDER BY created_date DESC LIMIT ".$crrPage.", ".$LIMIT_PER_PAGE);	  
 	  for($i=$crrPgGrp*$PAGE_PER_GROUP ; $i < $crrPgGrp*$PAGE_PER_GROUP +$PAGE_PER_GROUP; $i++) {
 		if($i > $totalPages-1) {	// 마지막 쪽을 넘길 경우 링크 삭제
-		  echo "<span>".($i +1)."</span>";		  
+		  echo "<li><span>".($i +1)."</span></li>";		  
 		} else {	// 마지막 쪽 이하일 경우 링크 연결
 			if($i != $crrPage)
-			  echo "<a onClick='refreshNavMy($i)'>".($i +1)."</a>";
+			  echo "<li><a onClick='refreshNavMy($i)'>".($i +1)."</a></li>";
 			else
-			  echo "<a><b>".($i +1)."</b></a>";	
+			  echo "<li class='active'><a>".($i +1)."</a></li>";	
 		}	  
 		echo "&#32;";
 	  }
 	  
 	  if($i <= $totalPages-1) {	// 마지막 쪽을 넘길 경우 링크 삭제
-		echo "<a onClick='refreshNavMy($i);'>"."&gt;"."</a>"; $tmp = $totalPages-1;
-		echo "<a onClick='refreshNavMy($tmp);'>&#32;&gt;&gt;</a>";
+		echo "<li><a onClick='refreshNavMy($i);'>"."&gt;"."</a></li>"; $tmp = $totalPages-1;
+		echo "<li><a onClick='refreshNavMy($tmp);'>&#32;&gt;&gt;</a></li>";
 	  }else {	// 마지막쪽 이하일 경우 링크 연결
-		echo "<span>&gt;</span>";		  
-		echo "<span>&#32;&gt;&gt;</span><br>";
+		echo "<li><span>&gt;</span></li>";		  
+		echo "<li><span>&#32;&gt;&gt;</span></li>";
 	  }
-	  
+	  echo '</ul>';
+	  echo '</nav>';
+		
+		
 	  if(GLOBAL_TST) {	
 		  echo "<br><br><br><span class='dev_val_color'>";
 		  echo "<span id='tstResult'>[*******]</span>"." | ttlItems= ".$row['total']."<br>";
