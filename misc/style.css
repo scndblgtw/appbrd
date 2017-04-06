@@ -17,6 +17,12 @@ body.black{
 #ax_write_float {
 	float: right;
 }
+.z_index_higher {
+	z-index: 200;
+}
+.z_index_lower {
+	z-index: 100;
+}
 
 #article_date_float {
 	float: right;

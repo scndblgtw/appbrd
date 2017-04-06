@@ -36,7 +36,6 @@
 <?php
 	$refreshHdr = true;
 	require_once(__DIR__."/../isLogged.php");
-	echo "<br>";
 	
 	$row_loginID = isset($row['loginID']) ? $row['loginID'] : "false";
 					
@@ -46,8 +45,8 @@
 		  echo '<a class="btn btn-success" id="ax_delete">삭제</a>';
 		} else {
 
-		  echo '<a class="btn btn-default">수정</a>';
-		  echo '<a class="btn btn-default">삭제</a>';
+		  // echo '<a class="btn btn-default">수정</a>';
+		  // echo '<a class="btn btn-default">삭제</a>';
 		}
 		echo '<a class="btn btn-success" id="ax_write_float">쓰기</a>';
 	}

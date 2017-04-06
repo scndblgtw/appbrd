@@ -59,12 +59,12 @@
 	
 		<!-- Start. row 4 TW-Bootstrap -->
 		<div class="row" id="partArticleNav-padding-LR">		
-			<div class="col-md-9">
+			<div class="col-md-9 z_index_higher">
 				<article>
 				</article>
 			</div>
 		
-			<nav class="col-md-3" id="mymy">
+			<nav class="col-md-3 z_index_lower" id="mymy">
 			</nav>		
 		</div>
 		
