@@ -62,11 +62,18 @@
 		if(GLOBAL_TST) {	echo "<span class='dev_val_color'> []img_file=";  echo htmlspecialchars($row['img_file']);	echo "</span>";	}
   ?>
 	
-  <div class="form-group">
+  <!-- <div class="form-group"> -->
     <!-- <label for="form-description">본문:</label> -->
-    <textarea class="form-control" name="description" id="form-description" rows="10"><?php echo strip_tags($row['description'], "<a><h1><h2><h3><h4><h5><ul><ol><li><p><br>")?> </textarea>
-  </div>
-
+    <!-- <textarea class="form-control" name="description" id="form-description" rows="10"><?php //echo strip_tags($row['description'], "")?> </textarea> -->
+  <!-- </div> -->
+	<input type="hidden" name="description" id="form-description">
+	<textarea name="editor1" id="editor1" rows="10" cols="80">
+		<?php echo strip_tags($row['description'], "<a><h1><h2><h3><h4><h5><ul><ol><li><p><br>")?>
+	</textarea>
+	<script>
+			CKEDITOR.replace( 'editor1' );
+	</script>
+		
 	<div class="form-group">
     <input type="text" class="form-control" name="urlGglPly" id="form-urlGglPly" value=<?php echo '"'.htmlspecialchars($row['url_gglply']).'"'?>>
   </div>
@@ -76,7 +83,7 @@
   ?>
   
   <input type="hidden" role="uploadcare-uploader" />
-  <input type="button" value="수정 완료" class="btn btn-success" onClick="theOriginImg=null;submitWhatForm('control/modify_act.php', <?php echo $crrPage ?>);">
+  <input type="button" value="수정 완료" class="btn btn-success" onClick="theOriginImg=null;var dataWS = CKEDITOR.instances.editor1.getData();alert(dataWS);document.getElementById('form-description').value = dataWS;submitWhatForm('control/modify_act.php', <?php echo $crrPage ?>);">
   <input type="button" value="취소" class="btn btn-success" onClick="theOriginImg=null;document.getElementById('form-imgFile').value !== document.getElementById('form-imgFile-old').value ? returnBackTheArticle3in(<?php echo $GET_ID?>, <?php echo $crrPage ?>, document.getElementById('form-imgFile').value ) : returnBackTheArticle2in(<?php echo $GET_ID?>, <?php echo $crrPage ?>)">
 </form>
 

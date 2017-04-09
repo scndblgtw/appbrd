@@ -43,7 +43,13 @@
 
   <div>
     <!-- <label for="form-description">본문:</label> -->
-    <textarea class="form-control" name="description" id="form-description" rows="10" placeholder="앱 설명을 적으세요."></textarea>
+    <!-- <textarea class="form-control" name="description" id="form-description" rows="10" placeholder="앱 설명을 적으세요."></textarea> -->
+		<input type="hidden" name="description" id="form-description">
+		<textarea name="editor1" id="editor1" rows="10" cols="80">
+		</textarea>
+		<script>
+				CKEDITOR.replace( 'editor1' );
+		</script>
   </div>
 	
   <div>
@@ -51,8 +57,8 @@
   </div>
 	
   <!-- <input type="hidden" role="uploadcare-uploader" /> -->
-  <!-- <input type="submit" value="쓰기 완료" name="name" class="btn btn-success"> -->
-  <input type="button" value="쓰기 완료" class="btn btn-success" onClick="theOriginImg=null;submitWhatForm('control/write_act.php');">
+  <!-- <input type="submit" value="쓰기 완료" class="btn btn-success" onClick="theOriginImg=null;submitWhatForm('control/write_act.php');"> -->
+  <input type="button" value="쓰기 완료" class="btn btn-success" onClick="theOriginImg=null;var dataWS = CKEDITOR.instances.editor1.getData();alert(dataWS);document.getElementById('form-description').value = dataWS;submitWhatForm('control/write_act.php');">
 	<input type="button" value="취소" class="btn btn-success" onClick="theOriginImg=null;document.getElementById('form-imgFile').value ? returnBackTheArticle3in(<?php echo $GET_ID?>, <?php echo $crrPage ?>, document.getElementById('form-imgFile').value ) : returnBackTheArticle2in(<?php echo $GET_ID?>, <?php echo $crrPage ?>)">
 </form>
 

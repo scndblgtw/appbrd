@@ -84,6 +84,7 @@
 
 	<script src="./bootstrap/js/bootstrap.min.js"></script>
 	<script src="./bootstrap/plugins/bootbox.min.js"></script>
+	<script src="./misc/ckeditor/ckeditor.js"></script>	
 	
 </body>
 </html>
