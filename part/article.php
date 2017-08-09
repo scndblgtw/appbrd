@@ -1,11 +1,16 @@
 ﻿<?php
-  require_once(__DIR__."/../misc/config.php");
-  require_once(__DIR__."/../misc/db.php");
+  // require_once(__DIR__."/../misc/config.php");
+  // require_once(__DIR__."/../misc/db.php");
   
   // $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
   
-  $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
-  if(GLOBAL_TST) {	echo "<span class='dev_val_color'> []GET_ID=";  var_dump($GET_ID);	}
+  // $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
+  if(isset($_GET["id"])) {
+    $GET_ID = $_GET["id"];
+    if(GLOBAL_TST) {	echo "<span class='dev_val_color'> []GET_ID=";  var_dump($GET_ID);	}
+  } else {
+  	if(GLOBAL_TST) {	echo "<span class='dev_val_color'> []"; 	}
+  }
   
   $Gget_rldNav = isset($_GET["rldNav"]) ? $_GET["rldNav"] : false;
   if(GLOBAL_TST) {	echo ", Gget_rldNav=";  var_dump($Gget_rldNav);	}
@@ -46,46 +51,51 @@
 		echo "<br><br><br><br><h1>Welcome to log in.</h1><br><br><br><br>";
 		
 	} else {
-		if($GET_ID == -5) {
-			$result = mysqli_query($conn, 'SELECT * FROM '.$G_table_appitems." ORDER BY created_date DESC LIMIT 1");
-			$row = mysqli_fetch_assoc($result);
-			$GET_ID = $row['id'];
-		}
-		
-	  // $sql = "SELECT ".$G_table_appitems.".id, title, loginID, description, user_id, created_date, updated_date, img_file FROM ".$G_table_appitems." LEFT JOIN ".$G_table_users." ON ".$G_table_appitems.".user_id=".$G_table_users.".id WHERE ".$G_table_appitems.".id=".$GET_ID;
-	  $sql = "SELECT ".$G_table_appitems.".id, title, loginID, description, user_id, url_gglply, created_date, updated_date, UNIX_TIMESTAMP(updated_date) AS updated_ux_ts, img_file FROM ".$G_table_appitems." LEFT JOIN ".$G_table_users." ON ".$G_table_appitems.".user_id=".$G_table_users.".id WHERE ".$G_table_appitems.".id=".$GET_ID;
-	  $result = mysqli_query($conn, $sql);
-	  $row = mysqli_fetch_assoc($result);
-		
+	  if(isset($_GET["id"])) {
+			// $GET_ID = $_GET["id"];
+  			// if(GLOBAL_TST) {	echo "<span class='dev_val_color'> [++]GET_ID=";  var_dump($GET_ID); echo "</span>";	}
+
+			// $result = mysqli_query($conn, 'SELECT * FROM '.$G_table_appitems." ORDER BY created_date DESC LIMIT 1");
+			// $row = mysqli_fetch_assoc($result);
+			// $GET_ID = $row['id'];
+
+
+
+		$sql = "SELECT ".$G_table_appitems.".id, title, loginID, description, user_id, url_gglply, created_date, updated_date, UNIX_TIMESTAMP(updated_date) AS updated_ux_ts, img_file FROM ".$G_table_appitems." LEFT JOIN ".$G_table_users." ON ".$G_table_appitems.".user_id=".$G_table_users.".id WHERE ".$G_table_appitems.".id=".$GET_ID;
+		$result = mysqli_query($conn, $sql);
+		$row = mysqli_fetch_assoc($result);
+				
 		echo '<img id="launcher_icon_img" src="" width="75" height="75" onCLick="loadThumbnail('."'".htmlspecialchars($row['img_file'])."'".')"/>';
-	  echo '&#32; <span id="h2_id">'.htmlspecialchars($row['title']).'</span><br>';
-	  echo '<span>';
+		echo '&#32; <span id="h2_id">'.htmlspecialchars($row['title']).'</span><br>';
+		echo '<span>';
 		echo '<span>';
 		echo '&#32; <a href="'.htmlspecialchars($row['url_gglply']).'" target="_blank">[다운▽</a>';
 		echo '&#32; <a href="'.htmlspecialchars($row['url_gglply']).'" target="_blank"> 로드▼＂]</a>';
 		echo '&#32; @'.htmlspecialchars($row['loginID']);
-		
+				
 		$unx_tmp = htmlspecialchars($row['updated_date']);
 		if($unx_tmp == 0)
-			echo '&#32; |created : <span>'.htmlspecialchars($row['created_date']).'</span>';
+		  echo '&#32; |created : <span>'.htmlspecialchars($row['created_date']).'</span>';
 		else
-			echo '&#32; |updated: <span>'.htmlspecialchars($row['updated_date']).'</span>';
+		  echo '&#32; |updated: <span>'.htmlspecialchars($row['updated_date']).'</span>';
+
 		echo '</span>';
 		echo '</span>';
 		echo "<pre>".$row['description']."</pre>";
-		
+				
 		if(GLOBAL_TST) {
-			echo "<span class='dev_val_color'> []img_file=";  echo htmlspecialchars($row['img_file']);
-			echo '&#32;| created : <span>'.htmlspecialchars($row['created_date']).'</span>';
-			echo '&#32;| updated: <span>'.htmlspecialchars($row['updated_date']).'</span>';
-			echo '&#32;| uUnxTS: <span>'.htmlspecialchars($row['updated_ux_ts']).'</span>';
-			echo "</span>";
+		  echo "<span class='dev_val_color'> []img_file=";  echo htmlspecialchars($row['img_file']);
+		  echo '&#32;| created : <span>'.htmlspecialchars($row['created_date']).'</span>';
+		  echo '&#32;| updated: <span>'.htmlspecialchars($row['updated_date']).'</span>';
+		  echo '&#32;| uUnxTS: <span>'.htmlspecialchars($row['updated_ux_ts']).'</span>';
+		  echo "</span>";
 		}
-	  $user_id = $row['user_id'];
+	  	$user_id = $row['user_id'];
+	  }
 	}
 	
 	if($Gget_rldNav)
-		echo "<script>refreshNavMy($crrPage)</script>";
+	  echo "<script>refreshNavMy($crrPage)</script>";
   }
 ?>
 

@@ -1,5 +1,5 @@
 <?php
-  require_once(__DIR__."/../misc/config.php");
+  // require_once(__DIR__."/../misc/config.php");
   
   $GET_action = isset($_GET["action"]) ? $_GET["action"] : "";	// Required this?
   // $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";

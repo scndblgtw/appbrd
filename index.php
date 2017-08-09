@@ -10,7 +10,6 @@
   $G_table_users = "users";
   
 
-  echo "here i<br>";
 
   session_start();
   $isLogined = isset($_SESSION['isLogined']) ? $_SESSION['isLogined'] : false;
@@ -64,15 +63,27 @@
 		</header>
 	
 		<!-- Start. row 4 TW-Bootstrap -->
-		<div class="row" id="partArticleNav-padding-LR">		
-			<div class="col-md-9 z_index_higher">
-				<article>
-					<?php require(__DIR__."/part/article.php"); ?>
-				</article>
-			</div>
+		<div class="row" id="partArticleNav-padding-LR">
+		  <?php
+			if(isset($_GET["id"])) {
+			  echo "
+				<div class='col-md-8 z_index_higher'>
+					<article>";
+			  require(__DIR__.'/part/article.php');
+			  echo "
+					</article>
+				</div>";			
+			}
+		  ?>
 		
-			<nav class="col-md-3 z_index_lower" id="mymy">
-				<?php require(__DIR__."/part/nav.php"); ?>
+			<nav
+			  <?php 
+				if(isset($_GET["id"]))
+					echo "class='col-md-4 z_index_lower'";
+				else
+					echo "class='col-md-offset-4 col-md-4 z_index_lower'";
+			  ?> id='mymy'>
+			  <?php require(__DIR__.'/part/nav.php'); ?>
 			</nav>		
 		</div>
 		

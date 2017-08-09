@@ -1,6 +1,6 @@
 <?php
-  require_once(__DIR__."/../misc/config.php");
-  require_once(__DIR__."/../misc/db.php");
+  // require_once(__DIR__."/../misc/config.php");
+  // require_once(__DIR__."/../misc/db.php");
   
   // $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
   
@@ -56,7 +56,7 @@ $(function(){
 	
 <div class="center_tag">
 	<?php
-		$rslt = mysqli_query($conn, 'SELECT count(*) as total FROM '.$G_table_appitems.";");
+	  $rslt = mysqli_query($conn, 'SELECT count(*) as total FROM '.$G_table_appitems.";");
 	  $row = mysqli_fetch_assoc($rslt);
 	  $totalPagesRemain = ($row['total'] % $LIMIT_PER_PAGE);
 	  $totalPages = (int)($row['total'] / $LIMIT_PER_PAGE);
@@ -80,13 +80,13 @@ $(function(){
 	  
 		  
 
-		echo "<br>";
+	  echo "<br>";
 	  echo '<nav aria-label="Page navigation">';
 	  echo '<ul class="pagination pagination-sm">';
 	  $leftArrow = $crrPgGrp*$PAGE_PER_GROUP -1;
 	  if($leftArrow >= 0) {
-			echo "<li><a href='index.php' XxXonClick='refreshNavMy(0);'>&#32;&lt;&lt;&#32</a></li>";
-			echo "<li><a href='index.php?bgnpage=".$leftArrow."' XxXonClick='refreshNavMy($leftArrow);'>&#32;&lt;</a></li>";
+			echo "<li><a href='index.php'>&#32;&lt;&lt;&#32</a></li>";
+			echo "<li><a href='index.php?bgnpage=".$leftArrow."'>&#32;&lt;</a></li>";
 	  }else {
 			// echo "<li><span>&#32;&lt;&lt;&#32</span></li>";
 			// echo "<li><span>&#32;&lt;</span></li>";
@@ -100,7 +100,7 @@ $(function(){
 				// echo "<li><span>".($i +1)."</span></li>";  
 			} else {	// 마지막 쪽 이하일 경우 링크 연결
 				if($i != $crrPage)
-					echo "<li><a href='index.php?bgnpage=$i' XxXonClick='refreshNavMy($i)'>".($i +1)."</a></li>";
+					echo "<li><a href='index.php?bgnpage=$i'>".($i +1)."</a></li>";
 				else
 					echo "<li class='active'><a>".($i +1)."</a></li>";	
 			}	  
@@ -108,8 +108,8 @@ $(function(){
 	  }
 	  
 	  if($i <= $totalPages-1) {	// 마지막 쪽을 넘길 경우 링크 삭제
-		echo "<li><a href='index.php?bgnpage=$i' XxXonClick='refreshNavMy($i);'>"."&gt;"."</a></li>"; $tmp = $totalPages-1;
-		echo "<li><a href='index.php?bgnpage=$tmp' XxXonClick='refreshNavMy($tmp);'>&#32;&gt;&gt;</a></li>";
+		echo "<li><a href='index.php?bgnpage=$i'>"."&gt;"."</a></li>"; $tmp = $totalPages-1;
+		echo "<li><a href='index.php?bgnpage=$tmp'>&#32;&gt;&gt;</a></li>";
 	  }else {	// 마지막쪽 이하일 경우 링크 연결
 		// echo "<li><span>&gt;</span></li>";		  
 		// echo "<li><span>&#32;&gt;&gt;</span></li>";
