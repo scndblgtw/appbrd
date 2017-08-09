@@ -7,7 +7,7 @@
 		"dname"=>"appbbs"
 	);
 
-	define('GLOBAL_TST', false);
+	define('GLOBAL_TST', true);
 	
 	/* navigation 영역에서 쪽 번호 */
 	$LIMIT_PER_PAGE = 7; //nav에서 한쪽 당 보여줄 아이템 목록 개수

@@ -1,18 +1,19 @@
 <?php
-  require(__DIR__."/../misc/config.php");
-  require(__DIR__."/../misc/db.php");
+  require_once(__DIR__."/../misc/config.php");
+  require_once(__DIR__."/../misc/db.php");
   
-  $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
+  // $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
   
 
   $G_table_appitems = "appitems";
-  $sql_id = "id";
+  // $sql_id = "id";
   
   
-  session_start();
-  $isLogined = isset($_SESSION['isLogined']) ? $_SESSION['isLogined'] : false;
+
+  // session_start();
+  // $isLogined = isset($_SESSION['isLogined']) ? $_SESSION['isLogined'] : false;
   if(GLOBAL_TST) {	echo "<span class='dev_val_color'> []isLogined=";  var_dump($isLogined);	}
-  $loginID = isset($_SESSION['loginID']) ? $_SESSION['loginID'] : null;
+  // $loginID = isset($_SESSION['loginID']) ? $_SESSION['loginID'] : null;
   if(GLOBAL_TST) {	echo ", loginID=";  var_dump($loginID);	echo "</span>"; }
 ?>
 	
@@ -48,7 +49,7 @@ $(function(){
 	  
 		while( $row = mysqli_fetch_assoc($result) ){
 			$G_row_id = isset($row[$sql_id]) ? $row[$sql_id] : "";
-			echo "<li><a class='ajax_li_a' ajx_href='part/article.php?".$sql_id."=".$G_row_id."&bgnpage=".$crrPage."'>".htmlspecialchars($row['title'])."</a></li>"."\n";
+			echo "<li><a class='ajax_li_a_xXx' href='index.php?".$sql_id."=".$G_row_id."&bgnpage=".$crrPage."'>".htmlspecialchars($row['title'])."</a></li>"."\n";
 		}
 	?>
 </ol>
@@ -84,8 +85,8 @@ $(function(){
 	  echo '<ul class="pagination pagination-sm">';
 	  $leftArrow = $crrPgGrp*$PAGE_PER_GROUP -1;
 	  if($leftArrow >= 0) {
-			echo "<li><a onClick='refreshNavMy(0);'>&#32;&lt;&lt;&#32</a></li>";
-			echo "<li><a onClick='refreshNavMy($leftArrow);'>&#32;&lt;</a></li>";
+			echo "<li><a href='index.php' XxXonClick='refreshNavMy(0);'>&#32;&lt;&lt;&#32</a></li>";
+			echo "<li><a href='index.php?bgnpage=".$leftArrow."' XxXonClick='refreshNavMy($leftArrow);'>&#32;&lt;</a></li>";
 	  }else {
 			// echo "<li><span>&#32;&lt;&lt;&#32</span></li>";
 			// echo "<li><span>&#32;&lt;</span></li>";
@@ -99,7 +100,7 @@ $(function(){
 				// echo "<li><span>".($i +1)."</span></li>";  
 			} else {	// 마지막 쪽 이하일 경우 링크 연결
 				if($i != $crrPage)
-					echo "<li><a onClick='refreshNavMy($i)'>".($i +1)."</a></li>";
+					echo "<li><a href='index.php?bgnpage=$i' XxXonClick='refreshNavMy($i)'>".($i +1)."</a></li>";
 				else
 					echo "<li class='active'><a>".($i +1)."</a></li>";	
 			}	  
@@ -107,8 +108,8 @@ $(function(){
 	  }
 	  
 	  if($i <= $totalPages-1) {	// 마지막 쪽을 넘길 경우 링크 삭제
-		echo "<li><a onClick='refreshNavMy($i);'>"."&gt;"."</a></li>"; $tmp = $totalPages-1;
-		echo "<li><a onClick='refreshNavMy($tmp);'>&#32;&gt;&gt;</a></li>";
+		echo "<li><a href='index.php?bgnpage=$i' XxXonClick='refreshNavMy($i);'>"."&gt;"."</a></li>"; $tmp = $totalPages-1;
+		echo "<li><a href='index.php?bgnpage=$tmp' XxXonClick='refreshNavMy($tmp);'>&#32;&gt;&gt;</a></li>";
 	  }else {	// 마지막쪽 이하일 경우 링크 연결
 		// echo "<li><span>&gt;</span></li>";		  
 		// echo "<li><span>&#32;&gt;&gt;</span></li>";
@@ -127,7 +128,7 @@ $(function(){
 </div>
 			
 <script type="text/javascript">
-	$(document).ready(function(){
+	$(document).ready(function(){	// XxX
 		var varStr;
 		$(".ajax_li_a").each(function(){			
 			

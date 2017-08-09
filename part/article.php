@@ -1,8 +1,8 @@
 ﻿<?php
-  require(__DIR__."/../misc/config.php");
-  require(__DIR__."/../misc/db.php");
+  require_once(__DIR__."/../misc/config.php");
+  require_once(__DIR__."/../misc/db.php");
   
-  $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
+  // $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
   
   $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
   if(GLOBAL_TST) {	echo "<span class='dev_val_color'> []GET_ID=";  var_dump($GET_ID);	}
@@ -19,13 +19,13 @@
 
 	
 	
-  $sql_id = "id";
+  // $sql_id = "id";
 
   
-  session_start();
-  $isLogined = isset($_SESSION['isLogined']) ? $_SESSION['isLogined'] : false;
+  // session_start();
+  // $isLogined = isset($_SESSION['isLogined']) ? $_SESSION['isLogined'] : false;
   if(GLOBAL_TST) {	echo ", isLogined=";  var_dump($isLogined);	}
-  $loginID = isset($_SESSION['loginID']) ? $_SESSION['loginID'] : null;
+  // $loginID = isset($_SESSION['loginID']) ? $_SESSION['loginID'] : null;
   if(GLOBAL_TST) {	echo ", loginID=";  var_dump($loginID);	echo "<br></span>"; }
   
 

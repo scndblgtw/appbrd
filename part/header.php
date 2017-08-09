@@ -2,13 +2,12 @@
   require_once(__DIR__."/../misc/config.php");
   
   $GET_action = isset($_GET["action"]) ? $_GET["action"] : "";	// Required this?
-  $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
+  // $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
+  // session_start();
+  // $isLogined = isset($_SESSION['isLogined']) ? $_SESSION['isLogined'] : false;
+  // $loginID = isset($_SESSION['loginID']) ? $_SESSION['loginID'] : null;
   
-  session_start();
-  $isLogined = isset($_SESSION['isLogined']) ? $_SESSION['isLogined'] : false;
-  $loginID = isset($_SESSION['loginID']) ? $_SESSION['loginID'] : null;
-  
-  $sql_id = "id";
+  // $sql_id = "id";
 ?> 
 
 <!-- <nav class="navbar navbar-inverse"> -->
@@ -58,7 +57,7 @@
 	  
       <ul class="nav navbar-nav navbar-right">
         <li>		
-					<a><?php if(GLOBAL_TST) {	echo "<span class='dev_val_color'> []isLogined="; var_dump($isLogined); echo ", loginID="; var_dump($loginID); echo "</span>"; } ?></a>	
+					<a><?php if(GLOBAL_TST) {	echo "<span class='dev_val_color'> [|HEADER]isLogined="; var_dump($isLogined); echo ", loginID="; var_dump($loginID); echo "</span>"; } ?></a>	
 				</li>
 				
         <li class="active">
