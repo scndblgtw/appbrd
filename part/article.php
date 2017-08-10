@@ -4,13 +4,17 @@
   
   // $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
   
-  // $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
-  if(isset($_GET["id"])) {
-    $GET_ID = $_GET["id"];
-    if(GLOBAL_TST) {	echo "<span class='dev_val_color'> []GET_ID=";  var_dump($GET_ID);	}
-  } else {
-  	if(GLOBAL_TST) {	echo "<span class='dev_val_color'> []"; 	}
-  }
+  echo "GLOBAL_TST=".GLOBAL_TST."";
+  $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
+    if(GLOBAL_TST) {	echo "<span class='dev_val_color'> [article::]GET_ID=";  var_dump($GET_ID);	}
+  // if(isset($_GET["id"])) {
+  //   $GET_ID = $_GET["id"];
+  //   if(GLOBAL_TST) {	echo "<span class='dev_val_color'> [article::]GET_ID=";  var_dump($GET_ID);	}
+  // } else {
+  // 	if(GLOBAL_TST) {	echo "<span class='dev_val_color'> []"; 	}
+  // }
+  
+  echo ", GLOBAL_TST=".GLOBAL_TST."";
   
   $Gget_rldNav = isset($_GET["rldNav"]) ? $_GET["rldNav"] : false;
   if(GLOBAL_TST) {	echo ", Gget_rldNav=";  var_dump($Gget_rldNav);	}
@@ -51,7 +55,9 @@
 		echo "<br><br><br><br><h1>Welcome to log in.</h1><br><br><br><br>";
 		
 	} else {
-	  if(isset($_GET["id"])) {
+	  if(isset($_GET["id"])  && $_GET["id"]>0) {
+ 			echo "][".$_GET["id"]."][<br>";
+
 			// $GET_ID = $_GET["id"];
   			// if(GLOBAL_TST) {	echo "<span class='dev_val_color'> [++]GET_ID=";  var_dump($GET_ID); echo "</span>";	}
 

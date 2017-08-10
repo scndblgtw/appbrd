@@ -57,7 +57,7 @@
 	  
       <ul class="nav navbar-nav navbar-right">
         <li>		
-					<a><?php if(GLOBAL_TST) {	echo "<span class='dev_val_color'> [|HEADER]isLogined="; var_dump($isLogined); echo ", loginID="; var_dump($loginID); echo "</span>"; } ?></a>	
+					<a><?php if(GLOBAL_TST) {	echo "<span class='dev_val_color'> [HEADER]isLogined="; var_dump($isLogined); echo ", loginID="; var_dump($loginID); echo "</span>"; } ?></a>	
 				</li>
 				
         <li class="active">
@@ -76,15 +76,15 @@
         <li>
 					<?php
 						if($isLogined == true) {
-						echo '<li><a class="btn btn-warning" onClick="goLoginForm('."'logout_act.php'".')">Logout</a></li>';
+						echo '<li><a class="btn btn-warning" href="logout_act.php">Logout</a></li>';
 						} else {
 							if($GET_action == 1) {
 								
 							}else if($GET_action == 2){
 					
 							}else {
-								echo '<li><a class="btn btn-success" onClick="goLoginForm('."'login.php'".')">Login</a></li>';
-								echo '<li><a class="btn btn-info" onClick="goLoginForm('."'register.php'".')">Register</a></li>';
+								echo '<li><a class="btn btn-success" href="login_whl.php">Login</a></li>';
+								echo '<li><a class="btn btn-info" href="register_whl.php">Register</a></li>';
 							}
 						}
 					?>

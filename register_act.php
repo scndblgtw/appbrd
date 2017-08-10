@@ -35,6 +35,7 @@
 		} else {
 		  // echo "<br>[X]Two passwords are the different.<br>";
 		  header("Location:$entry_ip/register.php?again=-1");
+		  // echo '<script>location.href="./register_whl.php?again=-1";</script>';
 		  exit;
 		}
 	} else {

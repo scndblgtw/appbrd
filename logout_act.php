@@ -7,5 +7,6 @@
 	session_start();
 	session_destroy();
 
-	header("Location:$entry_ip/part/article.php");
+	// header("Location:$entry_ip/part/article.php");
+	echo '<script>location.href="./index.php";</script>';
 ?>

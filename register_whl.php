@@ -14,14 +14,12 @@
   $loginID = isset($_SESSION['loginID']) ? $_SESSION['loginID'] : null;
 	
 	
-  echo "10 GLOBAL_TST=== == =".GLOBAL_TST."<br>";
-
   $sql_id = "id";
 
-  ini_set("session.gc_probability", 1);
-  ini_set("session.gc_divisor", 1);
-  ini_set("session.cache_expire", 60); 
-  ini_set("session.gc_maxlifetime", 90);
+  // ini_set("session.gc_probability", 1);
+  // ini_set("session.gc_divisor", 1);
+  // ini_set("session.cache_expire", 60); 
+  // ini_set("session.gc_maxlifetime", 90);
 ?>
 
 
@@ -65,18 +63,33 @@
 
 		<!-- Start. row 4 TW-Bootstrap -->
 		<div class="row" id="partArticleNav-padding-LR">
-		  <?php
-			if(true) {
-			// if(isset($_GET["id"]) && $_GET["id"]>0) {
-			  echo "
-				<div class='col-md-8 z_index_higher'>
-					<article>";
-			  require(__DIR__.'/part/article.php');
-			  echo "
-					</article>
-				</div>";			
-			}
-		  ?>
+		  <div class='col-md-8 z_index_higher'>
+			<article>
+
+			  <form class="" name="whatForm">
+					<label for="form-title"><h3>회원 가입</h3></label>
+			    <div class="form-group">
+			      <label for="form-loginID">아이디:</label>
+						<input type="text" class="form-control" name="loginID" id="form-loginID" placeholder="prefered ID" required>
+			    </div>	  
+			    <div class="form-group">
+			      <label for="form-nameNic">별명:</label>
+			      <input type="text" class="form-control" name="nameNic" id="form-nameNic" placeholder="prefered nic name" required>
+			    </div>	  
+			    <div class="form-group">
+			      <label for="form-loginPW">암호:</label>
+			      <input type="password" class="form-control" name="loginPW" id="form-loginPW" value="" required>
+			    </div>
+				<div class="form-group">
+			      <label for="form-loginPWcf">암호 학인:</label>
+			      <input type="password" class="form-control" name="loginPWcf" id="form-loginPWcf" value="" required>
+			    </div>	  
+			    <input type="button" value="확인" class="btn btn-success" onClick="submitWhatForm('register_act.php');">
+					<input type="button" value="취소" class="btn btn-success" onClick="returnBackTheArticle2in(<?php echo $GET_ID?>, <?php echo $crrPage ?>);">
+			  </form>
+  	  	
+		  	</article>
+		  </div>
 		
 			<nav
 			  <?php 
@@ -89,13 +102,7 @@
 			</nav>		
 		</div>
 		
-		<div class="row" id="partArticleNav-padding-LR">
-			<div class="col-md-3">
-			</div>	
-			<div class="col-md-6">
-				<?php require(__DIR__."/part/services3th.php"); ?>
-			</div>
-		</div>
+
 	</div>
 
 	<script src="./misc/jsIndex.js"></script>

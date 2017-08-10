@@ -22,18 +22,20 @@
 			$_SESSION['isLogined'] = true;
 			$_SESSION['loginID'] = $loginID;
 			$_SESSION['loginTime'] = time();
-			header("Location:$entry_ip/part/article.php");
-		
+			// header("Location:$entry_ip/index.php");
+			echo '<script type="text/javascript">location.href="./index.php";</script>';
 			return 0;
 		}
 		else {
 			echo "PASSWORD ERROR";
-			header("Location:$entry_ip/part/article.php?id=-2");
+			// header("Location:$entry_ip/index.php?id=-2");
+			echo '<script>location.href="./index.php?id=-2";</script>';
 			return 1;
 		}
 	} else {
 		echo "ID DOESN'T EXIST";
-			header("Location:$entry_ip/part/article.php?id=-3");
+			// header("Location:$entry_ip/part/article.php?id=-3");
+			echo '<script>location.href="./index.php?id=-3";</script>';
 		return 1;
 	}
 ?>

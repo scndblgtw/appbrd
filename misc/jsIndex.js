@@ -1,4 +1,4 @@
-function refreshHeader(){
+function XxXrefreshHeader(){
 	$('header').load('part/header.php');
 }
 
@@ -10,7 +10,7 @@ function dlgAlrtPlgn(dlgMssg){
 }
 
 function returnBackTheArticle2in(idx, bp){
-	// dlgAlrtPlgn(idx +"  " +bp);
+	dlgAlrtPlgn(idx +"  " +bp);
 	$.ajax({
 		type: 'GET',
 		url: 'part/article.php?id='+idx+'&bgnpage='+bp,
@@ -24,7 +24,7 @@ function returnBackTheArticle2in(idx, bp){
 	});
 }
 
-function returnBackTheArticle3in(idx, bp, fl_ld){
+function XxXreturnBackTheArticle3in(idx, bp, fl_ld){
 	// dlgAlrtPlgn(fl_ld);
 	tmpUrl = 'control/mpty_fl_ld.php?id='+idx +'&bgnpage='+bp +'&fl_ld='+fl_ld;			
 	// dlgAlrtPlgn(tmpUrl);
@@ -108,7 +108,7 @@ function showControl(idx, crrPage){
 	});
 }
 
-function refreshNavMy(nextHori){
+function XxXrefreshNavMy(nextHori){
 	$.ajax({
 		type: 'GET',
 		url: "part/nav.php?bgnpage=" +nextHori,
@@ -122,16 +122,16 @@ function refreshNavMy(nextHori){
 	});
 }
 
-refreshHeader();
-$('article').load("part/article.php?");	
-refreshNavMy();
+// refreshHeader();
+// $('article').load("part/article.php?");	
+// refreshNavMy();
 
-function setWhiteBG(){
-	document.getElementById("target").className='white';
-}	
-function setGrayBG(){
-	document.getElementById("target").className='gray';
-}
-function setBlackBG(){
-	document.getElementById("target").className='black';
-}
+// function setWhiteBG(){
+// 	document.getElementById("target").className='white';
+// }	
+// function setGrayBG(){
+// 	document.getElementById("target").className='gray';
+// }
+// function setBlackBG(){
+// 	document.getElementById("target").className='black';
+// }
