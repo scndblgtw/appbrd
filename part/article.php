@@ -1,21 +1,9 @@
 ﻿<?php
-  // require_once(__DIR__."/../misc/config.php");
-  // require_once(__DIR__."/../misc/db.php");
-  
-  // $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
-  
-  echo "GLOBAL_TST=".GLOBAL_TST."";
   $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
     if(GLOBAL_TST) {	echo "<span class='dev_val_color'> [article::]GET_ID=";  var_dump($GET_ID);	}
-  // if(isset($_GET["id"])) {
-  //   $GET_ID = $_GET["id"];
-  //   if(GLOBAL_TST) {	echo "<span class='dev_val_color'> [article::]GET_ID=";  var_dump($GET_ID);	}
-  // } else {
-  // 	if(GLOBAL_TST) {	echo "<span class='dev_val_color'> []"; 	}
-  // }
+
   
-  echo ", GLOBAL_TST=".GLOBAL_TST."";
-  
+
   $Gget_rldNav = isset($_GET["rldNav"]) ? $_GET["rldNav"] : false;
   if(GLOBAL_TST) {	echo ", Gget_rldNav=";  var_dump($Gget_rldNav);	}
   
@@ -26,20 +14,16 @@
   if(GLOBAL_TST) {	echo ", bgnpage=".$crrPage;	}
     
 
-	
-	
-  // $sql_id = "id";
 
-  
-  // session_start();
-  // $isLogined = isset($_SESSION['isLogined']) ? $_SESSION['isLogined'] : false;
   if(GLOBAL_TST) {	echo ", isLogined=";  var_dump($isLogined);	}
-  // $loginID = isset($_SESSION['loginID']) ? $_SESSION['loginID'] : null;
   if(GLOBAL_TST) {	echo ", loginID=";  var_dump($loginID);	echo "<br></span>"; }
   
 
   if(empty($GET_ID) === false){ // '===' is better than '=='
-	if		 ($GET_ID == -6) {
+	if		 ($GET_ID == -11) {
+		echo "<br><a class='confirm_royalblue'>[O] You are registered. Welcome to join. Login please. @article</a><br>";
+		
+	} else if ($GET_ID == -6) {
 		echo "<br><br><br><br><h1>The article has been deleted.</h1><br><br><br><br>";
 		
 	} else if($GET_ID == -4) {

@@ -18,30 +18,31 @@
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_assoc($result);
 	  
-	  
-	  
-	
-	if(empty($row)) {
-	  echo "<br>The ID ".$loginID." OK.<br>";
-	  
+	 	
+	if(empty($row)) {	  
 		if($loginPW == $loginPWcf) {
 		  // echo "<br>[OK]Two passwords are the same.<br>";			
 		  $sql = "INSERT INTO ".$G_table_users."(loginID, nameNic, loginPW, joined_date) VALUES('".$loginID."', '".$nameNic."', '".$loginPW."', now())";
 		  mysqli_query($conn, $sql);
   
-		  header("Location:$entry_ip/login.php?again=1");
-		  exit;
+
+		  echo "<br><a class='confirm_royalblue'>[O] You are registered. Welcome to join. Login please. @register_whl</a><br>";
+		  // header("Location:$entry_ip/login.php?again=1");
+		  echo '<script>location.href="./index.php?id=-11";</script>';
+		  return 0;
+		  // exit;
 		
 		} else {
-		  // echo "<br>[X]Two passwords are the different.<br>";
-		  header("Location:$entry_ip/register.php?again=-1");
-		  // echo '<script>location.href="./register_whl.php?again=-1";</script>';
+		  // echo "<br>[X]Two passwords are the different. @register_act<br>";
+		  // header("Location:$entry_ip/register.php?again=-1");
+		  echo '<script>location.href="./register_whl.php?id=-1";</script>';
 		  exit;
 		}
 	} else {
-		header("Location:$entry_ip/register.php?again=-2&loginID=$loginID");
-		exit;
+		// echo "<br><a class='error_red'>[X] The ID [".$loginID."] already taken. Register again, please. @register_act</a><br>";
+		echo "<script>location.href='./register_whl.php?id=-2&loginID={$loginID}';</script>";
+		return 0;
 	}
 	
-	header("Location:$entry_ip/register.php?id=".$id);
+	// header("Location:$entry_ip/register.php?id=".$id);
 ?>

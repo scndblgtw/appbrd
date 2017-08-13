@@ -14,7 +14,6 @@
   $loginID = isset($_SESSION['loginID']) ? $_SESSION['loginID'] : null;
 	
 	
-  echo "10 GLOBAL_TST=== == =".GLOBAL_TST."<br>";
 
   $sql_id = "id";
 
@@ -66,8 +65,8 @@
 		<!-- Start. row 4 TW-Bootstrap -->
 		<div class="row" id="partArticleNav-padding-LR">
 		  <?php
-			if(true) {
-			// if(isset($_GET["id"]) && $_GET["id"]>0) {
+			// if(true) {
+			if(isset($_GET["id"]) ) {
 			  echo "
 				<div class='col-md-8 z_index_higher'>
 					<article>";

@@ -83,8 +83,8 @@
 							}else if($GET_action == 2){
 					
 							}else {
-								echo '<li><a class="btn btn-success" href="login_whl.php">Login</a></li>';
-								echo '<li><a class="btn btn-info" href="register_whl.php">Register</a></li>';
+								echo '<li><a class="btn btn-success" href="login_whl.php">로그인</a></li>';
+								echo '<li><a class="btn btn-info" href="register_whl.php">회원가입</a></li>';
 							}
 						}
 					?>

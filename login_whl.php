@@ -63,14 +63,14 @@
 
 		<!-- Start. row 4 TW-Bootstrap -->
 		<div class="row" id="partArticleNav-padding-LR">
-		  <div class='col-md-8 z_index_higher'>
+		  <div class='col-sm-offset-4 col-sm-4 z_index_higher'>
 			<article>
 
-			  <form class="" name="whatForm">
+			  <form class="" name="whatForm" action="login_act.php" method="post">
 					<label for="form-title"><h3>사용자 로그인</h3></label>
 					<div class="form-group">
 						<label for="form-loginID">아이디:</label>
-						<input type="text" class="form-control" name="loginID" id="form-loginID" placeholder="my ID">
+						<input type="text" class="form-control" name="loginID" id="form-loginID" placeholder="my ID" required autofocus>
 					</div>
 					
 					<div class="form-group">
@@ -79,24 +79,26 @@
 					</div>
 					
 					<input type="hidden" />
-					<input type="button" value="로그인" class="btn btn-success" onClick="submitWhatForm('login_act.php');">
-					<input type="button" value="취소" class="btn btn-success" onClick="returnBackTheArticle2in(<?php echo $GET_ID ?>);">
+					<input type="submit" value="로그인" class="btn btn-success" >
+					<a class="btn btn-success" href="index.php">취소</a>
 					
 					<a class="btn btn-info" href="register_whl.php">회원가입</a>
 			  </form>
 
 		  	</article>
+		  	<br><br><br>
 		  </div>
-		
-			<nav
+
+
+		  <nav
 			  <?php 
 				if(isset($_GET["id"]))
-					echo "class='col-md-4 z_index_lower'";
+					echo "class='col-sm-4 z_index_lower'";
 				else
-					echo "class='col-md-offset-4 col-md-4 z_index_lower'";
+					echo "class='col-sm-offset-4 col-sm-4 z_index_lower'";
 			  ?> id='mymy'>
 			  <?php require(__DIR__.'/part/nav.php'); ?>
-			</nav>		
+		  </nav>		
 		</div>
 		
 

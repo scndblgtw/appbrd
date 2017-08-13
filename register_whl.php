@@ -9,6 +9,9 @@
   $G_table_appitems = "appitems";
   $G_table_users = "users";
 
+  $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
+  // $Gget_again = isset($_GET["again"]) ? $_GET["again"] : "";
+  $Gget_loginID = isset($_GET['loginID']) ? $_GET['loginID'] : "";
   session_start();
   $isLogined = isset($_SESSION['isLogined']) ? $_SESSION['isLogined'] : false;
   $loginID = isset($_SESSION['loginID']) ? $_SESSION['loginID'] : null;
@@ -63,14 +66,25 @@
 
 		<!-- Start. row 4 TW-Bootstrap -->
 		<div class="row" id="partArticleNav-padding-LR">
-		  <div class='col-md-8 z_index_higher'>
+		  <div class='col-sm-offset-4 col-sm-4 z_index_higher'>
 			<article>
 
-			  <form class="" name="whatForm">
-					<label for="form-title"><h3>회원 가입</h3></label>
+
+	<?php
+		if($GET_ID == -1) {
+		  echo "<a class='error_red'>[X] Two passwords are different. Again please.</a><br>";
+		} else if($GET_ID == -2) {
+			echo "<span class='error_red'>[X] The ID [".$Gget_loginID."] already taken. Register again, please.</span><br>";
+		}
+	?>
+
+
+
+			  <form class="" name="whatForm" action="register_act.php" method="post">
+				<label for="form-title"><h3>회원 가입</h3></label>
 			    <div class="form-group">
 			      <label for="form-loginID">아이디:</label>
-						<input type="text" class="form-control" name="loginID" id="form-loginID" placeholder="prefered ID" required>
+				  <input type="text" class="form-control" name="loginID" id="form-loginID" placeholder="prefered ID" required autofocus>
 			    </div>	  
 			    <div class="form-group">
 			      <label for="form-nameNic">별명:</label>
@@ -84,8 +98,8 @@
 			      <label for="form-loginPWcf">암호 학인:</label>
 			      <input type="password" class="form-control" name="loginPWcf" id="form-loginPWcf" value="" required>
 			    </div>	  
-			    <input type="button" value="확인" class="btn btn-success" onClick="submitWhatForm('register_act.php');">
-					<input type="button" value="취소" class="btn btn-success" onClick="returnBackTheArticle2in(<?php echo $GET_ID?>, <?php echo $crrPage ?>);">
+			    <input type="submit" value="확인" class="btn btn-success">
+				<a class="btn btn-success" href="index.php">취소</a>
 			  </form>
   	  	
 		  	</article>
@@ -93,10 +107,10 @@
 		
 			<nav
 			  <?php 
-				if(isset($_GET["id"]))
-					echo "class='col-md-4 z_index_lower'";
+				if(isset($_GET["id"]) && isset($_GET["id"])>0 )
+					echo "class='col-sm-4 z_index_lower'";
 				else
-					echo "class='col-md-offset-4 col-md-4 z_index_lower'";
+					echo "class='col-sm-offset-4 col-sm-4 z_index_lower'";
 			  ?> id='mymy'>
 			  <?php require(__DIR__.'/part/nav.php'); ?>
 			</nav>		
