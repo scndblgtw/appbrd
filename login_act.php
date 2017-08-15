@@ -22,15 +22,15 @@
 			$_SESSION['isLogined'] = true;
 			$_SESSION['loginID'] = $loginID;
 			$_SESSION['loginTime'] = time();
-			echo '<script>location.href="./index.php?id=-1";</script>';
+			echo '<script>location.href="./index.php?id=0";</script>';
 			return 0;
 		}
 		else {
-			echo '<script>location.href="./index.php?id=-2";</script>';
+			echo '<script>location.href="./login_whl.php?id=-2";</script>';
 			return 1;
 		}
 	} else {
-			echo '<script>location.href="./index.php?id=-3";</script>';
+			echo '<script>location.href="./login_whl.php?id=-3";</script>';
 		return 1;
 	}
 ?>

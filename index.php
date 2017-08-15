@@ -14,6 +14,8 @@
   $loginID = isset($_SESSION['loginID']) ? $_SESSION['loginID'] : null;
 	
 	
+  // echo "=============|||| empty() ||||=========<br>";
+
 
   $sql_id = "id";
 
@@ -44,14 +46,7 @@
   <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 
 	<script>
-	function loadThumbnail(sName) {	
-		if(sName == "") {
-			var sTmp = "./defaulcon512x512_empty.png";
-		} else {
-			var sTmp = './jQuery-File-Upload/server/php/files/thumbnail/' +sName;
-		}
-		$("#launcher_icon_img").attr("src", sTmp);
-	}
+
 	</script>
 	
 </head>
@@ -68,7 +63,7 @@
 			// if(true) {
 			if(isset($_GET["id"]) ) {
 			  echo "
-				<div class='col-md-8 z_index_higher'>
+				<div class='col-md-8'>
 					<article>";
 			  require(__DIR__.'/part/article.php');
 			  echo "
@@ -80,9 +75,9 @@
 			<nav
 			  <?php 
 				if(isset($_GET["id"]))
-					echo "class='col-md-4 z_index_lower'";
+					echo "class='col-md-4'";
 				else
-					echo "class='col-md-offset-4 col-md-4 z_index_lower'";
+					echo "class='col-md-offset-4 col-md-4'";
 			  ?> id='mymy'>
 			  <?php require(__DIR__.'/part/nav.php'); ?>
 			</nav>		

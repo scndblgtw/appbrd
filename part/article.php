@@ -12,14 +12,14 @@
   
   $crrPage = isset($_GET["bgnpage"]) ? $_GET["bgnpage"] : 0; // from nav.php
   if(GLOBAL_TST) {	echo ", bgnpage=".$crrPage;	}
-    
-
-
   if(GLOBAL_TST) {	echo ", isLogined=";  var_dump($isLogined);	}
   if(GLOBAL_TST) {	echo ", loginID=";  var_dump($loginID);	echo "<br></span>"; }
   
 
-  if(empty($GET_ID) === false){ // '===' is better than '=='
+  // echo "=================1<br><br>";
+  // echo "=================GET_ID== $GET_ID<br><br>";
+  // echo "=================empty(GET_ID)== ".empty($GET_ID)."<br><br>";
+  // if(empty($GET_ID) === false){ // '===' is better than '=='
 	if		 ($GET_ID == -11) {
 		echo "<br><a class='confirm_royalblue'>[O] You are registered. Welcome to join. Login please. @article</a><br>";
 		
@@ -33,29 +33,38 @@
 		echo "<br><br><br><br><h1>There is NO ID.</h1><br><br><br><br>";
 		
 	} else if($GET_ID == -2) {
-		echo "<br><br><br><br><h1>Password ERROR.</h1><br><br><br><br>";
+		echo "<br><br><br><br><h1>The password WRONG.</h1><br><br><br><br>";
 		
 	} else if($GET_ID == -1) {
 		echo "<br><br><br><br><h1>Welcome to log in.</h1><br><br><br><br>";
 		
 	} else {
-	  if(isset($_GET["id"])  && $_GET["id"]>0) {
- 			echo "][".$_GET["id"]."][<br>";
+		// echo "=================2<br><br>";
+	  // if(isset($_GET["id"])) {
+	  	if($GET_ID == 0) {
+			$result = mysqli_query($conn, 'SELECT * FROM '.$G_table_appitems." ORDER BY created_date DESC LIMIT 1");
+			// var_dump($result);
+			// echo "<br><br><br>";
+			// var_dump(mysqli_fetch_assoc($result));
+			// echo "<br>";
+			// echo "=================2:0<br><br>";
+		} else {
+			$sql = "SELECT ".$G_table_appitems.".id, title, loginID, description, user_id, url_gglply, created_date, updated_date, UNIX_TIMESTAMP(updated_date) AS updated_ux_ts, img_file FROM ".$G_table_appitems." LEFT JOIN ".$G_table_users." ON ".$G_table_appitems.".user_id=".$G_table_users.".id WHERE ".$G_table_appitems.".id=".$GET_ID;
+			$result = mysqli_query($conn, $sql);
+			// echo "=================2:s<br><br>";
+		}
 
-			// $GET_ID = $_GET["id"];
-  			// if(GLOBAL_TST) {	echo "<span class='dev_val_color'> [++]GET_ID=";  var_dump($GET_ID); echo "</span>";	}
+		// echo "=================3<br><br>";
 
-			// $result = mysqli_query($conn, 'SELECT * FROM '.$G_table_appitems." ORDER BY created_date DESC LIMIT 1");
-			// $row = mysqli_fetch_assoc($result);
-			// $GET_ID = $row['id'];
-
-
-
-		$sql = "SELECT ".$G_table_appitems.".id, title, loginID, description, user_id, url_gglply, created_date, updated_date, UNIX_TIMESTAMP(updated_date) AS updated_ux_ts, img_file FROM ".$G_table_appitems." LEFT JOIN ".$G_table_users." ON ".$G_table_appitems.".user_id=".$G_table_users.".id WHERE ".$G_table_appitems.".id=".$GET_ID;
-		$result = mysqli_query($conn, $sql);
 		$row = mysqli_fetch_assoc($result);
-				
-		echo '<img id="launcher_icon_img" src="" width="75" height="75" onCLick="loadThumbnail('."'".htmlspecialchars($row['img_file'])."'".')"/>';
+		// var_dump($row);
+		// echo "=================row<br><br>";
+
+		if($row['img_file'] == "")
+			echo "<img id='launcher_icon_img' src='./defaulcon512x512_empty.png' width='75' height='75' />";
+		else 
+			echo '<img id="launcher_icon_img" src="./jQuery-File-Upload/server/php/files/thumbnail/'.$row['img_file'].'" width="75" height="75" />';
+
 		echo '&#32; <span id="h2_id">'.htmlspecialchars($row['title']).'</span><br>';
 		echo '<span>';
 		echo '<span>';
@@ -81,22 +90,35 @@
 		  echo "</span>";
 		}
 	  	$user_id = $row['user_id'];
-	  }
+	  // }
+
+	  	// echo "=================4<br><br>";
 	}
 	
 	if($Gget_rldNav)
 	  echo "<script>refreshNavMy($crrPage)</script>";
-  }
+
+	// echo "=================5<br><br>";
+  // }
 ?>
 
 <div id="control">		
 	<script>
+		function showControl(idx, crrPage){
+			// dlgAlrtPlgn("showControl(" +idx +",  " +crrPage +")");
+			$.ajax({
+				type: 'GET',
+				url: 'part/control.php?id=' +idx +"&bgnpage=" +crrPage,
+				dataType : 'text',
+				error : function() {
+				  dlgAlrtPlgn('Loading a process of control failed!');
+				},
+				success: function(data) {
+					$('#control').html(data);
+				}
+			});
+		}
+
 		showControl(<?php echo $GET_ID.', '.$crrPage ?>);
 	</script>
 </div>
-
-<script>
-$(function() {
-	loadThumbnail('<?php echo htmlspecialchars($row['img_file']) ?>');
-});
-</script>

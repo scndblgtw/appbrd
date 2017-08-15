@@ -9,6 +9,9 @@
   $G_table_appitems = "appitems";
   $G_table_users = "users";
 
+
+  $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
+  
   session_start();
   $isLogined = isset($_SESSION['isLogined']) ? $_SESSION['isLogined'] : false;
   $loginID = isset($_SESSION['loginID']) ? $_SESSION['loginID'] : null;
@@ -42,16 +45,7 @@
 	
   <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 
-	<script>
-	function loadThumbnail(sName) {	
-		if(sName == "") {
-			var sTmp = "./defaulcon512x512_empty.png";
-		} else {
-			var sTmp = './jQuery-File-Upload/server/php/files/thumbnail/' +sName;
-		}
-		$("#launcher_icon_img").attr("src", sTmp);
-	}
-	</script>
+
 	
 </head>
 <body id="target">
@@ -60,6 +54,16 @@
 			<?php require(__DIR__."/part/header.php"); ?>
 		</header>
 	
+
+
+		<div class="row">
+		  <div class='col-sm-offset-4 col-sm-4'>
+
+
+		  </div>
+		</div>
+
+
 
 		<!-- Start. row 4 TW-Bootstrap -->
 		<div class="row" id="partArticleNav-padding-LR">
@@ -79,6 +83,19 @@
 					</div>
 					
 					<input type="hidden" />
+
+
+
+	<?php
+		if($GET_ID == -2) {
+		  echo "<a class='error_red'>[X] The password WRONG.</a><br>  <br>";
+		} else if($GET_ID == -3) {
+		  echo "<span class='error_red'>[X] There is NO ID.</span><br>  <br>";
+		}
+	?>
+
+
+
 					<input type="submit" value="로그인" class="btn btn-success" >
 					<a class="btn btn-success" href="index.php">취소</a>
 					

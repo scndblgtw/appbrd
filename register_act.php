@@ -26,7 +26,7 @@
 		  mysqli_query($conn, $sql);
   
 
-		  echo "<br><a class='confirm_royalblue'>[O] You are registered. Welcome to join. Login please. @register_whl</a><br>";
+		  // echo "<br><a class='confirm_royalblue'>[O] You are registered. Welcome to join. Login please. @register_whl</a><br>";
 		  // header("Location:$entry_ip/login.php?again=1");
 		  echo '<script>location.href="./index.php?id=-11";</script>';
 		  return 0;

@@ -122,16 +122,25 @@ function XxXrefreshNavMy(nextHori){
 	});
 }
 
+	function XxXloadThumbnail(sName) {	
+		if(sName == "") {
+			var sTmp = "./defaulcon512x512_empty.png";
+		} else {
+			var sTmp = './jQuery-File-Upload/server/php/files/thumbnail/' +sName;
+		}
+		$("#launcher_icon_img").attr("src", sTmp);
+	}
+
 // refreshHeader();
 // $('article').load("part/article.php?");	
 // refreshNavMy();
 
-// function setWhiteBG(){
-// 	document.getElementById("target").className='white';
-// }	
-// function setGrayBG(){
-// 	document.getElementById("target").className='gray';
-// }
-// function setBlackBG(){
-// 	document.getElementById("target").className='black';
-// }
+function setWhiteBG(){
+	document.getElementById("target").className='white';
+}	
+function setGrayBG(){
+	document.getElementById("target").className='gray';
+}
+function setBlackBG(){
+	document.getElementById("target").className='black';
+}
