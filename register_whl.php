@@ -56,18 +56,9 @@
 	
 
 		<!-- Start. row 4 TW-Bootstrap -->
-		<div class="row" id="partArticleNav-padding-LR">
-		  <div class='col-sm-offset-4 col-sm-4 z_index_higher'>
+		<div class="row">
+		  <div class='col-sm-offset-4 col-sm-4'>
 			<article>
-
-
-	<?php
-		if($GET_ID == -1) {
-		  echo "<a class='error_red'>[X] Two passwords are different. Again please.</a><br>";
-		} else if($GET_ID == -2) {
-			echo "<span class='error_red'>[X] The ID [".$Gget_loginID."] already taken. Register again, please.</span><br>";
-		}
-	?>
 
 
 
@@ -88,7 +79,21 @@
 				<div class="form-group">
 			      <label for="form-loginPWcf">암호 학인:</label>
 			      <input type="password" class="form-control" name="loginPWcf" id="form-loginPWcf" value="" required>
-			    </div>	  
+			    </div>
+
+
+
+	<?php
+		if($GET_ID == -1) {
+		  echo "<span class='error_red'>[X]</span> <span> Two passwords are different. Again please.</span><br>  <br>";
+		} else if($GET_ID == -2) {
+			echo "<span class='error_red'>[X]</span> <span>The ID [".$Gget_loginID."] already taken. Register again, please.</span><br>  <br>";
+		}
+	?>
+
+
+
+
 			    <input type="submit" value="확인" class="btn btn-success">
 				<a class="btn btn-success" href="index.php">취소</a>
 			  </form>

@@ -53,15 +53,6 @@
 		<header class="row">
 			<?php require(__DIR__."/part/header.php"); ?>
 		</header>
-	
-
-
-		<div class="row">
-		  <div class='col-sm-offset-4 col-sm-4'>
-
-
-		  </div>
-		</div>
 
 
 
@@ -88,10 +79,13 @@
 
 	<?php
 		if($GET_ID == -2) {
-		  echo "<a class='error_red'>[X] The password WRONG.</a><br>  <br>";
+		  echo "<span class='error_red'>[X]</span> <span>The password WRONG.</span><br>  <br>";
 		} else if($GET_ID == -3) {
-		  echo "<span class='error_red'>[X] There is NO ID.</span><br>  <br>";
-		}
+		  echo "<span class='error_red'>[X]</span> <span>There is NO ID.</span><br>  <br>";
+		} else if($GET_ID == -11) {
+		echo "<br><span class='confirm_royalblue'>[O]</span> <span>You are registered. Welcome to join. Login please.</span><br>  <br>";
+		
+	} 
 	?>
 
 
