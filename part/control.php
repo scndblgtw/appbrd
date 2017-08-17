@@ -48,27 +48,13 @@
 		  // echo '<a class="btn btn-default">수정</a>';
 		  // echo '<a class="btn btn-default">삭제</a>';
 		}
-		echo '<a class="btn btn-success" id="ax_write_float">쓰기</a>';
+		echo '<a class="btn btn-success" href="./write_whl.php?id='.$GET_ID.'&rldNav=true">쓰기</a>';
+		// header("Location:$entry_ip/../write_whl.php?id=".$id."&rldNav=true");
 	}
 ?>
 
 
 <script type="text/javascript">
-$(function(){
-	$("#ax_write_float").click(function(){
-		$.ajax({
-			type: 'GET',
-			url: <?php echo "'./control/write.php?id=".$GET_ID."'" ?>,
-			dataType : 'text',
-			error : function() {
-			  dlgAlrtPlgn('Loading a process page of WRITE failed!');
-			},
-			success: function(data) {
-				$('article').html(data);
-			}
-		});
-	})	
-})
 $(function(){
 	$("#ax_modify").click(function(){
 		$.ajax({

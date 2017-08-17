@@ -7,10 +7,15 @@
   $G_table_appitems = "appitems";
   $G_table_users = "users";
 
+  if(empty($_POST['loginID'])) {
+  	echo "Wrong access! lgnid= ".$loginID."<br>";
+  	exit;
+  }
   $title = mysqli_real_escape_string($conn, $_POST['title']);
   $loginID = mysqli_real_escape_string($conn, $_POST['loginID']);	//Undefined index:
   $loginPW = $_POST['loginPW'];	//Undefined index:
-  $description = mysqli_real_escape_string($conn, $_POST['description']);
+  $description = mysqli_real_escape_string($conn, $_POST['editor1']);
+  // $description = mysqli_real_escape_string($conn, $_POST['description']);
   $imgFile = mysqli_real_escape_string($conn, $_POST['imgFile']);
   $urlGglPly = mysqli_real_escape_string($conn, $_POST['urlGglPly']);
 
@@ -36,5 +41,6 @@
 	$result = mysqli_query($conn, $sql);
 	$id = mysqli_insert_id($conn);
 
-	header("Location:$entry_ip/../part/article.php?id=".$id."&rldNav=true");	// '..' added after moved here(control folder).
+	// header("Location:$entry_ip/../part/article.php?id=".$id."&rldNav=true");	// '..' added after moved here(control folder).
+	header("Location:$entry_ip/../index.php?id=".$id."&rldNav=true");
 ?>

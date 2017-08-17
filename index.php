@@ -1,6 +1,9 @@
 ﻿<?php
-  require(__DIR__."/misc/config.php");// require("./misc/config.php");
-  require(__DIR__."/misc/db.php");// require("lib/db.php");
+  // require(__DIR__."/misc/config.php");// require("./misc/config.php");
+  require("./misc/config.php");
+  // require(__DIR__."/misc/db.php");// require("lib/db.php");
+  require("./misc/db.php");
+  echo __DIR__."<br>";
  
   
   $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
@@ -14,7 +17,7 @@
   $loginID = isset($_SESSION['loginID']) ? $_SESSION['loginID'] : null;
 	
 	
-  // echo "=============|||| empty() ||||=========<br>";
+  echo "=============||||  ||||=========<br>";
 
 
   $sql_id = "id";
