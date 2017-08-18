@@ -42,5 +42,6 @@
 	$result = mysqli_query($conn, $sql);
 	var_dump($result); echo "@@@result;;\n\n";
 	
-	header("Location:$entry_ip/../part/article.php?id=-6&rldNav=true&bgnpage=".$crrPage);
+	// header("Location:$entry_ip/../part/article.php?id=-6&rldNav=true&bgnpage=".$crrPage);
+	header("Location:$entry_ip/../index.php?id=".$id."&rldNav=true");
 ?>

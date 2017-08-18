@@ -9,9 +9,13 @@
   $G_table_appitems = "appitems";
   $G_table_users = "users";
 
-
-  if(empty($_GET["id"])){
-    echo "<br><a class='error_red'>[X] Accessing a article is WRONG.</a><br>";
+  // echo "is_int($ _GET[id])="; is_int($_GET["id"]); echo "<br>";
+  // echo "$ _GET[id]=".$_GET["id"]."<br>";
+  // echo "gettype($ _GET[id])=".gettype($_GET["id"])."<br>";
+  // echo "is_int() =".is_int($_GET["id"])."<br>";
+  
+  if(empty($_GET["id"]) && $_GET["id"]!=0){ // "!=="" NOT working.
+    echo "<br><a class='error_red'>[X] Accessing a article is WRONG.</a>".$_GET["id"]."<br>";
     exit;
   }
   $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
@@ -49,6 +53,7 @@
   
   
   <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+  <script src="./misc/ckeditor/ckeditor.js"></script> 
 
 
   
@@ -136,7 +141,7 @@
 bbb
   <script src="./bootstrap/js/bootstrap.min.js"></script>
   <script src="./bootstrap/plugins/bootbox.min.js"></script>
-  <script src="./misc/ckeditor/ckeditor.js"></script> 
+  <!-- <script src="./misc/ckeditor/ckeditor.js"></script>  -->
   
 </body>
 </html>
