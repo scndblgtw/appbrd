@@ -66,7 +66,7 @@
   <img id="launcher_icon_img" src="./defaulcon512x512_empty.png" width="75" height="75" alt=" Upload image"/>
   <input type="hidden" name="imgFile" id="form-imgFile" />
   
-  <input type="hidden" name="loginID" id="form-loginID" value=<?php echo $loginID?> class="form-control"/>
+  <input type="hidden" name="loginID" id="form-loginID" value=<?php echo "'".$loginID."'"?> class="form-control" />
   <label id="id_float_center" for="form-loginID"> <?php echo "@".$loginID?></label>
   
   <div>

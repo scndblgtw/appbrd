@@ -95,8 +95,8 @@
 	  	// echo "=================4<br><br>";
 	}
 	
-	if($Gget_rldNav)
-	  echo "<script>refreshNavMy($crrPage)</script>";
+	// if($Gget_rldNav)
+	//   echo "<script>refreshNavMy($crrPage)</script>";
 
 	// echo "=================5<br><br>";
   // }

@@ -39,7 +39,7 @@ $(function(){
 <ol class="nav nav-pills nav-stacked">
 	<?php
 	  $refreshHdr = true;
-	  require_once(__DIR__."/../isLogged.php");
+	  // require_once(__DIR__."/../isLogged.php");
 	
 	  // 현재 쪽 번호 @nav 하단 쪽 번호.  0쪽 부터 시작
 	  $crrPage = isset($_GET["bgnpage"]) && $_GET["bgnpage"]!==0? $_GET["bgnpage"] : 0;	  	  

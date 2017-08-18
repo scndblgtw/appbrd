@@ -35,7 +35,7 @@
 
 <?php
 	$refreshHdr = true;
-	require_once(__DIR__."/../isLogged.php");
+	// require_once(__DIR__."/../isLogged.php");
 	
 	$row_loginID = isset($row['loginID']) ? $row['loginID'] : "false";
 					

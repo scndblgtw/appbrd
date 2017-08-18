@@ -8,9 +8,13 @@
   $G_table_users = "users";
 
   if(empty($_POST['loginID'])) {
-  	echo "Wrong access! lgnid= ".$loginID."<br>";
+  	echo "Wrong access! $ _POST['loginID']= ".$_POST['loginID']."<br>";
   	exit;
   }
+
+  // echo "Right access? $ _POST['loginID']= ".$_POST['loginID']."<br>";
+  // exit;
+
   $title = mysqli_real_escape_string($conn, $_POST['title']);
   $loginID = mysqli_real_escape_string($conn, $_POST['loginID']);	//Undefined index:
   $loginPW = $_POST['loginPW'];	//Undefined index:
