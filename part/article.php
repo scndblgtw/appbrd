@@ -104,7 +104,7 @@
 
 <div id="control">		
 	<script>
-		function showControl(idx, crrPage){
+		(function showControl(idx, crrPage){
 			// dlgAlrtPlgn("showControl(" +idx +",  " +crrPage +")");
 			$.ajax({
 				type: 'GET',
@@ -117,8 +117,6 @@
 					$('#control').html(data);
 				}
 			});
-		}
-
-		showControl(<?php echo $GET_ID.', '.$crrPage ?>);
+		})(<?php echo $GET_ID.', '.$crrPage ?>);
 	</script>
 </div>

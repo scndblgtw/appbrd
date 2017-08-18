@@ -14,7 +14,8 @@
   $title = mysqli_real_escape_string($conn, $_POST['title']);
   $loginID = mysqli_real_escape_string($conn, $_POST['loginID']);
   $loginPW = $_POST['loginPW'];	//Undefined index:
-  $description = mysqli_real_escape_string($conn, $_POST['description']);
+  $description = mysqli_real_escape_string($conn, $_POST['editor1']);
+  // $description = mysqli_real_escape_string($conn, $_POST['description']);
   $img_file = mysqli_real_escape_string($conn, $_POST['imgFile']);
   $img_file_old = mysqli_real_escape_string($conn, $_POST['imgFileOld']);
   $urlGglPly = mysqli_real_escape_string($conn, $_POST['urlGglPly']);
@@ -61,5 +62,6 @@
 	$id = mysqli_insert_id($conn);
 
 
-	header("Location:$entry_ip/../part/article.php?id=".$willUpdateId."&rldNav=true&bgnpage=".$crrPage);
+	// header("Location:$entry_ip/../part/article.php?id=".$willUpdateId."&rldNav=true&bgnpage=".$crrPage);
+	header("Location:$entry_ip/../index.php?id=".$id."&rldNav=true");
 ?>

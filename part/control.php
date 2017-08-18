@@ -41,8 +41,10 @@
 					
 	if(isset($isLogined) && $isLogined===true) {
 		if($loginID == $row_loginID) {
-		  echo '<a class="btn btn-success" id="ax_modify">수정</a>';
-		  echo '<a class="btn btn-success" id="ax_delete">삭제</a>';
+		  echo "<a class='btn btn-success' href='./modify_whl.php?id=".$GET_ID."&bgnpage=".$crrPage."'>수정</a>";
+		  // echo '<a class="btn btn-success" id="ax_modify">수정</a>';
+		  // echo '<a class="btn btn-success" id="ax_delete">삭제</a>';
+		  echo "<a class='btn btn-success' href='./delete_whl.php?id=".$GET_ID."&bgnpage=".$crrPage."'>삭제</a>";
 		} else {
 
 		  // echo '<a class="btn btn-default">수정</a>';
@@ -52,37 +54,3 @@
 		// header("Location:$entry_ip/../write_whl.php?id=".$id."&rldNav=true");
 	}
 ?>
-
-
-<script type="text/javascript">
-$(function(){
-	$("#ax_modify").click(function(){
-		$.ajax({
-			type: 'GET',
-			url: <?php echo "'./control/modify.php?id=".$GET_ID."&bgnpage=".$crrPage."'" ?>,
-			dataType : 'text',
-			error : function() {
-			  dlgAlrtPlgn('Loading a process page of MODIFY failed!');
-			},
-			success: function(data) {
-				$('article').html(data);
-			}
-		});
-	})	
-})
-$(function(){
-	$("#ax_delete").click(function(){
-		$.ajax({
-			type: 'GET',
-			url: <?php echo "'./control/delete.php?id=".$GET_ID."&bgnpage=".$crrPage."'" ?>,
-			dataType : 'text',
-			error : function() {
-			  dlgAlrtPlgn('Loading a process page of DELETE failed!');
-			},
-			success: function(data) {
-				$('article').html(data);
-			}
-		});
-	})	
-})
-</script>

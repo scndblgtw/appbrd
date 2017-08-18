@@ -10,8 +10,13 @@
   $G_table_users = "users";
 
 
+  if(empty($_GET["id"])){
+    echo "<br><a class='error_red'>[X] Accessing a article is WRONG.</a><br>";
+    exit;
+  }
   $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
-  
+  $crrPage = isset($_GET["bgnpage"]) && $_GET["bgnpage"]!==0? $_GET["bgnpage"] : 0;
+
   session_start();
   $isLogined = isset($_SESSION['isLogined']) ? $_SESSION['isLogined'] : false;
   $loginID = isset($_SESSION['loginID']) ? $_SESSION['loginID'] : null;
@@ -57,7 +62,7 @@
 
     <!-- Start. row 4 TW-Bootstrap -->
     <div class="row">
-      <div class='col-sm-offset-4 col-sm-4'>
+      <div class='col-sm-8'>
       <article>
 
 
