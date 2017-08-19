@@ -1,7 +1,7 @@
 ﻿<?php
-  require(__DIR__."/../misc/config.php");
-  require(__DIR__."/../misc/db.php");
-  $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
+  // require_once(__DIR__."/../misc/config.php");
+  // require_once(__DIR__."/../misc/db.php");
+  // $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
   
   
   $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
@@ -20,9 +20,9 @@
   $sql_id = "id";
   
   
-  session_start();
-  $isLogined = $_SESSION['isLogined'];
-  $loginID = $_SESSION['loginID'];
+  // session_start();
+  // $isLogined = $_SESSION['isLogined'];
+  // $loginID = $_SESSION['loginID'];
 
   if(empty($GET_ID)){
     echo "<br><a class='error_red'>[X] The article which will be modified is None.</a><br>";

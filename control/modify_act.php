@@ -5,11 +5,16 @@
 
   
   $crrPage = isset($_GET["bgnpage"]) && $_GET["bgnpage"]!==0? $_GET["bgnpage"] : 0;
-  
+
+
   $willUpdateId = $_POST['willUpdateId'];
   $POST_ID = $_POST["id"];	//Undefined index:
   $G_table_appitems = "appitems";
   $G_table_users = "users";
+
+  var_dump($_POST['editor1']); echo "<br>";
+  var_dump($crrPage); echo "<br>";
+  // exit;
 
   $title = mysqli_real_escape_string($conn, $_POST['title']);
   $loginID = mysqli_real_escape_string($conn, $_POST['loginID']);
@@ -59,9 +64,14 @@
 	// exit;
 
 	$result = mysqli_query($conn, $sql);
-	$id = mysqli_insert_id($conn);
+	$id = mysqli_insert_id($conn);	// Not working (unlike write_act.php). Strange!
+	$id = $willUpdateId; // use this instead of mysqli_insert_id();
 
+// 	echo "<br>$ willUpdateId = ".$willUpdateId."<br>";
+//  echo "<br>mysqli_insert_id() = ";
+// var_dump($id);
+// exit;
 
 	// header("Location:$entry_ip/../part/article.php?id=".$willUpdateId."&rldNav=true&bgnpage=".$crrPage);
-	header("Location:$entry_ip/../index.php?id=".$id."&rldNav=true");
+	header("Location:$entry_ip/../index.php?id=".$id."&bgnpage=".$crrPage."&rldNav=true");
 ?>

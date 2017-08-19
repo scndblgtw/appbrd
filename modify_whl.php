@@ -74,8 +74,9 @@
 ?>
 
 
-<!-- <form class="" action="write_process.php" method="post"> -->
-<form class="" name="whatForm" action="control/modify_act.php" method="post"> 
+<!-- <?php //echo "<form name='whatForm' action='control/modify_act.php?id=".$GET_ID."&bgnpage=".$crrPage."' method='post'>" ?> -->
+<?php echo "<form name='whatForm' action='control/modify_act.php?bgnpage=".$crrPage."' method='post'>" ?>
+<!-- <form class="" name="whatForm" action="control/modify_act.php" method="post">  -->
   <div class="form-group">
     <!-- <label for="form-title">제목:</label> -->
     <input type="text" class="form-control" name="title" id="form-title" value=<?php echo '"'.htmlspecialchars($row['title']).'"'?>>
@@ -133,7 +134,8 @@
   <!-- <input type="button" value="수정 완료" class="btn btn-success" onClick="theOriginImg=null;var dataWS = CKEDITOR.instances.editor1.getData();alert(dataWS);document.getElementById('form-description').value = dataWS;submitWhatForm('control/modify_act.php', <?php //echo $crrPage ?>);"> -->
 
 
-  <a class="btn btn-success" href="index.php">취소</a>
+  <!-- <a class="btn btn-success" href="index.php">취소</a> -->
+  <?php echo "<a class='btn btn-success' href='index.php?id=".$GET_ID."&bgnpage=".$crrPage."'>취소</a>" ?>
   <!-- <input type="button" value="취소" class="btn btn-success" onClick="theOriginImg=null;document.getElementById('form-imgFile').value !== document.getElementById('form-imgFile-old').value ? returnBackTheArticle3in(<?php //echo $GET_ID?>, <?php //echo $crrPage ?>, document.getElementById('form-imgFile').value ) : returnBackTheArticle2in(<?php //echo $GET_ID?>, <?php //echo $crrPage ?>)"> -->
 </form>
 
