@@ -104,7 +104,8 @@
   <input type="submit" value="쓰기 완료" class="btn btn-success">
   <!-- <input type="submit" value="쓰기 완료" class="btn btn-success" onClick="theOriginImg=null; var dataWS = CKEDITOR.instances.editor1.getData(); alert(dataWS); document.getElementById('form-description').value = dataWS;"> -->
 
-  <a class="btn btn-success" href="index.php">취소</a>
+  <!-- <a class="btn btn-success" href="index.php">취소</a> -->
+  <?php echo "<a class='btn btn-success' href='index.php?id=".$GET_ID."&bgnpage=".$crrPage."'>취소</a>" ?>
   <!-- <input type="button" value="취소" class="btn btn-success" onClick="theOriginImg=null;document.getElementById('form-imgFile').value ? returnBackTheArticle3in(<?php //echo $GET_ID?>, <?php //echo $crrPage ?>, document.getElementById('form-imgFile').value ) : returnBackTheArticle2in(<?php //echo $GET_ID?>, <?php //echo $crrPage ?>)"> -->
 </form>
 
@@ -138,7 +139,7 @@
   <!-- End. row 4 TW-Bootstrap -->
 
   
-bbb
+
   <script src="./bootstrap/js/bootstrap.min.js"></script>
   <script src="./bootstrap/plugins/bootbox.min.js"></script>
   <!-- <script src="./misc/ckeditor/ckeditor.js"></script>  -->

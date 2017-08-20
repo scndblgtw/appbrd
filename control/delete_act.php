@@ -43,5 +43,5 @@
 	var_dump($result); echo "@@@result;;\n\n";
 	
 	// header("Location:$entry_ip/../part/article.php?id=-6&rldNav=true&bgnpage=".$crrPage);
-	header("Location:$entry_ip/../index.php?id=".$id."&rldNav=true");
+	header("Location:$entry_ip/../index.php?id=".$id."&bgnpage=".$crrPage."&rldNav=true");
 ?>

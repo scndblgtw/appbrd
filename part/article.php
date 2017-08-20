@@ -160,7 +160,8 @@
 		  // echo '<a class="btn btn-default">수정</a>';
 		  // echo '<a class="btn btn-default">삭제</a>';
 		}
-		echo '<a class="btn btn-success" href="./write_whl.php?id='.$GET_ID.'&rldNav=true">쓰기</a>';
+		echo "<a class='btn btn-success' href='./write_whl.php?id=".$GET_ID."&bgnpage=".$crrPage."&rldNav=true'>쓰기</a>";
+		// echo '<a class="btn btn-success" href="./write_whl.php?id='.$GET_ID.'&rldNav=true">쓰기</a>';
 		// header("Location:$entry_ip/../write_whl.php?id=".$id."&rldNav=true");
 	}
 ?>

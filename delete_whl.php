@@ -97,10 +97,12 @@
 <br><br>  
 
 <!-- <form class="" action="delete_process.php" method="post"> -->
-<form class="" name="whatForm" action="control/delete_act.php" method="post">
+<!-- <form class="" name="whatForm" action="control/delete_act.php" method="post"> -->
+<?php echo "<form name='whatForm' action='control/delete_act.php?bgnpage=".$crrPage."' method='post'>" ?>
   <div class="form-group">
-      <label for="form-title">이 아이템을 삭제할까요?</label>
-      <label for="form-title">(삭제된 아이템은 복구할 수 없습니다.)</label>
+      <label for="form-title">이 아이템을 삭제할까요 (</label>
+      <label class='error_red' for="form-title">삭제된 아이템은 복구할 수 없습니다.</label>
+      <label for="form-title">) ?</label>
   </div>
   
   <?php
@@ -109,7 +111,7 @@
   ?>
   
   <input type="submit" value="예" class="btn btn-success">
-  <a class="btn btn-success" href="index.php">취소</a>
+  <?php echo "<a class='btn btn-success' href='index.php?id=".$GET_ID."&bgnpage=".$crrPage."'>취소</a>" ?>
 </form>
 
 
@@ -138,7 +140,7 @@
   <!-- End. row 4 TW-Bootstrap -->
 
   
-bbb
+
   <script src="./bootstrap/js/bootstrap.min.js"></script>
   <script src="./bootstrap/plugins/bootbox.min.js"></script>
   <!-- <script src="./misc/ckeditor/ckeditor.js"></script>  -->
