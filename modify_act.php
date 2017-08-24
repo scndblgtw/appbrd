@@ -1,6 +1,6 @@
 <?php
-  require(__DIR__."/../misc/config.php");
-  require(__DIR__."/../misc/db.php");
+  require("/misc/config.php");
+  require(__DIR__."/misc/db.php");
   $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
 
   
@@ -27,7 +27,7 @@
   echo "$ img_file_old = ".$img_file_old."\n";
 	
 	echo "<br><br><br>";
-	$url = '../jQuery-File-Upload/server/php/files/';	// Default
+	$url = './jQuery-File-Upload/server/php/files/';	// Default
 	$urlThumb = 'thumbnail/';
 	
 	if($img_file !== $img_file_old) {
@@ -73,5 +73,5 @@
 // exit;
 
 	// header("Location:$entry_ip/../part/article.php?id=".$willUpdateId."&rldNav=true&bgnpage=".$crrPage);
-	header("Location:$entry_ip/../index.php?id=".$id."&bgnpage=".$crrPage."&rldNav=true");
+	header("Location:$entry_ip/index.php?id=".$id."&bgnpage=".$crrPage."&rldNav=true");
 ?>

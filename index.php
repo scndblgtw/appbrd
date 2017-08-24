@@ -13,8 +13,9 @@
   $isLogined = isset($_SESSION['isLogined']) ? $_SESSION['isLogined'] : false;
   $loginID = isset($_SESSION['loginID']) ? $_SESSION['loginID'] : null;
 	
-
-
+  // echo "========== ... ==========<br>";
+  // echo "$ _SERVER[DOCUMENT_ROOT] = ".$_SERVER["DOCUMENT_ROOT"]."<br>";
+  
   $sql_id = "id";
 
   ini_set("session.gc_probability", 1);

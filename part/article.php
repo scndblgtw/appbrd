@@ -16,6 +16,8 @@
   if(GLOBAL_TST) {	echo ", loginID=";  var_dump($loginID);	echo "<br></span>"; }
   
 
+  // echo "$ _SERVER[DOCUMENT_ROOT] = ".$_SERVER["DOCUMENT_ROOT"]."<br>";
+
   // echo "=================1<br><br>";
   // echo "=================GET_ID== $GET_ID<br><br>";
   // echo "=================empty(GET_ID)== ".empty($GET_ID)."<br><br>";
@@ -155,7 +157,7 @@
 		  echo "<a class='btn btn-success' href='./modify_whl.php?id=".$GET_ID."&bgnpage=".$crrPage."'>수정</a>";
 		  // echo '<a class="btn btn-success" id="ax_modify">수정</a>';
 		  // echo '<a class="btn btn-success" id="ax_delete">삭제</a>';
-		  echo "<a class='btn btn-success' href='./delete_whl.php?id=".$GET_ID."&bgnpage=".$crrPage."'>삭제</a>";
+		  echo "<a class='btn btn-success' href='delete_whl.php?id=".$GET_ID."&bgnpage=".$crrPage."'>삭제</a>";
 		} else {
 		  // echo '<a class="btn btn-default">수정</a>';
 		  // echo '<a class="btn btn-default">삭제</a>';

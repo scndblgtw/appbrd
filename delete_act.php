@@ -1,6 +1,6 @@
 <?php
-  require(__DIR__."/../misc/config.php");
-  require(__DIR__."/../misc/db.php");
+  require(__DIR__."/./misc/config.php");
+  require(__DIR__."/./misc/db.php");
   $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
 	
   $crrPage = isset($_GET["bgnpage"]) && $_GET["bgnpage"]!==0? $_GET["bgnpage"] : 0;
@@ -43,5 +43,5 @@
 	var_dump($result); echo "@@@result;;\n\n";
 	
 	// header("Location:$entry_ip/../part/article.php?id=-6&rldNav=true&bgnpage=".$crrPage);
-	header("Location:$entry_ip/../index.php?id=".$id."&bgnpage=".$crrPage."&rldNav=true");
+	header("Location:$entry_ip/./index.php?id=".$id."&bgnpage=".$crrPage."&rldNav=true");
 ?>

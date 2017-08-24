@@ -72,7 +72,7 @@
 
 
 <!-- <form class="" action="write_process.php" method="post"> -->
-<form class="" name="whatForm" action="control/write_act.php" method="post">
+<form class="" name="whatForm" action="./write_act.php" method="post">
   <img id="launcher_icon_img" src="./defaulcon512x512_empty.png" width="75" height="75" alt=" Upload image"/>
   <input type="hidden" name="imgFile" id="form-imgFile" />
   
@@ -110,7 +110,7 @@
 </form>
 
 <?php
-  require(__DIR__."/control/file_uploader.php");
+  require("./file_uploader.php");
 ?>
 
 

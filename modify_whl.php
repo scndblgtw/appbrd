@@ -75,7 +75,7 @@
 
 
 <!-- <?php //echo "<form name='whatForm' action='control/modify_act.php?id=".$GET_ID."&bgnpage=".$crrPage."' method='post'>" ?> -->
-<?php echo "<form name='whatForm' action='control/modify_act.php?bgnpage=".$crrPage."' method='post'>" ?>
+<?php echo "<form name='whatForm' action='./modify_act.php?bgnpage=".$crrPage."' method='post'>" ?>
 <!-- <form class="" name="whatForm" action="control/modify_act.php" method="post">  -->
   <div class="form-group">
     <!-- <label for="form-title">제목:</label> -->
@@ -142,7 +142,9 @@
 
 
 <?php
-  require(__DIR__."/control/file_uploader.php");
+
+  echo "<br>__DIR__ =".__DIR__."<br>";
+  require(__DIR__."/file_uploader.php");
 ?>
 
 

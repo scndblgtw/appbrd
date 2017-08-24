@@ -98,7 +98,7 @@
 
 <!-- <form class="" action="delete_process.php" method="post"> -->
 <!-- <form class="" name="whatForm" action="control/delete_act.php" method="post"> -->
-<?php echo "<form name='whatForm' action='control/delete_act.php?bgnpage=".$crrPage."' method='post'>" ?>
+<?php echo "<form name='whatForm' action='delete_act.php?bgnpage=".$crrPage."' method='post'>" ?>
   <div class="form-group">
       <label for="form-title">이 아이템을 삭제할까요 (</label>
       <label class='error_red' for="form-title">삭제된 아이템은 복구할 수 없습니다.</label>

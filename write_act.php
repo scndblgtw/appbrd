@@ -1,6 +1,7 @@
 <?php
-  require(__DIR__."/../misc/config.php");
-  require(__DIR__."/../misc/db.php");
+  require(__DIR__."/misc/config.php");
+  require(__DIR__."/misc/db.php");
+
   $conn = db_init($config["host"], $config["duser"], $config["dpw"], $config["dname"]);
 
   
@@ -46,5 +47,5 @@
 	$id = mysqli_insert_id($conn);
 
 	// header("Location:$entry_ip/../part/article.php?id=".$id."&rldNav=true");	// '..' added after moved here(control folder).
-	header("Location:$entry_ip/../index.php?id=".$id."&rldNav=true");
+	header("Location:$entry_ip/./index.php?id=".$id."&rldNav=true");
 ?>
