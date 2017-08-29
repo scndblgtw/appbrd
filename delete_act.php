@@ -16,7 +16,7 @@
   echo "$ user_id = ".$user_id."\n";
 	
 	echo "<br><br><br>";
-	$url = '../jQuery-File-Upload/server/php/files/';	// Default
+	$url = './jQuery-File-Upload/server/php/files/';	// Default
 	$urlThumb = 'thumbnail/';
 	$tmp = $url.$img_file;
 	echo $tmp."<br>";

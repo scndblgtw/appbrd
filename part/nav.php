@@ -17,23 +17,6 @@
   if(GLOBAL_TST) {	echo ", loginID=";  var_dump($loginID);	echo "</span>"; }
 ?>
 	
-<script>
-$(function(){
-	$("#tstResult").click(function(){
-		$.ajax({
-			type: 'GET',
-			url: 'part/nav_test.php?test=[-<?php echo $CHK_REFRESH_EXCEPT_JS ?>-]',
-			dataType : 'text',
-			error : function() {
-			  dlgAlrtPlgn('Fail!!');
-			},
-			success: function(data) {
-				$('#tstResult').html(data);
-			}
-		});
-	})
-});
-</script>
 
 	
 <ol class="nav nav-pills nav-stacked">

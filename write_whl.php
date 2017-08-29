@@ -70,6 +70,13 @@
       <div class='col-sm-8'>
       <article>
 
+<?php
+  if(GLOBAL_TST) {  echo "<span class='dev_val_color'> [article::]GET_ID=";  var_dump($GET_ID); }
+  
+  if(GLOBAL_TST) {  echo ", bgnpage=".$crrPage; }
+  if(GLOBAL_TST) {  echo ", isLogined=";  var_dump($isLogined); }
+  if(GLOBAL_TST) {  echo ", loginID=";  var_dump($loginID); echo "<br></span>"; }
+?>
 
 <!-- <form class="" action="write_process.php" method="post"> -->
 <form class="" name="whatForm" action="./write_act.php" method="post">

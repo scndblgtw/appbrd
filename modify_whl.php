@@ -29,6 +29,16 @@
   ini_set("session.gc_divisor", 1);
   ini_set("session.cache_expire", 60); 
   ini_set("session.gc_maxlifetime", 90);
+
+
+
+
+  
+  if(GLOBAL_TST) {  echo "<span class='dev_val_color'> [article::]GET_ID=";  var_dump($GET_ID); }
+  
+  if(GLOBAL_TST) {  echo ", bgnpage=".$crrPage; }
+  if(GLOBAL_TST) {  echo ", isLogined=";  var_dump($isLogined); }
+  if(GLOBAL_TST) {  echo ", loginID=";  var_dump($loginID); echo "<br></span>"; }
 ?>
 
 
