@@ -20,21 +20,32 @@
 
 	
 <ol class="nav nav-pills nav-stacked">
-	<?php
-	  $refreshHdr = true;
-	  // require_once(__DIR__."/../isLogged.php");
-	
-	  // 현재 쪽 번호 @nav 하단 쪽 번호.  0쪽 부터 시작
-	  $crrPage = isset($_GET["bgnpage"]) && $_GET["bgnpage"]!==0? $_GET["bgnpage"] : 0;	  	  
-	
-	  $result = mysqli_query($conn, 'SELECT * FROM '.$G_table_appitems." ORDER BY created_date DESC LIMIT ".$crrPage*$LIMIT_PER_PAGE.", ".$LIMIT_PER_PAGE);
+  <?php
+    $refreshHdr = true;
+    // require_once(__DIR__."/../isLogged.php");
+  
+    // 현재 쪽 번호 @nav 하단 쪽 번호.  0쪽 부터 시작
+    $crrPage = isset($_GET["bgnpage"]) && $_GET["bgnpage"]!==0? $_GET["bgnpage"] : 0;	  	  
+  
+    // $result = mysqli_query($conn, "SELECT * FROM ".$G_table_appitems." ORDER BY created_date DESC LIMIT ".$crrPage*$LIMIT_PER_PAGE.", ".$LIMIT_PER_PAGE);
 
-	  
-		while( $row = mysqli_fetch_assoc($result) ){
-			$G_row_id = isset($row[$sql_id]) ? $row[$sql_id] : "";
-			echo "<li><a class='ajax_li_a_xXx' href='index.php?".$sql_id."=".$G_row_id."&bgnpage=".$crrPage."'>".htmlspecialchars($row['title'])."</a></li>"."\n";
-		}
-	?>
+	$sql = "SELECT ".$G_table_appitems.".id, title, loginID, description, user_id, url_gglply, created_date, updated_date, UNIX_TIMESTAMP(updated_date) AS updated_ux_ts, img_file FROM ".$G_table_appitems." LEFT JOIN ".$G_table_users." ON ".$G_table_appitems.".user_id=".$G_table_users.".id"." ORDER BY created_date DESC LIMIT ".$crrPage*$LIMIT_PER_PAGE.", ".$LIMIT_PER_PAGE;
+	$result = mysqli_query($conn, $sql);
+
+    
+  	while( $row = mysqli_fetch_assoc($result) ){
+  	  $G_row_id = isset($row[$sql_id]) ? $row[$sql_id] : "";
+  	  echo "<li><a style='color: #414141;' href='index.php?".$sql_id."=".$G_row_id."&bgnpage=".$crrPage."'>";
+
+  	  if($row['img_file'] == "")
+  		echo "<img id='launcher_icon_img' src='./defaulcon512x512_empty.png' width='25' height='25' />";
+  	  else
+  		echo "<img id='launcher_icon_img' src='./jQuery-File-Upload/server/php/files/".htmlspecialchars($row['img_file'])."' width='25' height='25' />";
+
+  	  echo "&nbsp;&nbsp;".htmlspecialchars($row['title']);
+  	  echo "<span style='float:right; color:gray'>".htmlspecialchars($row['loginID'])."</span></a></li>"."\n";
+  	}
+  ?>
 </ol>
 	
 <div class="center_tag">

@@ -64,8 +64,8 @@
 
 		if($row['img_file'] == "")
 			echo "<img id='launcher_icon_img' src='./defaulcon512x512_empty.png' width='75' height='75' />";
-		else 
-			echo '<img id="launcher_icon_img" src="./jQuery-File-Upload/server/php/files/thumbnail/'.$row['img_file'].'" width="75" height="75" />';
+		else
+			echo "<img id='launcher_icon_img' src='./jQuery-File-Upload/server/php/files/".$row['img_file']."' width='75' height='75' />";
 
 		echo '&#32; <span id="h2_id">'.htmlspecialchars($row['title']).'</span><br>';
 		echo '<span>';
