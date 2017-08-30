@@ -18,7 +18,7 @@
 
   $url = '../jQuery-File-Upload/server/php/files/';	// Default
   $urlThumb = 'thumbnail/';
-  $tpath = $url;
+  $tpath = $url.$urlThumb;
   
 
   echo $tpath."<br>";
@@ -46,7 +46,7 @@
   closedir($handle);
 
 
-  echo "<br>=============== gif jpg png tga ==============<br>";
+  echo "<br>=========== [Thumb] gif jpg png tga ==============<br>";
   echo "Number of Total file = ".count($files)."<br><br>";
 	 
   sort($files);	// Use resort() for reverse sorting
@@ -62,13 +62,13 @@
     // echo "sql="; var_dump($sql); echo ", result="; var_dump($result); echo "<br>";
 
     if($result->num_rows == 0) {// No img file in DB so that should be deleted
-      $tmp = $url.$f;
-	    unlink($tmp);	  // unlink($url."/" .$f);
-	    echo $tmp."<br>";
+      $tmp = $tpath.$f;
+	    unlink($tmp);	  // unlink($tpath."/" .$f);
+	    echo "<br>".$tmp."<br>";
   
-	    $tmp = $url.$urlThumb.$f;
-	    unlink($tmp);
-	    echo $tmp."<br>";
+	    // $tmp = $url.$urlThumb.$f;
+	    // unlink($tmp);
+	    // echo $tmp."<br>";
 	    
 	    $numDeleted++;
 	    $img_file = "xxx <~- Deleted(".$numDeleted.")";

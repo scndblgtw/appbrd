@@ -153,7 +153,7 @@
 
 <?php
 
-  echo "<br>__DIR__ =".__DIR__."<br>";
+  // echo "<br>__DIR__ =".__DIR__."<br>";
   require(__DIR__."/file_uploader.php");
 ?>
 

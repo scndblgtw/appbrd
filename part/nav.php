@@ -29,7 +29,7 @@
   
     // $result = mysqli_query($conn, "SELECT * FROM ".$G_table_appitems." ORDER BY created_date DESC LIMIT ".$crrPage*$LIMIT_PER_PAGE.", ".$LIMIT_PER_PAGE);
 
-	$sql = "SELECT ".$G_table_appitems.".id, title, loginID, description, user_id, url_gglply, created_date, updated_date, UNIX_TIMESTAMP(updated_date) AS updated_ux_ts, img_file FROM ".$G_table_appitems." LEFT JOIN ".$G_table_users." ON ".$G_table_appitems.".user_id=".$G_table_users.".id"." ORDER BY created_date DESC LIMIT ".$crrPage*$LIMIT_PER_PAGE.", ".$LIMIT_PER_PAGE;
+	$sql = "SELECT ".$G_table_appitems.".id, title, loginID, nameNic, description, user_id, url_gglply, created_date, updated_date, UNIX_TIMESTAMP(updated_date) AS updated_ux_ts, img_file FROM ".$G_table_appitems." LEFT JOIN ".$G_table_users." ON ".$G_table_appitems.".user_id=".$G_table_users.".id"." ORDER BY created_date DESC LIMIT ".$crrPage*$LIMIT_PER_PAGE.", ".$LIMIT_PER_PAGE;
 	$result = mysqli_query($conn, $sql);
 
     
@@ -43,7 +43,10 @@
   		echo "<img id='launcher_icon_img' src='./jQuery-File-Upload/server/php/files/".htmlspecialchars($row['img_file'])."' width='25' height='25' />";
 
   	  echo "&nbsp;&nbsp;".htmlspecialchars($row['title']);
-  	  echo "<span style='float:right; color:gray'>".htmlspecialchars($row['loginID'])."</span></a></li>"."\n";
+  	  if($row['nameNic'] != "")
+  	  	echo "<span style='float:right; color:gray'>".htmlspecialchars($row['nameNic'])."</span></a></li>"."\n";
+  	  else
+  	  	echo "<span style='float:right; color:gray'>".htmlspecialchars($row['loginID'])."</span></a></li>"."\n";
   	}
   ?>
 </ol>

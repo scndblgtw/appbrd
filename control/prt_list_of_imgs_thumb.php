@@ -17,7 +17,7 @@
 
   $url = '../jQuery-File-Upload/server/php/files/';	// Default
   $urlThumb = 'thumbnail/';
-  $tpath = $url;  
+  $tpath = $url.$urlThumb;  
 
   echo $tpath."<br>";
 
@@ -44,7 +44,7 @@
    
   closedir($handle);
 
-  echo "<br>=============== tpath noSlash ==============<br>";
+  echo "<br>=============== urlThumb ==============<br>";
   echo "Total file number = ".count($files)."<br><br>";
 	 
   sort($files);	// Use resort() for reverse sorting
