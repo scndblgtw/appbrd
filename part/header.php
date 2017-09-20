@@ -1,16 +1,7 @@
-<?php
-  // require_once(__DIR__."/../misc/config.php");
-  
-  $GET_action = isset($_GET["action"]) ? $_GET["action"] : "";	// Required this?
-  // $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
-  // session_start();
-  // $isLogined = isset($_SESSION['isLogined']) ? $_SESSION['isLogined'] : false;
-  // $loginID = isset($_SESSION['loginID']) ? $_SESSION['loginID'] : null;
-  
-  // $sql_id = "id";
+<?php  
+  $GET_action = isset($_GET["action"]) ? $_GET["action"] : "";
 ?> 
 
-<!-- <nav class="navbar navbar-inverse"> -->
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -30,30 +21,8 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <!-- <li class="active"><a href="#">Qrvit<span class="sr-only">(current)</span></a></li> -->
-        <!-- <li><a href="#">Link</a></li> -->
-        <!-- <li class="dropdown"> -->
-          <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a> -->
-          <!-- <ul class="dropdown-menu"> -->
-            <!-- <li><a href="#">mAction</a></li> -->
-            <!-- <li><a href="#">mAnother action</a></li> -->
-            <!-- <li><a href="#">mSomething else here</a></li> -->
-            <!-- <li role="separator" class="divider"></li> -->
-            <!-- <li><a href="#">mSeparated link</a></li> -->
-            <!-- <li role="separator" class="divider"></li> -->
-            <!-- <li><a href="#">mOne more separated link</a></li> -->
-          <!-- </ul> -->
-        <!-- </li> -->
       </ul>
 	  
-			<!-- <p class="navbar-text">Signed in as Mark Otto</p> -->
-		
-      <!-- <form class="navbar-form navbar-left"> -->
-        <!-- <div class="form-group"> -->
-          <!-- <input type="text" class="form-control" placeholder="Search"> -->
-        <!-- </div> -->
-        <!-- <button type="submit" class="btn btn-default">Submit</button> -->
-      <!-- </form> -->
 	  
       <ul class="nav navbar-nav navbar-right">
         <li>		
@@ -89,8 +58,7 @@
 						}
 					?>
 				</li>
-        <!-- <li><a href="#">Link</a></li> -->
-        <!-- <li><a href="#">Link</a></li> -->
+
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 					<span class="caret"></span></a>
@@ -105,6 +73,6 @@
 				
       </ul>
 			
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
 </nav>

@@ -12,9 +12,6 @@
   session_start();
   $isLogined = isset($_SESSION['isLogined']) ? $_SESSION['isLogined'] : false;
   $loginID = isset($_SESSION['loginID']) ? $_SESSION['loginID'] : null;
-	
-  // echo "========== ... ==========<br>";
-  // echo "$ _SERVER[DOCUMENT_ROOT] = ".$_SERVER["DOCUMENT_ROOT"]."<br>";
   
   $sql_id = "id";
 
@@ -56,7 +53,6 @@
 		</header>
 	
 
-		<!-- Start. row 4 TW-Bootstrap -->
 		<div class="row" id="partArticleNav-padding-LR">
 
 <?php
@@ -79,7 +75,7 @@
   $G_table_appitems = "appitems";
   $G_table_users = "users";
   
-  $crrPage = isset($_GET["bgnpage"]) ? $_GET["bgnpage"] : 0; // from nav.php
+  $crrPage = isset($_GET["bgnpage"]) ? $_GET["bgnpage"] : 0;
   if(GLOBAL_TST) {	echo ", bgnpage=".$crrPage;	}
   if(GLOBAL_TST) {	echo ", isLogined=";  var_dump($isLogined);	}
   if(GLOBAL_TST) {	echo ", loginID=";  var_dump($loginID);	echo "<br></span>"; }
@@ -151,18 +147,10 @@
 echo "<div id='control'>"; 
   $GET_ID = isset($_GET["id"]) ? $_GET["id"] : "-5";
   if(GLOBAL_TST) {	echo "<span class='dev_val_color'>[]GET_ID=";  var_dump($GET_ID);	}  
-  $crrPage = isset($_GET["bgnpage"]) ? $_GET["bgnpage"] : ""; // from nav.php
+  $crrPage = isset($_GET["bgnpage"]) ? $_GET["bgnpage"] : "";
   if(GLOBAL_TST) {	echo ", bgnpage=".$crrPage;	}
     
 
-  
-  // $sql_id = "id";
-  
-  // session_start();
-  // $isLogined = isset($_SESSION['isLogined']) ? $_SESSION['isLogined'] : false;
-  // if(GLOBAL_TST) {	echo ", isLogined=";  var_dump($isLogined);	}
-  // $loginID = isset($_SESSION['loginID']) ? $_SESSION['loginID'] : null;
-  // if(GLOBAL_TST) {	echo ", loginID=";  var_dump($loginID);	echo "</span>"; 	}
   
   
   
@@ -173,7 +161,6 @@ echo "<div id='control'>";
 	
 
 	$refreshHdr = true;
-	// require_once(__DIR__."/../isLogged.php");
 	
 	$row_loginID = isset($row['loginID']) ? $row['loginID'] : "false";
 					
@@ -199,8 +186,6 @@ echo '</div>';
 					</article>
 				</div>";
 			}
-
-// for Article
 ?>
 		
 			<nav
@@ -224,7 +209,6 @@ echo '</div>';
 	</div>
 
 	<script src="./misc/jsIndex.js"></script>
-	<!-- End. row 4 TW-Bootstrap -->
 
 	
 
