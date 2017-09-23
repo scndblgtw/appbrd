@@ -12,27 +12,12 @@
 	$loginPW = mysqli_real_escape_string($conn, $_POST['loginPW']);
 
 
-// echo "<br>==============<br>";
-
-// echo $loginID."<br>==============<br>";
-// echo $loginPW."<br>==============<br>";
-
 
 	$sql = "SELECT id, loginID, loginPW FROM ".$G_table_users." WHERE loginID='$loginID'";
 	$result = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_assoc($result);
 	
 	
-// var_dump($sql);
-// echo "<br>==============<br>";
-// var_dump($result);
-// echo "<br>==============<br>";
-// var_dump($row);
-// echo "<br>==============<br>";
-
-// exit;
-
-	// if(!empty($row)) {
 	if(isset($row)) {
 		if($row['loginPW'] == $loginPW) {
 			$_SESSION['isLogined'] = true;

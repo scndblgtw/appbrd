@@ -83,9 +83,8 @@
 		} else if($GET_ID == -3) {
 		  echo "<span class='error_red'>[X]</span> <span>There is NO ID.</span><br>  <br>";
 		} else if($GET_ID == -11) {
-		echo "<br><span class='confirm_royalblue'>[O]</span> <span>You are registered. Welcome to join. Login please.</span><br>  <br>";
-		
-	} 
+		  echo "<br><span class='confirm_royalblue'>[O]</span> <span>You are registered. Welcome to join. Login please.</span><br>  <br>";		
+		} 
 	?>
 
 

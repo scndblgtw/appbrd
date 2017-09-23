@@ -2,7 +2,7 @@
   $last = isset($_SESSION['loginTime']) ? $_SESSION['loginTime'] : -1;
   
   $current = time();
-  $sss_duration = 60; //1 minute; 60*30; //30 minutes
+  $sss_duration = 60*3; //1 minute; 60*30; //30 minutes
   if(GLOBAL_TST) {	
 	  echo "<span class='dev_val_color'>[]".$last."(lst)+".$sss_duration."=".($last +$sss_duration).", crr".$current;
   }
